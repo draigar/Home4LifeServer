@@ -1,0 +1,58 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+<BR />
+  <TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="499" border=0 bgcolor="#cccccc">
+    <TBODY>
+      <TR> 
+        <TD colspan="3" align="left" bgcolor="FFFFFF" class=text12><strong> Afro 
+          Entry Detail</strong><br></TD>
+      </TR>
+      <TR> 
+        <TD  align="left" bgcolor="FFFFFF" class=text12 colspan="3"> <table border="0" width="100%" bgcolor="#cccccc" class="t_content_bg" cellSpacing=1 cellPadding=5>
+            <tr> 
+              <td class=text12 width="30%" align="left" bgcolor="FFFFFF">SrNo:</td>
+              <td class=text12  align="left" bgcolor="FFFFFF"><b> 
+                <?=$entry_id?>
+                </b></td>
+            </tr>
+            <tr> 
+              <td class=text12  align="left" bgcolor="FFFFFF">AfroMillions -ID:</td>
+              <td class=text12  align="left" bgcolor="FFFFFF"><b> 
+                <?=$nl_id?>
+                </b></td>
+            </tr>
+            <tr> 
+              <td class=text12  align="left" bgcolor="FFFFFF">Date Entered:</td>
+              <td class=text12  align="left" bgcolor="FFFFFF"><b> 
+                <?=$date_entered?>
+                </b></td>
+            </tr>
+            <tr> 
+              <td class=text12  align="left" bgcolor="FFFFFF">Ticket No.:</td>
+              <td class=text12  align="left" bgcolor="FFFFFF"><b> 
+                <?=$ticket_no?>
+                </b></td>
+            </tr>
+            <tr> 
+              <td class=text12  align="left" bgcolor="FFFFFF">Method:</td>
+              <td class=text12  align="left" bgcolor="FFFFFF"><b> 
+                <?=$value?>
+                </b></td>
+            </tr>            
+			<tr> 
+              <td class=text12  align="left" bgcolor="FFFFFF">Entries:</td>
+              <td class=text12  align="left" bgcolor="FFFFFF"><b> 
+                ????????
+                </b></td>
+            </tr>
+          </table></TD>
+      </tr>
+     
+      <TR> 
+        <TD bgcolor="#EAEAEA" colspan="3" align="center"><INPUT type="submit" class="sbutton" value=" Back " onclick="history.back();" name="Input">  
+        </TD>
+      </TR>
+    </TBODY>
+  </TABLE>  
+		   
+	

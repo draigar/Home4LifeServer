@@ -1,0 +1,45 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+<TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="85%" border=0>
+<tr valign="top"><td height="350"> 
+<TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="100%" border=0 bgcolor="#cccccc">
+  <form name="frmAddUser" action="<?=@$_SERVER["REQUEST_URI"]?>" method="post" enctype="multipart/form-data">
+    <TBODY>	
+	 <TR>
+          <TD class="text2" colspan="3" align="left" bgcolor="#FFFFFF"><strong>Commission and Fees</strong><br></TD>
+        </TR>
+		<?php
+		    $i=1;
+			 $_sql = "SELECT cf_id,cf_name,cf_type,cf_amount from comiss_fees";
+				$rs = $_CONN->Execute($_sql);
+				while(!$rs->EOF) {
+					$_POST["hidSite"][$i] 		   		= $rs->fields['cf_id'];
+					$_POST["txtSiteName"][$i] 	   		= $rs->fields['cf_name'];
+					$_POST["rd1".$_POST["hidSite"][$i]] = $rs->fields['cf_type'];
+					$_POST["txtSiteUrl"][$i] 	   		= $rs->fields['cf_amount'];
+		?>
+	  <TR>
+        <TD bgcolor="#FFFFFF" width="45%"><input type="text" name="txtSiteName[]" id="txtSiteName[]" class="textfield" value="<?= getValue($_POST["txtSiteName"][$i]);?>" size="40" maxlength="150" readonly></TD>
+        <TD bgcolor="#FFFFFF" class="text13" width="25%">
+		<input type="radio" name="rd1<?=$_POST['hidSite'][$i]?>" id="rd1<?=$_POST['hidSite'][$i]?>" class="textfield" value="F" <?=$_POST["rd1".$_POST['hidSite'][$i]] !="P"?  "checked" : "";?>> Flat 
+		<input type="radio" name="rd1<?=$_POST['hidSite'][$i]?>" id="rd1<?=$_POST['hidSite'][$i]?>" class="textfield" value="P" <?=$_POST["rd1".$_POST['hidSite'][$i]] =="P"? "checked" : "";?> > Percent</TD>
+		<td bgcolor="#FFFFFF">
+		<input type="text" name="txtSiteUrl[]" class="textfield" id="txtSiteUrl[]" value="<?=getValue($_POST["txtSiteUrl"][$i]);?>" size="20" maxlength="150">
+		<input type="hidden" name="hidSite[]" value="<?=$_POST['hidSite'][$i]?>">
+		</td>
+      </TR>
+	  <?php 	$i++;
+	  			$rs->MoveNext();
+	  		} 
+			if($rs)
+				$rs->close();
+	  ?>
+	  <TR>
+        <TD align="center" bgcolor="#FFFFFF" colspan="3">
+		<INPUT type="submit" value="Save" name="Input" class="sbutton">
+		<INPUT type="reset" value="Reset" name="Reset" class="sbutton"></TD>
+     </TR>	 
+	 </form>  
+  </TABLE> 
+  </td></tr>
+</table>

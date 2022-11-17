@@ -1,0 +1,38 @@
+<table width="800px" border="0" cellpadding="2" cellspacing="2" align="center">
+<tr>
+<td valign="top"><table width="90%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr> 
+  <td width="2%"><img src="<?=$_DIR["admininc"]["images"]?>top_left.gif" width="11" height="11" /></td>
+  <td width="96%"  background="<?=$_DIR["admininc"]["images"]?>top_middle.gif" style="background-repeat:repeat-x"><img src="<?=$_DIR["admininc"]["images"]?>spacer.gif" /></td>
+  <td width="2%"><img src="<?=$_DIR["admininc"]["images"]?>top_right.gif" width="11" height="11" /></td>
+</tr>
+<tr> 
+  <td width="11" background="<?=$_DIR["admininc"]["images"]?>leftside.gif"><img src="<?=$_DIR["admininc"]["images"]?>spacer.gif" /></td>
+  <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr> 
+                        <td width="25%" align="center"><img src="<?=$_DIR["admininc"]["images"]?>error.jpg" /></td>
+                        <td width="75%" align="left">
+<span style="font-size:11px;font-family:tahoma"><strong>Following error occured while processing request:</strong></span><br>
+<font size="2" color="#FF0000">
+<?php
+foreach($_MSG as $value) {
+	if(strlen(trim($value))>1)
+		print "<li>".$value."</li>";
+}
+?></font></td>
+                      </tr>
+                    </table></td>
+  <td background="<?=$_DIR["admininc"]["images"]?>rightside.gif" width="11"><img src="<?=$_DIR["admininc"]["images"]?>spacer.gif" /></td>
+</tr>
+<tr> 
+  <td><img src="<?=$_DIR["admininc"]["images"]?>bottom_left.gif" width="11" height="11" /></td>
+  <td background="<?=$_DIR["admininc"]["images"]?>bottom_middle.gif" style="background-repeat:repeat-x"><img src="<?=$_DIR["admininc"]["images"]?>spacer.gif" /></td>
+  <td><img src="<?=$_DIR["admininc"]["images"]?>bottom_right.gif" width="11" height="11" /></td>
+</tr>
+</table></td>
+</tr>
+</table></td>
+</tr>
+</table>

@@ -1,0 +1,126 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+
+<br /><table width="95%" border="0" class="t_content_bg" cellSpacing=0 cellPadding=0 align="center">
+	<form name="frmSearch" action="<?=$_SERVER['REQUEST_URI']?>" method="post">
+			<TR>
+
+<td colspan="4" align="center" bgcolor="#FFFFFF">
+			<table border=0 class="t_content_bg" cellSpacing=1 cellPadding=1  bgcolor="#E4E4E4">
+          <tr> 
+            <td colspan="4" align="center" height="20px" bgcolor="#FFFFFF" class="text12">To 
+              view all users, please leave the field blank.</td>
+          </tr>
+          <tr> 
+            <TD class="text12" width="140" bgcolor="#FFFFFF" align="left">First 
+              Name</TD>
+            <TD align="left" class="searchbox" width="170" bgcolor="#FFFFFF"> 
+              <input type="text" name="txtFirstName" maxlength="50" id="txtFirstName" class="textfield" value="<?=getValue($_POST['txtFirstName'])?>"> 
+            </TD>
+			<TD class="text12" width="140" bgcolor="#FFFFFF" align="left">Last 
+              Name</TD>
+            <td width="170" class="searchbox" bgcolor="#FFFFFF" align="left"> 
+              <input type="text" name="txtLastName" maxlength="50" id="txtLastName" class="textfield" value="<?=getValue($_POST['txtLastName'])?>"> 
+            </td>
+            
+          </TR>
+          <tr align="center"> 
+            <TD class="text12" width="140" bgcolor="#FFFFFF" align="left">User 
+              Name </TD>
+            <td width="170" class="searchbox" bgcolor="#FFFFFF" align="left"> 
+              <input type="text" name="txtUserName" maxlength="20" id="txtUserName" class="textfield" value="<?=getValue($_POST['txtUserName'])?>"> 
+            </td>
+			
+			<TD class="text12" width="140" bgcolor="#FFFFFF" align="left">Initial </TD>
+            <TD align="center" bgcolor="#FFFFFF" class="searchbox" width="170"> 
+              <div align="left"> 
+                <select name="cmbInitial">
+                  <option value="">Select Initial</option>
+                  <?php for($i=A;$i<Z;$i++){  ?>
+                  <option value="<?=$i?>" <?php echo $_POST['cmbInitial']==$i?"selected":""; ?>> 
+                  <?=$i?>
+                  </option>
+                  <?php  } ?>
+                  <option value="Z">Z</option>
+                </select>
+              </div></TD>
+            
+          </tr>
+          
+          <tr> 
+            <TD class="text12" colspan="4" bgcolor="#FFFFFF" align="center"><input type="submit" name="Submit1" value="Search Record" class="sbutton"></TD>
+          </TR>
+        </table>
+			</td>
+			</tr>
+	</form>						
+</table>
+
+<br />
+
+<?php
+$extraParamInUrl = "num".$_DELIM.@$_POST["num"].$baratend;
+
+//Define HEADER
+$_HEADER = "<TH nowrap class='t_header_cell_bg'>".getHead("lock_unlockhistory","lock_history.history_id","History ID",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("lock_unlockhistory","username","Username",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("lock_unlockhistory","fname","First Name",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("lock_unlockhistory","lname","Last Name",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("lock_unlockhistory","lock_user","Lock / Unlock",$extraParamInUrl)."</TH>
+
+<TH nowrap class='t_header_cell_bg'>".getHead("lock_unlockhistory","lock_date","Lock/Unlock Date",$extraParamInUrl)."</TH>
+<!--TH nowrap class='t_header_cell_bg' colspan='2'>Action</TH-->";
+?><br />
+<?
+if(count($pageAndData['results'])>0 && is_array($pageAndData['results']))
+	{
+?>
+<form name="frmList" action="<?=$_SERVER['REQUEST_URI']?>" method="post">
+  <div style="overflow:auto;width:800px;padding-bottom:10px;position:relative;"> 
+    <TABLE width="95%" class=t_list_bg cellSpacing=1 cellPadding=2 bgcolor="#cccccc" align="center">
+      <?=$_HEADER?>
+      <?
+	foreach($pageAndData['results'] as $key => $val)
+		{
+			$rowbgcolor ="#FFFFFF";
+?>
+      <tr nowrap bgcolor="<?=@$rowbgcolor?>"> 
+        <td nowrap align="center" class="text13"> 
+          <?=$val['history_id']?>
+        </td>
+        <td nowrap class="text13" align="center"> 
+          <?=stripslashes($val['username'])?>
+        </td>
+        <td nowrap class="text13" align="center"> 
+          <?=stripslashes($val['fname'])?>
+        </td>
+        <td nowrap class="text13" align="center"> 
+          <?=stripslashes($val['lname'])?>
+        </td>
+        <td nowrap class="text13" align="center"> 
+          <?php if($val['lock_user']=="Y"){ echo "Locked";}else{ echo "Unlocked"; } ?>
+        </td>
+
+        <td nowrap align="center" class="text13"> 
+          <?=$val['lock_date']?>
+        </td>
+        <?php// if($val['lock_user']=="Y"){ ?>
+        <!--td width="5%" align="center"><a href="<?=$_DIR['site']['adminurl']."lock_user".$atend."act".$_DELIM."unl".$baratend."aid".$_DELIM.@$val['user_id'].$baratend?>" class="menu1">Unlock</a></td-->
+        <? //}else{  ?>
+        <!--td width="5%" align="center"><a href="<?=$_DIR['site']['adminurl']."lock_user".$atend."act".$_DELIM."loc".$baratend."aid".$_DELIM.@$val['user_id'].$baratend?>" class="menu1">Lock</a></td-->
+        <? //} ?>
+        <?php  
+			unset($rowbgcolor);
+			unset($firstletterofStat);
+		}
+?>
+    </table>
+  </div>
+</form>
+<?
+//Display Pagination here
+print @$pageAndData['paginationbuttonHTML2'];
+	}
+	else 
+		print "<br><DIV class=text2 align=center>Sorry system could not found any records in database.<br>Please add new record.</DIV><br><br>";
+?>

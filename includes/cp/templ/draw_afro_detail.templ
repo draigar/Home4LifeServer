@@ -1,0 +1,186 @@
+<br /><?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+<br>
+<style type="text/css">
+<!--
+.style1 {
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size:13px;
+}
+.style2 {
+	color: #00CC66;
+	font-weight: bold;
+	font-size:13px;
+}
+.text { font-size:13px; }
+-->
+</style>
+<form name="frmDetails" action="<?php print $_SERVER['REQUEST_URI']; ?>" method="post">
+<TABLE width="95%" class=t_list_bg cellSpacing=1 cellPadding=5 bgcolor="#cccccc" align="center">
+<?php
+//Define HEADER
+$_HEADER = "<tr><TH nowrap class='text13'>Sr.No.</TH>
+<TH nowrap class='text13'>NL-ID</TH>
+<TH nowrap class='text13'>Month/Year</TH>
+<TH nowrap class='text13'>Started</TH>
+<TH nowrap class='text13'>Ended</TH></tr>";
+echo $_HEADER;
+?>
+<tr> 
+  <td nowrap align="center" class="text13" bgcolor="#FFFFFF"> 
+     <?=strlen($afro[7])<4?substr("0000",0,4-strlen($afro[7])).$afro[7]:$afro[7]?>
+  </td>
+  <td nowrap align="center" class="text13" bgcolor="#FFFFFF"><?=$afro[8]?></td>
+  <td nowrap align="center" class="text13" bgcolor="#FFFFFF"><?=$afro[3]?></td>
+  <td nowrap align="center" class="text13" bgcolor="#FFFFFF"><?=$afro[9]?></td>
+  <td nowrap align="center" class="text13" bgcolor="#FFFFFF"><?=$afro[0]?></td>
+</tr>
+</table><br />
+<table width="80%" border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="#00CC9A" bgcolor="#FFFFFF">
+  <tr>
+    <td bgcolor="#00CC99" class="style1">&nbsp;</td>
+    <td bgcolor="#00CC99" class="style1" align="center">Total Entries</td>
+    <td bgcolor="#00CC99"><div align="center" class="style1">Cost per entry </div></td>
+    <td bgcolor="#00CC99"><div align="center" class="style1">Total Entry cost </div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" class="text">Afro Millions</td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><?=$totalentries?></div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><strong><?=number_format($price,2)?></strong></div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><strong><?=number_format($totalentries*$price,2)?></strong></div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" class="text">Vision Raffle</td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><?=$result[9][0]?$result[9][0]:0?></div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><strong><?=number_format($result[9][1],2)?></strong></div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><strong><?=number_format($result[9][0]*$result[9][1],2)?></strong></div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" class="text">&nbsp;</td>
+    <td bgcolor="#ffffff" class="text">&nbsp;</td>
+    <td bgcolor="#ffffff" class="text"><div align="center"></div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#00CC99"><div align="center" class="style1">Matches</div></td>
+    <td bgcolor="#00CC99"><div align="center" class="style1">Entries</div></td>
+    <td bgcolor="#00CC99"><div align="center" class="style1">Afro per winners </div></td>
+    <td bgcolor="#00CC99"><div align="center" class="style1">Total Fund </div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" class="text">Match (<?=$i=7?>) Jackpot</td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><?=$result[$i][0]?></div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><?=number_format($result[$i][2],2)?></div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><?=number_format($result[$i][1],2)?></div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" class="text">Match (<?=--$i?>)</td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><?=$result[$i][0]?></div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center">
+	  <?php if($afro[10]=="R") { ?>	 	
+      <input name="txtMatch6" id="txtMatch6" type="text" value="<?=sprintf("%1.2f",$result[$i][2])?>" onblur="calAmt()" size="15" />
+	  <?php } else { ?>
+	  <?=number_format($result[$i][2],2)?>
+	  <?php } ?>
+    </div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center" id="match6amt"><?=number_format($result[$i][1],2)?></div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" class="text">Match (<?=--$i?>)</td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><?=$result[$i][0]?></div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center">
+	  <?php if($afro[10]=="R") { ?>	 	
+      <input name="txtMatch5" id="txtMatch5" type="text" value="<?=sprintf("%1.2f",$result[$i][2])?>" onblur="calAmt()" size="15" />
+	  <?php } else { ?>
+	  <?=number_format($result[$i][2],2)?>
+	  <?php } ?>
+    </div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center" id="match5amt"><?=number_format($result[$i][1],2)?></div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" class="text">Match (<?=--$i?>)</td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><?=$result[$i][0]?></div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center">
+	  <?php if($afro[10]=="R") { ?>	 
+      <input name="txtMatch4" id="txtMatch4" type="text" value="<?=sprintf("%1.2f",$result[$i][2])?>" onblur="calAmt()" size="15" />
+	  <?php } else { ?>
+	  <?=number_format($result[$i][2],2)?>
+	  <?php } ?>
+    </div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center" id="match4amt"><?=number_format($result[$i][1],2)?></div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" class="text">Match (<?=--$i?>)</td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><?=$result[$i][0]?></div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center">
+	  <?php if($afro[10]=="R") { ?>	 	
+      <input name="txtMatch3" id="txtMatch3" type="text" value="<?=sprintf("%1.2f",$result[$i][2])?>" onblur="calAmt()" size="15" />
+	  <?php } else { ?>
+	  <?=number_format($result[$i][2],2)?>
+	  <?php } ?>
+    </div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center" id="match3amt"><?=number_format($result[$i][1],2)?></div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" class="text">Total Matches</td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><?=$totalmatch?></div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center"></div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" class="text">Total Not Matched</td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><?=$totalentries-$totalmatch?></div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center"></div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" class="text">Vision Raffle Winner</td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><?=$result[8][0]?></div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center">
+	  <?=number_format($result[8][2],2)?>
+    </div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><?=number_format($result[8][1],2)?></div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" class="text">Good Cause Savings</td>
+    <td bgcolor="#ffffff" class="text">&nbsp;</td>
+    <td bgcolor="#ffffff" class="text">&nbsp;</td>
+    <td bgcolor="#ffffff" class="text"><div align="center">
+	<?php if($afro[10]=="R") { ?>
+      <input name="txtGoodCause" id="txtGoodCause" style="text-align:center;" type="text" value="" onblur="calAmt()" size="15" />
+	<?php } else { ?>
+	  <?=number_format($good_cause,2)?>
+	  <?php } ?>  
+    </div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff">&nbsp;</td>
+    <td bgcolor="#ffffff"><div align="center"> </div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center">TOTAL FUND PAID</div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><strong><span id="totamt"><?=number_format($totfundpz,2)?></span></strong></div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" class="text">&nbsp;</td>
+    <td bgcolor="#ffffff"><div align="center"> </div></td>
+    <td bgcolor="#ffffff"><div align="center"> </div></td>
+    <td bgcolor="#ffffff" class="text">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" class="text">&nbsp;</td>
+    <td bgcolor="#ffffff"><div align="center"> </div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><strong>Total Balance</strong></div></td>
+    <td bgcolor="#ffffff" class="text" align="center"><span id="balamt" class="style2">
+	<?php 
+	$total_balance=(($totalentries*$price)+($result[9][0]*$result[9][1]))-$totfundpz;
+	echo "<span ".($total_balance<0?"style='color:red'":"").">".number_format($total_balance,2)."</span>";
+	?>
+	</span></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" height="50px" class="text" colspan="4">
+	<div align="center"><a href="javascript:history.back(0);"><font size="2">Back to Previous Page</font></a></div>
+	</td>
+  </tr>
+</table></form><br />
+<br />

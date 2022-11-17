@@ -1,0 +1,157 @@
+<html>
+<head>
+<link href="<?=$_DIR["site"]["url"]?>css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body style="background:none;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center" valign="top" style="background-repeat: repeat-y;"> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+              <tr> 
+                <td valign="top" align="center" style="border:1px solid #D3D3D3;background-color:#FFFFFF;padding-top:8px;padding-bottom:8px;">
+				<table border="0" cellspacing="0" cellpadding="0">
+                    <tr> 
+                      <td valign="top" align="center"><table border="0" cellspacing="0" cellpadding="0" align="center">
+                          <tr> 
+                            <td colspan="2" align="center">
+							<div align="right" style="padding-top:4px;padding-right:10px;"><a href="javascript:window.close();">Close</a></div>
+							 <table width="341px" border="0" cellspacing="0" cellpadding="3">
+                                <tr> 
+                                  <td valign="top" align="left"><table width="341px" border="0" cellspacing="0" cellpadding="0">
+                                      <tr> 
+                                        <td valign="top"><img src="<?=$_DIR["site"]["url"]?>images/img47.png" width="341" height="42"></td>
+                                      </tr>
+                                      <tr> 
+                                        <td background="<?=$_DIR["site"]["url"]?>images/img48.png" style="background-repeat:repeat-y" valign="top">
+										<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" style="margin-top:-30px;position:relative;">
+                                            <tr> 
+                                              <td align="center" valign="top">
+												<table width="133px" border="0" cellspacing="0" cellpadding="0" align="center">
+												<tr>
+													<td class="iconimg<?=$_GET["frm"]=="afro"?"4":"5"?>">&nbsp;</td>
+												</tr>
+												</table>
+											  </td>
+                                            </tr>
+                                            <tr> 
+                                              <td height="5px"><img src="<?=$_DIR["site"]["url"]?>images/spacer.gif"></td>
+                                            </tr>
+                                            <tr> 
+                                              <td style="line-height:1.5em"> <span class="text11">Ticket 
+                                                no:</span> 
+                                                <?=$ticket_no?>
+                                                <br/> <span class="text11">Purchase 
+                                                date and time:</span><br/> 
+                                                <?=$date_entered?>
+                                                <br/> <span class="text11">Draws 
+                                                entered:</span> Single draw<br/> 
+                                                <span class="text11">Channel:</span> 
+                                                <?=$value?></td>
+                                            </tr>
+											<tr> 
+                                              <td height="5px"><img src="<?=$_DIR["site"]["url"]?>images/spacer.gif"></td>
+                                            </tr>
+                                            <tr> 
+                                              <td background="<?=$_DIR["site"]["url"]?>images/newdot.gif" style="background-repeat:repeat-x"><img src="<?=$_DIR["site"]["url"]?>images/spacer.gif"></td>
+                                            </tr>
+                                            <tr> 
+                                              <td valign="top" align="left" style="padding-top:3px;padding-bottom:8px">
+											  	  <table width="100%" border="0" cellspacing="2" cellpadding="2">
+												  <?php 
+												  $len=count($lotto_numbers);
+												  for($i=0;$i<$len;$i++) {
+												  ?>
+                                                  <tr> 
+                                                    <td width="12%" align="center" class="text13"><?=chr(65+$i)?></td>
+                                                    <td width="12%" align="center" class="text13"><?=substr($lotto_numbers[$i],0,2)?></td>
+                                                    <td width="12%" align="center" class="text13"><?=substr($lotto_numbers[$i],2,2)?></td>
+                                                    <td width="12%" align="center" class="text13"><?=substr($lotto_numbers[$i],4,2)?></td>
+                                                    <td width="12%" align="center" class="text13"><?=substr($lotto_numbers[$i],6,2)?></td>
+                                                    <td width="12%" align="center" class="text13"><?=substr($lotto_numbers[$i],8,2)?></td>
+                                                    <td width="12%" align="center" class="text13"><?=substr($lotto_numbers[$i],10,2)?></td>
+													<?php if($_GET["frm"]=="afro") { ?>
+														<td width="12%" align="center" class="text13"><?=substr($lotto_numbers[$i],12,2)?></td> 
+													<?php } ?>
+                                                    <td width="12%" align="center"><?=$ld[$i]=="Y"?"LD":""?></td>
+                                                  </tr>
+												  <?php } ?>
+                                                </table></td>
+                                            </tr>
+                                            <tr> 
+                                              <td height="1px" background="<?=$_DIR["site"]["url"]?>images/newdot.gif" style="background-repeat: repeat-x"><img src="<?=$_DIR["site"]["url"]?>images/spacer.gif"></td>
+                                            </tr>
+                                            <tr> 
+                                              <td height="5px"><img src="<?=$_DIR["site"]["url"]?>images/spacer.gif"></td>
+                                            </tr>
+                                            <tr> 
+                                              <td style="line-height:1.5em">Draws: <?=$draws?><br>
+                                                Weeks: <?=$weeks?><br></td>
+                                            </tr>
+                                            <tr> 
+                                              <td height="5px"><img src="<?=$_DIR["site"]["url"]?>images/spacer.gif"></td>
+                                            </tr>
+											<tr> 
+                                              <td height="1px" background="<?=$_DIR["site"]["url"]?>images/newdot.gif" style="background-repeat: repeat-x"><img src="<?=$_DIR["site"]["url"]?>images/spacer.gif"></td>
+                                            </tr>
+                                            <tr> 
+                                              <td height="5px"><img src="<?=$_DIR["site"]["url"]?>images/spacer.gif"></td>
+                                            </tr>
+                                            <tr> 
+                                              <td>Play Vision Number: <?=$vision_number?"Yes":"No"?><br>
+											  <?php if($vision_number) { ?>
+                                                <table border="0" cellspacing="2" cellpadding="2">
+												  <tr> 
+                                                    <td width="30px" align="center" class="text13"><?=substr($vision_number,0,2)?></td>
+                                                    <td width="30px" align="center" class="text13"><?=substr($vision_number,2,2)?></td>
+                                                    <td width="30px" align="center" class="text13"><?=substr($vision_number,4,2)?></td>
+                                                    <td width="30px" align="center" class="text13"><?=substr($vision_number,6,2)?></td>
+                                                  </tr>												  
+                                                </table>
+											  <?php } ?>	
+											  <br></td>
+                                            </tr>
+                                            <tr> 
+                                              <td height="1px" background="<?=$_DIR["site"]["url"]?>images/newdot.gif" style="background-repeat: repeat-x"><img src="<?=$_DIR["site"]["url"]?>images/spacer.gif"></td>
+                                            </tr>
+                                            <tr> 
+                                              <td height="5px"><img src="<?=$_DIR["site"]["url"]?>images/spacer.gif"></td>
+                                            </tr>
+                                            <tr> 
+                                              <td><span class="text11">Dates</span><br>
+                                                <?=$draw_date?><br>
+                                                <br> <span class="text11">Lotto:</span><br>
+                                                <?=$plays=count($lotto_numbers)?> plays X <img src="<?=$_DIR["site"]["url"]?>images/nairatik.png"><?=$price?> for 1 draw 
+                                                = <img src="<?=$_DIR["site"]["url"]?>images/nairatik.png"><?=sprintf("%1.2f",$price*$plays)?><br>
+                                                <?php if($vision_number) { ?>
+												1 Vision Number X <img src="<?=$_DIR["site"]["url"]?>images/nairatik.png"><?=$vision_price?>
+                                                = <img src="<?=$_DIR["site"]["url"]?>images/nairatik.png"><?=sprintf("%1.2f",$vision_price)?><br>
+												<?php } ?>
+                                                <br>Total:<span class="text11"> <img src="<?=$_DIR["site"]["url"]?>images/nairatik.png"><?=sprintf("%1.2f",(($price*$plays)+($vision_number?$vision_price:0)))?></span> 
+                                              </td>
+                                            </tr>
+                                            <tr> 
+                                              <td height="5px"><img src="<?=$_DIR["site"]["url"]?>images/spacer.gif"></td>
+                                            </tr>
+                                            <tr> 
+                                              <td height="1px" background="<?=$_DIR["site"]["url"]?>images/newdot.gif" style="background-repeat: repeat-x"><img src="<?=$_DIR["site"]["url"]?>images/spacer.gif"></td>
+                                            </tr>
+                                          </table></td>
+                                      </tr>
+                                      <tr> 
+                                        <td valign="top"><img src="<?=$_DIR["site"]["url"]?>images/img49.png" width="341" height="8"></td>
+                                      </tr>
+                                    </table>
+									<div align="right" style="padding-top:4px;padding-right:10px;"><a href="javascript:window.close();">Close</a></div>
+									</td>
+                                </tr>
+                              </table></td>
+                          </tr>
+                        </table></td>
+                    </tr>
+                  </table></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+<script type="text/javascript">
+function chkVal(itm) {
+	if( Number(itm.value)>=0 && Number(itm.value)<=50 ) {
+		if(Number(itm.value)<=9) itm.value="0"+Number(itm.value);
+	}
+	else itm.value="";	
+}	
+</script>
+<form name="frmlocation" action="<?php print $_SERVER["REQUEST_URI"];?>" method="post" >
+  <TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="580px" border=0 bgcolor="#cccccc">
+    <TBODY>
+      <TR> 
+        <TD colspan="3" align="left" bgcolor="#FFFFFF" class=text12><strong>Draw 
+          Afro Millions Game</strong><br></TD>
+      </TR>
+      <TR> 
+        <TD align="center" colspan="3" bgcolor="#FFFFFF" class="t_content_cell2_bg"> 
+           <span class=text12>Select Afro Millions:</span>   <select name="cmbAfro" style="font-weight:bold;color:green">
+            <option value="">Select Afro Millions Game</option>
+            <?=$afro?>
+          </select>
+               <INPUT type="submit" class="sbutton" value="Fetch" name="Input"> 
+            </TD>
+      </TR>
+	 </tbody>
+  </table><br />
+  <?php  if($showDetail){  ?>
+          <table border="0" width="580px" bgcolor="#cccccc" class="t_content_bg" cellSpacing=1 cellPadding=5 align="center">
+            <tr> 
+              <td class=text12 width="25%" align="left" bgcolor="#FFFFFF">SrNo:</td>
+              <td class=text12  align="left" bgcolor="#FFFFFF"><b>
+                <?=$afro_id?>
+                </b></td>
+			  <td class=text12 width="25%" align="left" bgcolor="#FFFFFF">AL-ID:</td>
+              <td class=text12  align="left" bgcolor="#FFFFFF"><b>
+                <?=$al_id?>
+                </b></td>	
+            </tr>			
+            <tr> 
+              <td class=text12  align="left" bgcolor="#FFFFFF">Start:</td>
+              <td class=text12  align="left" bgcolor="#FFFFFF"><b>
+                <?=$from_time?>
+                </b></td>
+			  <td class=text12  align="left" bgcolor="#FFFFFF">End:</td>
+              <td class=text12  align="left" bgcolor="#FFFFFF"><b>
+                <?=$to_time?>
+                </b></td> 	
+            </tr>
+            <tr> 
+              <td class=text12  align="left" bgcolor="#FFFFFF">Month/Year:</td>
+              <td class=text12  align="left" bgcolor="#FFFFFF"><b>
+                <?=$month_year?>
+                </b></td>
+			  <td class=text12  align="left" bgcolor="#FFFFFF">Jackpot:</td>
+              <td class=text12  align="left" bgcolor="#FFFFFF"><b>
+                <?=$match7?>
+                </b></td>	
+            </tr>
+			<tr> 
+              <td class=text12  align="left" bgcolor="#FFFFFF">Total Winning Amount:</td>
+              <td class=text12  align="left" bgcolor="#FFFFFF"><b>
+                <?=$total_amount?>
+                </b></td>
+			  <td class=text12  align="left" bgcolor="#FFFFFF">Raffle Winning Amount:</td>
+              <td class=text12  align="left" bgcolor="#FFFFFF"><b>
+                <?=$vision_amount?>
+                </b></td>	
+            </tr>
+			<tr> 
+              <td class=text12 colspan="4" align="center" bgcolor="#FFFFFF"><b>Total Number of Entries:</b> <span style="color:green;font-weight:bold;font-size:15px;"><?=$entries?></span></td>
+            </tr>
+       </table><br />	  
+	  <TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="580px" border=0 bgcolor="#cccccc">
+    	<TBODY>	  
+		<TR> 
+        <TD colspan="3" align="left" bgcolor="#FFFFFF" class=text12><strong>Draw 
+          Afro Result</strong><br></TD>
+      </TR>
+      <tr> 
+        <TD class=text12  align="center" colspan="3" bgcolor="#FFFFFF">
+			<input type="text" onchange="chkVal(this)" style="text-align:center;width:40px;" align="middle" name="txtDrawNum0" id="txtDrawNum0" value="<?=$_POST['txtDrawNum0']?>" maxlength="2"> 
+			<input type="text" onchange="chkVal(this)" style="text-align:center;width:40px;" align="middle" name="txtDrawNum1" id="txtDrawNum1" value="<?=$_POST['txtDrawNum1']?>" maxlength="2"> 
+			<input type="text" onchange="chkVal(this)" style="text-align:center;width:40px;" align="middle" name="txtDrawNum2" id="txtDrawNum2" value="<?=$_POST['txtDrawNum2']?>" maxlength="2"> 
+			<input type="text" onchange="chkVal(this)" style="text-align:center;width:40px;" align="middle" name="txtDrawNum3" id="txtDrawNum3" value="<?=$_POST['txtDrawNum3']?>" maxlength="2"> 
+			<input type="text" onchange="chkVal(this)" style="text-align:center;width:40px;" align="middle" name="txtDrawNum4" id="txtDrawNum4" value="<?=$_POST['txtDrawNum4']?>" maxlength="2"> 
+			<input type="text" onchange="chkVal(this)" style="text-align:center;width:40px;" align="middle" name="txtDrawNum5" id="txtDrawNum5" value="<?=$_POST['txtDrawNum5']?>" maxlength="2">
+			<input type="text" onchange="chkVal(this)" style="text-align:center;width:40px;" align="middle" name="txtDrawNum6" id="txtDrawNum6" value="<?=$_POST['txtDrawNum6']?>" maxlength="2">
+		</TD>
+      </TR>
+	  <?php if($vision_amount && $vision_amount!="0.00") { ?>
+	  <tr> 
+        <TD class=text12  align="center" colspan="3" bgcolor="#F4f1cc">
+			Winning Vision Raffle - 
+			<input type="password" style="text-align:center;width:20px;" align="middle" name="txtVisiNum0" id="txtVisiNum0" value="<?=$_POST['txtVisiNum0']?>" maxlength="1"> 
+			<input type="password" style="text-align:center;width:20px;" align="middle" name="txtVisiNum1" id="txtVisiNum1" value="<?=$_POST['txtVisiNum1']?>" maxlength="1"> 
+			<input type="password" style="text-align:center;width:20px;" align="middle" name="txtVisiNum2" id="txtVisiNum2" value="<?=$_POST['txtVisiNum2']?>" maxlength="1"> 
+			<input type="password" style="text-align:center;width:20px;" align="middle" name="txtVisiNum3" id="txtVisiNum3" value="<?=$_POST['txtVisiNum3']?>" maxlength="1"> 
+			<input type="password" style="text-align:center;width:20px;" align="middle" name="txtVisiNum4" id="txtVisiNum4" value="<?=$_POST['txtVisiNum4']?>" maxlength="1"> 
+			<input type="password" style="text-align:center;width:20px;" align="middle" name="txtVisiNum5" id="txtVisiNum5" value="<?=$_POST['txtVisiNum5']?>" maxlength="1">
+			<input type="password" style="text-align:center;width:20px;" align="middle" name="txtVisiNum6" id="txtVisiNum6" value="<?=$_POST['txtVisiNum6']?>" maxlength="1">
+		</TD>
+      </TR>
+	  <?php } ?>
+      <TR> 
+        <TD class=text12  align="center" bgcolor="#FFFFFF" colspan="3">
+			<table border="0" width="100%" align="center">
+            <tr> 
+              <td class=text12 width="40%" align="right" bgcolor="#FFFFFF"> 1st Admin User ID:</td>
+              <td class=text12  align="left" bgcolor="#FFFFFF"><input type="text" name="txtFAdminId" id="txtFAdminId" value="<?=$_POST['txtFAdminId']?>" maxlength="15" size="20"></td>
+            </tr>
+            <tr> 
+              <td class=text12  align="right" bgcolor="#FFFFFF">1st Admin Password:</td>
+              <td class=text12  align="left" bgcolor="#FFFFFF"><input type="password" name="txtFAdminPaswrd" id="txtFAdminPaswrd" value="<?=$_POST['txtFAdminPaswrd']?>" maxlength="15" size="20"></td>
+            </tr>
+			<Tr><Td colspan="2" align="center"><hr width="70%" style="height:1px;border:1px solid #CCCCCC" noshade></Td></Tr>
+			<tr> 
+              <td class=text12 width="50%" align="right" bgcolor="#FFFFFF">2nd Admin User ID:</td>
+              <td class=text12  align="left" bgcolor="#FFFFFF"><input type="text" name="txtSAdminId" id="txtSAdminId" value="<?=$_POST['txtSAdminId']?>" maxlength="15" size="20"></td>
+            </tr>
+            <tr> 
+              <td class=text12  align="right" bgcolor="#FFFFFF">2nd Admin Password:</td>
+              <td class=text12  align="left" bgcolor="#FFFFFF"><input type="password" name="txtSAdminPaswrd" id="txtSAdminPaswrd" value="<?=$_POST['txtSAdminPaswrd']?>" maxlength="15" size="20"></td>
+            </tr>
+          </table>
+		</TD>        
+      </TR>
+      <TR> 
+        <TD bgcolor="#FFFFFF" colspan="3" align="center"><INPUT type="submit" class="sbutton" value="Draw Result" name="Input">
+          </TD>
+      </TR>
+	  <?php  }  ?>
+    </TBODY>
+  </TABLE>  		   
+	 </form>  

@@ -1,0 +1,139 @@
+<script type="text/javascript" src="<?=$_DIR["site"]["adminurl"]?>javascripts/mootools.v1.00.js"></script>
+<script type="text/javascript"> 
+var accordion;
+var accordionTogglers;
+var accordionContents; 
+window.onload = function() {
+	accordionTogglers = document.getElementsByClassName('accToggler');
+	accordionContents = document.getElementsByClassName('accContent');
+	accordion = new Fx.Accordion(accordionTogglers, accordionContents,{start:'first-open',alwaysHide:true,onActive:function(){}});
+}
+</script>
+<style type="text/css"> 
+.accToggler{
+	margin: 3px auto;
+	padding: 3px;
+	width: 300px;
+	background: #EAEAEA;
+	color: #000000;
+	font-size: 13px; 
+	border: 1px solid #CCCCCC;
+	cursor: pointer;
+}
+.accContent{
+	margin: 0px auto;
+	text-align: justify;
+	width: 300px;
+}
+</style>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<TBODY>
+  <TR> 
+	<TD align="left" class="text2" valign="top">   Your Last Visit: <strong><?php if(!empty($_SESSION['login']['lastdate'])) echo $_SESSION['login']['lastdate']?></strong></TD>        
+  </TR>   
+  
+</TBODY>
+</table><br>
+<table width="98%" border="0" cellspacing="1" cellpadding="5" align="center">
+<tr>
+<td width="65%" valign="top">
+	<table width="300px" border="1" cellspacing="5" cellpadding="5">
+	  <tr>
+	  	  <td>ICON 1</td>
+		  <td>ICON 2</td>
+		  <td>ICON 3</td>	
+	  </tr>
+	  <tr>
+	  	  <td>ICON 4</td>
+		  <td>ICON 5</td>
+		  <td>ICON 6</td>	
+	  </tr>
+	</table>
+</td>
+<td width="35%"><div style="width:300px;">
+	<p class="accToggler">Todays Summary</p>
+	<div class="accContent">
+		<table width="300px" border="0" cellspacing="3" bgcolor="#EAEAEA" cellpadding="3">
+			<tr>
+				<td bgcolor="#FFFFFF">Number of Sign Up: </td>
+				<td bgcolor="#FFFFFF"><b>155</b></td>
+			</tr>
+			<tr>
+				<td bgcolor="#FFFFFF">Number of Sign Up:</b> </td>
+				<td bgcolor="#FFFFFF"><b>155</b></td>
+			</tr>
+			<tr>
+				<td bgcolor="#FFFFFF">Number of Sign Up: </td>
+				<td bgcolor="#FFFFFF"><b>155</b></td>
+			</tr>
+			<tr>
+				<td bgcolor="#FFFFFF">Number of Sign Up: </td>
+				<td bgcolor="#FFFFFF"><b>155</b></td>
+			</tr>
+		</table>
+	</div>
+	<p class="accToggler">Latest Draw</p>
+	<div class="accContent">
+		<table width="300px" border="0" cellspacing="3" bgcolor="#EAEAEA" cellpadding="3">
+			<tr>
+				<td bgcolor="#FFFFFF">Number of Sign Up: </td>
+				<td bgcolor="#FFFFFF"><b>155</b></td>
+			</tr>
+			<tr>
+				<td bgcolor="#FFFFFF">Number of Sign Up:</b> </td>
+				<td bgcolor="#FFFFFF"><b>155</b></td>
+			</tr>
+			<tr>
+				<td bgcolor="#FFFFFF">Number of Sign Up: </td>
+				<td bgcolor="#FFFFFF"><b>155</b></td>
+			</tr>
+			<tr>
+				<td bgcolor="#FFFFFF">Number of Sign Up: </td>
+				<td bgcolor="#FFFFFF"><b>155</b></td>
+			</tr>
+		</table>
+	</div>
+	<p class="accToggler">Javascript used in this example</p>
+	<div class="accContent">
+		<table width="300px" border="0" cellspacing="3" bgcolor="#EAEAEA" cellpadding="3">
+			<tr>
+				<td bgcolor="#FFFFFF">Number of Sign Up: </td>
+				<td bgcolor="#FFFFFF"><b>155</b></td>
+			</tr>
+			<tr>
+				<td bgcolor="#FFFFFF">Number of Sign Up:</b> </td>
+				<td bgcolor="#FFFFFF"><b>155</b></td>
+			</tr>
+			<tr>
+				<td bgcolor="#FFFFFF">Number of Sign Up: </td>
+				<td bgcolor="#FFFFFF"><b>155</b></td>
+			</tr>
+			<tr>
+				<td bgcolor="#FFFFFF">Number of Sign Up: </td>
+				<td bgcolor="#FFFFFF"><b>155</b></td>
+			</tr>
+		</table>
+	</div>
+	<p class="accToggler">CSS used in this example</p>
+	<div class="accContent">
+		<table width="300px" border="0" cellspacing="3" bgcolor="#EAEAEA" cellpadding="3">
+			<tr>
+				<td bgcolor="#FFFFFF">Number of Sign Up: </td>
+				<td bgcolor="#FFFFFF"><b>155</b></td>
+			</tr>
+			<tr>
+				<td bgcolor="#FFFFFF">Number of Sign Up:</b> </td>
+				<td bgcolor="#FFFFFF"><b>155</b></td>
+			</tr>
+			<tr>
+				<td bgcolor="#FFFFFF">Number of Sign Up: </td>
+				<td bgcolor="#FFFFFF"><b>155</b></td>
+			</tr>
+			<tr>
+				<td bgcolor="#FFFFFF">Number of Sign Up: </td>
+				<td bgcolor="#FFFFFF"><b>155</b></td>
+			</tr>
+		</table>
+	</div></div></td>
+</tr>
+</table>	 

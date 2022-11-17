@@ -1,0 +1,47 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+<?php
+$extraParamInUrl = "num=".@$_POST["num"]."&bid=".@$_POST["bid"]."&id=".@$_POST["id"];
+//Define HEADER
+$_HEADER = "<TH class='t_header_cell_bg'>".getHead("bottumbannerlist","banner_id","Banner ID",$extraParamInUrl)."</TH>
+			<TH class='t_header_cell_bg' align='left'>".getHead("bottumbannerlist","name","Banner Name",$extraParamInUrl)."</TH>
+			<TH class='t_header_cell_bg'>".getHead("bottumbannerlist","position","Position",$extraParamInUrl)."</TH>
+			<TH class='t_header_cell_bg'>".getHead("bottumbannerlist","create_date","Created Date",$extraParamInUrl)."</TH>
+			<TH class='t_header_cell_bg'>".getHead("bottumbannerlist","last_update","Last Updated Date",$extraParamInUrl)."</TH>
+			<TH class='t_header_cell_bg' colspan='2'>Action</TH>";
+//Display Sorting Status In Text here
+if (!empty($_SORTINGSTATUS))
+	print "<font size='2'><strong>".$_SORTINGSTATUS."</strong></font>"; 
+?>
+<?
+if(count($pageAndData['results'])>0 && is_array($pageAndData['results']))
+	{
+?>
+    <br><br>
+	<TABLE width="98%" class=t_list_bg align="center" cellSpacing=1 cellPadding=2 bgcolor="#cccccc"><?=$_HEADER?>
+	<?
+	foreach($pageAndData['results'] as $key => $val)
+		{
+			$rowbgcolor = "#FFFFFF";
+?> 
+			<tr bgcolor="<?=@$rowbgcolor?>">
+			<td width="10%" align="center" class="text13"><?=@$val['banner_id']?></td>
+			<td width="25%" class="text13"><?=@$val['name']?></td>
+			<td width="12%" class="text13" align="center"><?=@($val['hposition'])?></td>
+			<td width="10%" align="center" class="text13"><?=@$val['create_date']?></td>
+			<td width="17%" align="center" class="text13"><?=@$val['last_update']?></td>
+			<td align="center" width="7%"><a href="<?=$_DIR['site']['adminurl']."editbottumbanner".$atend."bid".$_DELIM.@$val['banner_id'].$baratend?>" class="menu1">Edit</a></td>
+			<td align="center" width="7%"><a href="javascript:if(confirm('Are you sure you want to delete record ?')) { location.href='<?=$_DIR['site']['adminurl']."bottumbannerlist".$atend."act".$_DELIM."del".$baratend."bid".$_DELIM.@$val['banner_id'].$baratend?>'; }" class="menu1">Delete</a></td></tr>
+<?
+			unset($rowbgcolor);
+			unset($firstletterofStat);
+		}
+?>
+	</table>
+<?
+//Display Pagination here
+print @$pageAndData['paginationbuttonHTML2'];
+	}
+	else 
+		print "<br><DIV class=text2 align=center>Sorry system could not found any banner records in database.</DIV><br><br>";
+?>

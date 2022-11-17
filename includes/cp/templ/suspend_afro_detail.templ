@@ -1,0 +1,69 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+<BR />
+<form name="frmSuspend" action="<?=$_SERVER['REQUEST_URI']?>" method="post">
+  <TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="499" border=0 bgcolor="#cccccc">
+    <TBODY>
+      <TR> 
+        <TD colspan="3" align="left" bgcolor="FFFFFF" class=text12><strong> Afro 
+          Lotto Detail</strong><br></TD>
+      </TR>
+      <TR> 
+        <TD  align="left" bgcolor="FFFFFF" class=text12 colspan="3"> <table border="0" width="100%" bgcolor="#cccccc" class="t_content_bg" cellSpacing=1 cellPadding=5>
+            <tr> 
+              <td class=text12 width="30%" align="left" bgcolor="FFFFFF">SrNo:</td>
+              <td class=text12  align="left" bgcolor="FFFFFF"><b> 
+                <?=$naira_id?>
+                </b></td>
+            </tr>
+            <tr> 
+              <td class=text12  align="left" bgcolor="FFFFFF">AL-ID:</td>
+              <td class=text12  align="left" bgcolor="FFFFFF"><b> 
+                <?=$nl_id?>
+                </b></td>
+            </tr>
+            <tr> 
+              <td class=text12  align="left" bgcolor="FFFFFF">Month/Year:</td>
+              <td class=text12  align="left" bgcolor="FFFFFF"><b> 
+                <?=$month_year?>
+                </b></td>
+            </tr>
+            <tr> 
+              <td class=text12  align="left" bgcolor="FFFFFF">Start:</td>
+              <td class=text12  align="left" bgcolor="FFFFFF"><b> 
+                <?=$from_time?>
+                </b></td>
+            </tr>
+            <tr> 
+              <td class=text12  align="left" bgcolor="FFFFFF">End:</td>
+              <td class=text12  align="left" bgcolor="FFFFFF"><b> 
+                <?=$to_time?>
+                </b></td>
+            </tr>
+            <tr> 
+              <td class=text12  align="left" bgcolor="FFFFFF">Jackpot:</td>
+              <td class=text12  align="left" bgcolor="FFFFFF"><b> 
+                <?=$total_amount?>
+                </b></td>
+            </tr>
+			<tr> 
+              <td class=text12  align="left" bgcolor="FFFFFF">Entries:</td>
+              <td class=text12  align="left" bgcolor="FFFFFF"><b> 
+                ????????
+                </b></td>
+            </tr>
+			<tr> 
+              <td class=text12  align="left" bgcolor="FFFFFF">Suspension Reason:<font color="red">*</font></td>
+              <td class=text12  align="left" bgcolor="FFFFFF"><textarea name="txtSuspension" cols="37" rows="7"><?=$_POST['txtSuspension']?></textarea></td>
+            </tr>
+          </table></TD>
+      </tr>
+     
+      <TR> 
+        <TD bgcolor="#EAEAEA" colspan="3" align="center"><INPUT type="submit" class="sbutton" value="Suspend" name="Input"> 
+        </TD>
+      </TR>
+    </TBODY>
+  </TABLE>  
+  </form>		   
+	

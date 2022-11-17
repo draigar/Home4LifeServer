@@ -1,0 +1,248 @@
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<script type="text/javascript">
+function showHide(vari){			
+	if(vari=='U'){
+		document.getElementById('link').style.display='block';
+		document.getElementById('content').style.display='none';
+	} else if(vari=='C') {	
+		document.getElementById('link').style.display='none';
+		document.getElementById('content').style.display='block';
+	}
+}	
+</script>
+<!-- TinyMCE -->
+<script type="text/javascript" src="<?=$_DIR['site']['adminurl']?>jscripts/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript" src="<?=$_DIR['site']['adminurl']?>jscripts/tiny_mce/plugins/tinybrowser/tb_tinymce.js.php"></script>
+<script type="text/javascript">
+	tinyMCE.init({
+		// General options
+		mode : "textareas",
+		theme : "advanced",
+		file_browser_callback: "tinybrowser",
+		plugins : "safari,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,file,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template",
+
+		// Theme options
+		theme_advanced_buttons1 : "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect",
+		theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
+		theme_advanced_buttons3 : "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen",
+		theme_advanced_buttons4 : "insertlayer,moveforward,movebackward,absolute,|,styleprops,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,pagebreak,file",
+		theme_advanced_toolbar_location : "top",
+		theme_advanced_toolbar_align : "left",
+		theme_advanced_statusbar_location : "bottom",
+		theme_advanced_resizing : true,
+
+		// Example content CSS (should be your site CSS)
+		content_css : "<?=$_DIR['site']['adminurl']?>css/content.css",
+		
+		setup : function(ed) {
+		  // Register example button
+		  ed.addButton('file', {
+				 title : 'File',
+				 image : '<?=$_DIR['site']['adminurl']?>jscripts/tiny_mce/plugins/file/img/insertfile.gif',
+				 onclick : function() {
+					ed.windowManager.open({
+						file : '<?=$_DIR['site']['adminurl']?>jscripts/tiny_mce/plugins/file/file.htm',
+						width : 480 + parseInt(ed.getLang('advimage.delta_width', 0)),
+						height : 385 + parseInt(ed.getLang('advimage.delta_height', 0)),
+						inline : 1
+					}, {
+						plugin_url : '<?=$_DIR['site']['adminurl']?>jscripts/tiny_mce/plugins/file/'
+					});					
+				 }
+		  });
+		 },
+
+		// Drop lists for link/image/media/template dialogs
+		template_external_list_url : "lists/template_list.js",
+		external_link_list_url : "lists/link_list.js",
+		external_image_list_url : "lists/image_list.js",
+		media_external_list_url : "lists/media_list.js",
+
+		// Replace values for the template plugin
+		template_replace_values : {
+			username : "Some User",
+			staffid : "991234"
+		}
+	});
+</script>
+<!-- /TinyMCE -->
+<script language="javascript1.2">
+function check(){
+ var sid=document.frmPage.cmbaddpage.options[document.frmPage.cmbaddpage.selectedIndex].value
+ if(sid!="") document.frmPage.submit();
+}
+</script>
+<TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="70%" border=0 bgcolor="#999999">
+  <form name="frmPage" action="<?=$_SERVER["REQUEST_URI"]?>" method="post" >
+    <TBODY>
+		<TR> 
+       		 <TD  bgcolor="#FFFFFF" class="t_content_cell_bg" width="20%">Select Page: <font color="red">*</font></td>
+			<td bgcolor="#FFFFFF" width="80%"><SELECT size=1 name="cmbaddpage" id="cmbaddpage" onchange="check();">
+				<option value="">Select Page</option>
+				<option value=""><b>Main Menu Pages</b></option>
+				<?php
+				$_sql="select page_id,name from page where display_in='T' order by page_order";
+				$rs1=$_CONN->Execute($_sql);
+				while(!$rs1->EOF) {
+					echo "<option value='".$rs1->fields["page_id"]."' ".($_POST["cmbaddpage"]==$rs1->fields["page_id"]?"selected":"").">--".stripslashes($rs1->fields["name"])."</option>";
+					$_sql="select page_id,name from page where parent_id='".$rs1->fields["page_id"]."'";
+					$rs2=$_CONN->Execute($_sql);
+					while(!$rs2->EOF) {
+						echo "<option value='".$rs2->fields["page_id"]."' ".($_POST["cmbaddpage"]==$rs2->fields["page_id"]?"selected":"").">----".stripslashes($rs2->fields["name"])."</option>";
+						$rs2->MoveNext();
+					}
+					if($rs2)
+					  $rs2->close();
+					$rs1->MoveNext();
+				}
+				if($rs1)
+				  $rs1->close();
+				?>
+				<option value=""><b>Footer Menu Pages</b></option>
+				<?php
+				$_sql="select page_id,name from page where display_in='F' order by page_order";
+				$rs1=$_CONN->Execute($_sql);
+				while(!$rs1->EOF) {
+					echo "<option value='".$rs1->fields["page_id"]."' ".($_POST["cmbaddpage"]==$rs1->fields["page_id"]?"selected":"").">--".stripslashes($rs1->fields["name"])."</option>";
+					$_sql="select page_id,name from page where parent_id='".$rs1->fields["page_id"]."'";
+					$rs2=$_CONN->Execute($_sql);
+					while(!$rs2->EOF) {
+						echo "<option value='".$rs2->fields["page_id"]."' ".($_POST["cmbaddpage"]==$rs2->fields["page_id"]?"selected":"").">----".stripslashes($rs2->fields["name"])."</option>";
+						$rs2->MoveNext();
+					}
+					if($rs2)
+					  $rs2->close();
+					$rs1->MoveNext();
+				}
+				if($rs1)
+				  $rs1->close();
+				?>
+				<?php
+				$_sql="select page_id,name from page where parent_id=0 and display_in='L' order by page_order";
+				$rs=$_CONN->Execute($_sql);
+				while(!$rs->EOF) {
+					echo "<option value='".$rs->fields["page_id"]."' ".($_POST["cmbaddpage"]==$rs->fields["page_id"]?"selected":"")."><strong>".($rs->fields["page_id"]==1?"Home":stripslashes($rs->fields["name"]))."</strong></option>";
+					$_sql="select page_id,name from page where parent_id='".$rs->fields["page_id"]."'";
+					$rs1=$_CONN->Execute($_sql);
+					while(!$rs1->EOF) {
+						echo "<option value='".$rs1->fields["page_id"]."' ".($_POST["cmbaddpage"]==$rs1->fields["page_id"]?"selected":"").">--".stripslashes($rs1->fields["name"])."</option>";
+						$rs1->MoveNext();
+					}
+					if($rs1)
+					  $rs1->close();
+					$rs->MoveNext();
+				}
+				if($rs)
+				  $rs->close();
+				
+				$_sql="select page_id,name from page where parent_id=0 and display_in='O' order by page_order";
+				$rs=$_CONN->Execute($_sql);
+				while(!$rs->EOF) {
+					echo "<option value='".$rs->fields["page_id"]."' ".($_POST["cmbaddpage"]==$rs->fields["page_id"]?"selected":"")."><strong>".($rs->fields["page_id"]==1?"Home":stripslashes($rs->fields["name"]))."</strong></option>";
+					$_sql="select page_id,name from page where parent_id='".$rs->fields["page_id"]."'";
+					$rs1=$_CONN->Execute($_sql);
+					while(!$rs1->EOF) {
+						echo "<option value='".$rs1->fields["page_id"]."' ".($_POST["cmbaddpage"]==$rs1->fields["page_id"]?"selected":"").">--".stripslashes($rs1->fields["name"])."</option>";
+						$rs1->MoveNext();
+					}
+					if($rs1)
+					  $rs1->close();
+					$rs->MoveNext();
+				}
+				if($rs)
+				  $rs->close();  
+				?></SELECT></TD>
+      </TR>
+<?php if($_POST["cmbaddpage"]) { ?>
+      <TR> 
+        <TD  bgcolor="#FFFFFF" class="t_content_cell_bg">Page Title: <font color="red">*</font> </td>
+		<td bgcolor="#FFFFFF"><strong>
+		<input type="text" name="txtpage" value="<?php print getValue(@$_POST["txtpage"]); ?>" maxlength="255" size="50">
+		</strong></TD>
+      </TR>
+	<?php if($_POST["rdoTarget"]!="U" && $_POST["txtpagefile"]!="#") { ?>
+	  <TR> 
+        <TD  bgcolor="#FFFFFF" class="t_content_cell_bg" >Page URL: </td>
+		<td bgcolor="#FFFFFF"><?php echo $_DIR["site"]["url"].$_POST["txtpagefile"]; ?></TD>
+      </TR>
+	<?php } ?>
+	  <TR> 
+        <TD  bgcolor="#FFFFFF" class="t_content_cell_bg" width="20%">Position:</td>
+			<td bgcolor="#FFFFFF" width="80%">
+			<SELECT size=1 name="cmbPos" id="cmbPos">
+				<option value="">Choose Position</option>
+				<?php
+				$i=1;
+				$_sql="select count(page_order) as page_order from page where display_in='".$_POST["chkDispayIn"]."'";
+				$rs=$_CONN->Execute($_sql);
+				if($rs && !$rs->EOF){
+					while($i<=$rs->fields['page_order']) {
+						echo "<option value='".$i."' ".($_POST["cmbPos"]==$i?"selected":"").">".$i."</option>";					
+						$i++;
+					}
+				}
+				if($rs)
+				  $rs->close();
+				?>
+			</SELECT></TD>
+      </TR>
+	<?php if($hidethis) { ?>
+	  <TR> 
+        <TD bgcolor="#FFFFFF" class="t_content_cell_bg">Target:<font color="red">*</font></TD>
+		 <TD bgcolor="#FFFFFF" class="t_content_cell_bg">
+		 	<input type="radio" name="rdoTarget" id="rdoTarget" onclick="showHide('U');" value="U" <?php echo $_POST['rdoTarget']=="U"?"checked":"";?>>Link
+			<input type="radio" name="rdoTarget" id="rdoTarget" onclick="showHide('C')" value="C" <?php echo (!$_POST['rdoTarget'] || $_POST['rdoTarget']=="C")?"checked":"";?>>Content</TD>
+      </TR>	
+  </table>
+  <TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 border=0 width="90%" bgcolor="#999999" id="link" style="margin-top:10px;display:<?php echo $_POST['rdoTarget']=="U"?"block":"none";?>">
+	  <TR> 
+			<TD width="100px" bgcolor="#FFFFFF" class="t_content_cell_bg">Link:<font color="red">*</font><BR />Include "http://"</TD>
+			 <TD bgcolor="#FFFFFF" class="t_content_cell_bg" >
+				<input type="text" name="txtpagefile" value="<?php print getValue(@$_POST["txtpagefile"]); ?>" maxlength="255" size="90"></TD>
+	  </TR>
+  </table>
+  <TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 border=0 width="81%" bgcolor="#999999" id="content" style="margin-top:10px;display:<?php echo (!$_POST['rdoTarget'] || $_POST['rdoTarget']=="C")?"block":"none";?>">	  
+  <?php } ?>		 
+	  <TR> 
+        <TD bgcolor="#FFFFFF" class="t_content_cell_bg" colspan="2">Page Content:</TD>
+      </TR>      
+	  <TR> 
+        <TD bgcolor="#FFFFFF" class="t_content_cell_bg" colspan="2" align="center">
+		<textarea name="pageContent" id="pageContent" style="height:500px;"><?php print getValue(@$_POST["pageContent"]); ?></textarea>
+		</TD>
+      </TR>
+	  <TR> 
+        <TD  bgcolor="#FFFFFF" class="t_content_cell_bg">Meta Title:</TD>
+		<TD  bgcolor="#FFFFFF"><input name="txtMetaTitle" size="75" class="textfield1" type="text" id="txtMetaTitle" value="<?php print getValue(@$_POST["txtMetaTitle"]); ?>" maxlength="255">
+
+		</TD>
+      </TR>
+	  <TR> 
+        <TD  bgcolor="#FFFFFF" class="t_content_cell_bg">Meta Keyword: </TD>
+		<TD  bgcolor="#FFFFFF"><input name="txtMetaKey" size="75" class="textfield1" type="text" id="txtMetaKey" value="<?php print getValue(@$_POST["txtMetaKey"]); ?>" maxlength="255">
+		</TD>
+      </TR>
+	  <TR> 
+        <TD  bgcolor="#FFFFFF" class="t_content_cell_bg" nowrap>Meta Description: </TD>
+		<TD  bgcolor="#FFFFFF"><input name="txtMetaKeyDesc" size="75" class="textfield1" type="text" id="txtMetaKeyDesc" value="<?php print getValue(@$_POST["txtMetaKeyDesc"]); ?>" maxlength="255">
+		</TD>
+      </TR>
+	  <?php if($hidethis) { ?>
+	</table>
+   <TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="70%" border=0>  
+   <?php } ?>
+	  <TR>
+	    <TD colspan="2" bgcolor="#FFFFFF" align="center"><INPUT type="submit" value="Save Content" name="Input" class="sbutton">  <INPUT type="button" value="Delete This Page" name="Input" class="sbutton" onclick="if(confirm('Are you sure you want to delete page ?')) { document.frmPage.hidact.value='delete'; document.frmPage.submit(); }">
+		</TD>
+      </TR> 
+<?php } elseif($_POST["cmbaddpage"]=="11" || $_POST["cmbaddpage"]=="12" || $_POST["cmbaddpage"]=="13" || $_POST["cmbaddpage"]=="14") { ?>
+	  <TR>
+	    <TD colspan="2" bgcolor="#FFFFFF" align="center"><INPUT type="submit" value="Save Content" name="Input" class="sbutton"></TD>
+      </TR>     
+<?php }  ?>
+	  </TBODY>
+	  <input type="hidden" value="" name="hidact">
+	  <input type="hidden" value="<?=$_POST["expo_buy"]?>" name="expo_buy">
+     </form>
+  </TABLE>

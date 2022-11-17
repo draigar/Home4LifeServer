@@ -1,0 +1,129 @@
+<?php
+function State(){  
+	global $database;
+ 	$result = '<select id="cmbState" class="validate[\'required\'] combo4" style="width:160px" name="cmbState" onChange="showCity(document.getElementById(\'cmbState\').options[document.getElementById(\'cmbState\').selectedIndex].value,'.($_POST["cmbState"]?$_POST["cmbState"]:0).')">';
+	$sql="select state_id,state_name from state order by state_name";
+	$rs  = mysql_query($sql);
+	$result .= "<option value=''>Select State</option>";
+	while($record=mysql_fetch_array($rs)) { 
+		if ($_POST["cmbState"] == $record['state_id'])
+			$result .= "<option value='".$record['state_name']."' selected='selected'>" . $record['state_name'] . '</option>';
+		else 
+			$result .= "<option value='".$record['state_name']."'>" . $record['state_name'] . '</option>';	
+	}
+	$result .= '</select>';	
+	return $result;
+}
+?>
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+<script type="text/javascript">
+var xmlHttp;
+function showCity(id,existid){  
+	//document.getElementById('load1').style.display='block';
+	xmlHttp=GetXmlHttpObject();
+	if (xmlHttp==null) {
+	 alert ("Browser does not support HTTP Request")
+	 return 
+	}
+	var url="/loadcombo.php?name=cmbLga&from=locator&table=lga&existid="+existid+"&cond=state_id&value="+id;
+	xmlHttp.onreadystatechange=stateChanged;
+	xmlHttp.open("GET",url,true)
+	xmlHttp.send(null)
+}
+function stateChanged() { 
+	if(xmlHttp.readyState==4 || xmlHttp.readyState=="complete"){  	
+		document.getElementById("txtCategory").innerHTML=xmlHttp.responseText;
+		//document.getElementById('load1').style.display='none';
+	}
+}
+function GetXmlHttpObject(){
+	var xmlHttp=null;
+	try{
+	 // Firefox, Opera 8.0+, Safari
+	 xmlHttp=new XMLHttpRequest();
+	}
+	catch (e){
+	 //Internet Explorer
+	 try{
+	  xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+	 }
+	 catch (e){
+	  xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+	 }
+	}
+	return xmlHttp;
+}
+</script>
+<table width="95%" border="0" class="t_content_bg" cellSpacing=0 cellPadding=0 align="center">
+	<form name="frmSearch" action="<?=$_SERVER['REQUEST_URI']?>" method="post">
+			<TR>
+
+<td colspan="4" align="center" bgcolor="#FFFFFF">
+			<table border=0 class="t_content_bg" cellSpacing=1 cellPadding=1  bgcolor="#E4E4E4">
+          <tr> 
+            <td colspan="4" align="center" height="20px" bgcolor="#FFFFFF" class="text12">To download all reports, please leave the field blank.</td>
+          </tr>
+          <tr> 
+            <TD class="text12" width="109" bgcolor="#FFFFFF" align="left">Account by ID</TD>
+            <td width="201" bgcolor="#FFFFFF" class="searchbox" align="left"> 
+              <input type="text" name="txtUserID" id="txtUserID" class="textfield" value="<?=getValue($_POST['txtUserID'])?>">
+            </td>
+            <TD class="text12" width="77" bgcolor="#FFFFFF" align="left" style="padding-right:4px;" nowrap>Search Criteria</TD>
+            <td width="213"  bgcolor="#FFFFFF" class="searchbox" align="left"> 
+              <select name="cmbCriteria">
+				<option value="">All Agent Accounts</option>
+				<option value="AA" <?php echo $_POST['cmbCriteria']=="AA"?"selected":""; ?>>Active Account</option>
+				<option value="SA" <?php echo $_POST['cmbCriteria']=="SA"?"selected":""; ?>>Suspended Account</option>
+				<option value="CA" <?php echo $_POST['cmbCriteria']=="CA"?"selected":""; ?>>Cancelled Account</option>
+				<option value="OA" <?php echo $_POST['cmbCriteria']=="OA"?"selected":""; ?>>Overdrawn Account</option>
+				<option value="A3" <?php echo $_POST['cmbCriteria']=="A3"?"selected":""; ?>>Account not used for 3 months</option>
+				<option value="AU" <?php echo $_POST['cmbCriteria']=="AU"?"selected":""; ?>>Account with unclaimed prize</option>
+				<option value="AC" <?php echo $_POST['cmbCriteria']=="AC"?"selected":""; ?>>Account with claimed prize</option>				
+			  </select></td>
+          </TR>
+          <tr> 
+            <TD class="text12" width="109" bgcolor="#FFFFFF" align="left">State</TD>
+            <td width="201" align="left" class="searchbox"  bgcolor="#FFFFFF" ><?php  echo State();?></td>
+            <TD class="text12" width="77" bgcolor="#FFFFFF" align="left">LGA</TD>
+            <td width="213" align="left" class="searchbox" bgcolor="#FFFFFF" id="txtCategory"></td>
+          </TR>
+		  <tr> 
+		  	<TD class="text12" width="109" bgcolor="#FFFFFF" align="left">Account by</TD>
+            <td colspan="3" align="left" class="text12"  bgcolor="#FFFFFF" style="height:30px;"> 
+				<select name="cmbSearchOption">
+					<option value="fname" <?php echo $_POST['cmbSearchOption']=="fname"?"selected":""; ?>>First Name</option>
+					<option value="lname" <?php echo $_POST['cmbSearchOption']=="lname"?"selected":""; ?>>Surname</option>
+					<option value="username" <?php echo $_POST['cmbSearchOption']=="username"?"selected":""; ?>>Email Address</option>
+					<option value="mobile" <?php echo $_POST['cmbSearchOption']=="mobile"?"selected":""; ?>>Mobile</option>
+					<option value="mobile" <?php echo $_POST['cmbSearchOption']=="mobile"?"selected":""; ?>>Terminal ID</option>
+				  </select>
+				  <input type="text" name="txtKeyword" id="txtKeyword" class="textfield" value="<?=getValue($_POST['txtKeyword'])?>" style="width:200px;">
+            </td>
+          </TR>
+          <tr> 
+            <TD class="text12" colspan="4" bgcolor="#FFFFFF" align="center"><input type="submit" name="Submit1" value="Generate Report" class="sbutton"></TD>
+          </TR>
+        </table>
+			</td>
+			</tr>
+				</form>			
+</table><br />
+<?php if($display){   
+	$pdfurl=$_DIR['site']['adminurl']."dompdf.php?input_file=".rawurlencode($_DIR['site']['adminurl']."tmp/agent_report.html")."&orientation=landscape&paper=letter&output_file=".rawurlencode("agent_report.pdf");
+?>
+		<strong>Click Image/Link to Download Report.</strong>
+		<br /><br />	
+		<table width="600px" border="0" cellspacing="1" cellpadding="1" bgcolor="#cccccc" align="center">
+		  <tr bgcolor="#ffffff">
+			<td width="200px" align="center"><a href="<?=$pdfurl?>"><img src="<?=$_DIR['site']['adminurl']?>images/icon3.gif" border="0"></a></td>
+			<td width="200px" align="center"><a href="<?=$_DIR['site']['adminurl']?>htmlreport.php?report=agent"><img src="<?=$_DIR['site']['adminurl']?>images/icon3.gif" border="0"></a></td>
+			<td width="200px" align="center"><a href="<?=$_DIR['site']['adminurl']?>excelreport.php?report=agent"><img src="<?=$_DIR['site']['adminurl']?>images/icon3.gif" border="0"></a></td>
+		  </tr>
+		  <tr bgcolor="#ffffff">
+			<td align="center"><a href="<?=$pdfurl?>">Adobe Acrobat Report</a></td>
+			<td align="center"><a href="<?=$_DIR['site']['adminurl']?>htmlreport.php?report=agent">HTML Report</a></td>
+			<td align="center"><a href="<?=$_DIR['site']['adminurl']?>excelreport.php?report=agent">MS Excel Report</a></td>
+		  </tr>
+		</table>	
+<?php  }  ?>

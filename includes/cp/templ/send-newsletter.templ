@@ -1,0 +1,39 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+<script language="javascript" type="text/javascript">
+function limitText(limitField, limitCount, limitNum) {
+	if (limitField.value.length > limitNum) {
+		limitField.value = limitField.value.substring(0, limitNum);
+	} else {
+		limitCount.value = limitNum - limitField.value.length;
+	}
+}
+</script>
+<TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="48%" border=0 bgcolor="#999999">
+  <form name="frmPage" action="<?php print $_SERVER["REQUEST_URI"];?>" method="post" >
+    <TBODY>
+            
+	  <TR> 
+        <TD class="text3" bgcolor="#FFFFFF" colspan="2">News Letter Content: <font color='red'>*</font> 
+        </TD>
+      </TR>      
+	  <TR> 
+        <TD class=t_content_cell2_bg colspan="2" bgcolor="#FFFFFF">
+		<textarea name="pageContent" id="pageContent" cols="45" rows="7" onKeyDown="limitText(this.form.pageContent,form.frmPage.countdown,160);" onKeyUp="limitText(this.form.pageContent,this.form.countdown,160);"><?php print getValue(@$_POST["pageContent"]);?></textarea>
+		<br />(Please enter only 160 character)
+		</TD>
+      </TR>     
+	  <TR> 
+        <TD class="text3" width="40%" bgcolor="#FFFFFF">Agent: </td>
+		<TD width="60%" bgcolor="#FFFFFF"><input name="chkAgent"  class="textfield1" type="checkbox" id="chkAgent" value="Y" <?php echo $_POST['chkAgent']=="Y"?"checked":""; ?>> </TD>
+	</TR> 
+	  <TR> 
+        <TD class="text3" width="40%" bgcolor="#FFFFFF">User: </td>
+		<TD width="60%" bgcolor="#FFFFFF"><input name="chkUser"  class="textfield1" type="checkbox" id="chkUser" value="Y" <?php echo $_POST['chkUser']=="Y"?"checked":""; ?>> </TD>
+	</TR> 
+	  <TR>
+         <TD align="center" bgcolor="#FFFFFF" colspan="2"><INPUT class="sbutton" type="submit" value="Send Newsletter" name="Input"> <INPUT type="reset" value="Reset" name="Reset" class="sbutton"></TD>
+      </TR>
+	  </TBODY>
+	  </form>
+  </TABLE>

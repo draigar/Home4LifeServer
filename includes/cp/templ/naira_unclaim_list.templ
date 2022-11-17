@@ -1,0 +1,56 @@
+<br /><TABLE width="95%" class=t_list_bg cellSpacing=1 cellPadding=2 bgcolor="#cccccc" align="center">
+<tr> 
+  <th width="75px" class="t_header_cell_bg" valign="middle" class="text11">Draw date</th>
+  <th width="60px" class="t_header_cell_bg" valign="middle" class="text11">Draw no</th>
+  <th width="86px" class="t_header_cell_bg" valign="middle" class="text11">Prize<br>unclaimed</th>
+  <th width="60px" class="t_header_cell_bg" valign="middle" class="text11">Prize<br>level</th>
+  <th width="100px" class="t_header_cell_bg" valign="middle" class="text11">Area bought</th>
+  <th width="110px" class="t_header_cell_bg" valign="middle" class="text11">Winning<br>numbers</th>
+  <th width="110px" class="t_header_cell_bg" valign="middle" class="text11">Vision<br>Winning<br>numbers</th>
+  <th width="65px" class="t_header_cell_bg" valign="middle" class="text11">Last date<br>to claim</th>
+</tr>
+<?php
+$prizesum=array();
+$cnt=count($naira_id);
+for($i=0;$i<$cnt;$i++) { 
+	$matchp=0;
+	$len2=count($result[$i]);
+	for($j=0,$k=0;$j<$len2;$j++,$k+=2) {
+		if($result[$i][$j]) $matchp++;
+	}
+	$prizesum[$naira_id[$i]][$matchp]=!$prizesum[$naira_id[$i]][$matchp]?1:($prizesum[$naira_id[$i]][$matchp]+1);
+}
+if($cnt<=0) print "<tr><td height='30' bgcolor='#FFFFFF' colspan='7' valign='middle'><strong>No Matching Entry found.</strong></td></tr>";
+for($i=0;$i<$cnt;$i++) { 
+	$matchp=0;
+	$len2=count($result[$i]);
+	for($j=0,$k=0;$j<$len2;$j++,$k+=2) {
+		if($result[$i][$j]) $matchp++;
+	}
+?>
+<tr bgcolor="#FFFFFF"> 
+  <td height="35px" class="listing" align="center"><?=$to_time[$i]?></td>
+  <td class="listing" style="padding-left:5px;"><?=strlen($naira_id[$i])<4?substr("0000",0,4-strlen($naira_id[$i])).$naira_id[$i]:$naira_id[$i]?></td>
+  <td class="listing" align="right" style="padding-right:5px;"><img src="<?=$_DIR["site"]["url"]?>images/naira.gif"> 
+  <?php 
+  	$totalamount=0;
+	if($win_num[$i]) $totalamount=$matchp>3?($match[$i][$matchp]/$prizesum[$naira_id[$i]][$matchp]):$match[$i][$matchp]; 
+	if($visionwinner[$i]) $totalamount+=$visionwinneramount[$i];
+	echo number_format($totalamount,2); 
+  ?> 
+  </td>
+  <td class="listing" align="center">
+  	<?php 
+		if($win_num[$i]) echo $matchp==6?"Jackpot":"Matched".$matchp."<br>";
+		if($visionwinner[$i]) echo "Vision Number";
+	?>
+  </td>
+  <td class="listing"><?php 
+	if($method_id[$i]=='S'){ echo "SMS"; }elseif($method_id[$i]=='T'){ echo "Terminal"; }else{ echo "Internet"; }
+  ?></td>
+  <td class="listing" align="center"><?=$win_num[$i]?></td>
+  <td class="listing" align="center"><?=$visionwinner[$i]?></td>
+  <td class="listing" align="center"><?=$unclaim_date[$i]?></td>
+</tr>
+<?php } ?>
+</table>

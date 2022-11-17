@@ -1,0 +1,27 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+<TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="70%" border=0 bgcolor="#999999">
+  <form name="frmAddUser" action="<?=@$_SERVER["REQUEST_URI"]?>" method="post" >
+    <TBODY>	
+	 <TR>
+          <TD class=t_content_cell2_bg colspan="2" align="left" bgcolor="#FFFFFF"><strong>System Email</strong><br></TD>
+        </TR>
+	 <?php
+	  $iCount = $_POST["hidCount"];
+	  		for($i=0;$i<$iCount;$i++) { 
+	 ?>		
+	 <TR> 
+        <TD width="20%" bgcolor="#FFFFFF"><input name="txtCond[]" size="15" type="text" id="txtCond[]" value="<?php print getValue(@$_POST["txtCond"][$i]); ?>" maxlength="50" readonly="true"></TD>
+        <TD width="80" bgcolor="#FFFFFF"><input name="txtCVal[]" size="30" type="text" id="txtCVal[]" value="<?php print getValue(trim(@$_POST["txtCVal"][$i])); ?>" maxlength="150"></TD>
+	</TR>
+	  <?php 
+	  	}
+	  ?>	
+	
+	  <TR>
+        <TD align="center" bgcolor="#FFFFFF" colspan="2">
+		<input type="hidden" name="hidCount" value="<?=$_POST["hidCount"]?>">
+		<INPUT type="submit" value="Submit" name="Input" class="sbutton">   <INPUT type="reset" value="Reset" name="Reset" class="sbutton"></TD>
+     </TR>	 
+	 </form>  
+  </TABLE>

@@ -1,0 +1,23 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ');  ?>
+<script type="text/javascript" src="<?=$_DIR["site"]["url"]?>js/validation.js"></script>
+<form name="frmlocation" action="<?php print $_SERVER["PHP_SELF"];?>" method="post" >
+		  <TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="400" border=0 bgcolor="#cccccc">
+			<TBODY>
+				<TR>
+          			<TD class=text12 colspan="2" align="left" bgcolor="FFFFFF"><strong>Maximum & Minimum Amount Transfer Limits</strong><br></TD>
+       		   </TR>  
+				<TR> 
+				<TD bgcolor="#FFFFFF" class="text12" width="52%">Max Amount Transfer Limit: <font color="red">*</font></TD>
+				<TD width="48%" bgcolor="#FFFFFF" class=t_content_cell2_bg><input name="txtAmt1" type="text" id="txtAmt1" onkeypress="checknumchar(this,event,10,2,'.');" class="textfield" value="<?php print getValue(@$_POST["txtAmt1"]); ?>" maxlength="12">				
+				</TD></TR>
+				<TR> 
+				<TD bgcolor="#FFFFFF" class="text12" width="52%">Min Amount Transfer Limit: <font color="red">*</font></TD>
+				<TD bgcolor="#FFFFFF" class=t_content_cell2_bg><input name="txtAmt2" type="text" id="txtAmt2" onkeypress="checknumchar(this,event,10,2,'.');" class="textfield" value="<?php print getValue(@$_POST["txtAmt2"]); ?>" maxlength="12">				
+				</TD></TR>
+			    <TR> 			   
+			   <TD bgcolor="#FFFFFF" colspan="2" align="center"><INPUT type="submit" class="sbutton" value="Submit" name="Input"> <INPUT type="reset" value="Reset" name="Reset" class="sbutton"></TD>
+			  </TR>
+			 </TBODY>
+		  </TABLE>  		   
+	 </form>  

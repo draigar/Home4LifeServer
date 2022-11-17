@@ -1,0 +1,78 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+
+<?php
+$extraParamInUrl = "num".$_DELIM.@$_POST["num"].$baratend;
+
+//Define HEADER
+$_HEADER = "<TH nowrap class='t_header_cell_bg'>".getHead("naira_listing","naira_id","SrNo",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("naira_listing","nl_id","NL-ID",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("naira_listing","month_year","Month/Year",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("naira_listing","from_time","Start",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("naira_listing","to_time","Ends",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("naira_listing","match6","Jackpot",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("naira_listing","status","Status",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("naira_listing","entries","Entries",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg' colspan='2'>Action</TH>";
+?><br />
+<?
+if(count($pageAndData['results'])>0 && is_array($pageAndData['results']))
+	{
+		
+?>
+	
+<div style="overflow:auto; width:100%; padding-bottom:10px; position:relative; "> 
+  <form name="frmTerminal" action="<?=$_SERVER['REQUEST_URI']?>" method="post">
+    <TABLE width="95%" class=t_list_bg cellSpacing=1 cellPadding=2 bgcolor="#B7E6CC" align="center">
+      <?=$_HEADER?>
+      <?php
+	foreach($pageAndData['results'] as $key => $val)
+		{
+			$month_year= explode(",",$val['month_year']);
+			$year =$month_year[1];
+			$month =$month_year[0];
+
+			$rowbgcolor ="#FFFFFF";
+?>
+      <tr bgcolor="<?=@$rowbgcolor?>"> 
+        <td nowrap align="center" class="text13"> 
+          <?=$val['naira_id']?>
+        </td>
+        <td nowrap align="center" class="text13"> 
+          <?=$val['nl_id']?>
+        </td>
+        <td nowrap align="center" class="text13"> 
+          <?=$val['value2']?>
+          / 
+          <?=$year?>
+        </td>
+        <td nowrap align="center" class="text13"> 
+          <?=$val['from_time']?>
+        </td>
+        <td nowrap align="center" class="text13"> 
+          <?=$val['to_time']?>
+        </td>
+        <td nowrap align="right" class="text13" style="padding-right:5px;"> 
+          <?=$val['match6']?>
+        </td>
+        <td nowrap align="center" class="text13">Draw</td>
+        <td nowrap align="center" class="text13"> 
+          <?=$val['entries']?>
+        </td>
+        <td nowrap align="center"><a href="<?=$_DIR['site']['adminurl']."naira_detail".$atend."id".$_DELIM.@$val['naira_id'].$baratend?>" class="menu1">Release Result</a></td>
+      </tr>
+      <?php  
+			unset($rowbgcolor);
+			unset($firstletterofStat);
+		}
+?>
+    </table>
+  </form>
+</div>
+<?
+//Display Pagination here
+print @$pageAndData['paginationbuttonHTML2'];
+	}
+	else 
+		print "<br><DIV class=text2 align=center>Sorry system could not found any records in database.<br>Please add new record.</DIV><br><br>";
+?>

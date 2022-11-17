@@ -1,0 +1,246 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+<script type="text/javascript">
+var total=0;
+	function calculate(myid){
+		aa=myid;
+		bb =myid.value;
+		if(bb!="" && bb.length==1){
+			aa.value =bb=0+bb;
+		}
+	}
+</script>
+<form name="frmlocation" action="<?php print $_SERVER["REQUEST_URI"];?>" method="post" >
+  <TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="840px" border=0 bgcolor="#cccccc">
+    <TBODY>
+      <TR> 
+        <TD colspan="3" align="left" bgcolor="#B7E6CC" class=text12><strong> Afro 
+          Million Claim Entry</strong><br></TD>
+      </TR>
+      <TR> 
+        <TD align="center" colspan="3" bgcolor="#FFFFFF" class="t_content_cell2_bg"> 
+           <span class=text12>Enter Ticket Number:</span>   <input type="text" name="txtTicketNo" value="<?=$_POST["txtTicketNo"]?>" style="font-weight:bold;color:green">
+               <INPUT type="submit" class="sbutton" value="Fetch" name="Input"> 
+            </TD>
+      </TR>
+	 </tbody>
+  </table>
+<br />
+  <?php  if($showDetail) {  ?>
+          <table border="0" width="840px" bgcolor="#cccccc" class="t_content_bg" cellSpacing=1 cellPadding=5 align="center">
+            <tr> 
+              <td class=text12 width="25%" align="left" bgcolor="#B7E6CC">Serial No:</td>
+              <td class=text12  align="left" bgcolor="#FFFFFF"><b>
+                <?=$afro_id?>
+                </b></td>
+			  
+      <td class=text12 width="25%" align="left" bgcolor="#B7E6CC">AL-ID:</td>
+              <td class=text12  align="left" bgcolor="#FFFFFF"><b>
+                <?=$al_id?>
+                </b></td>	
+            </tr>			
+            <tr> 
+              <td class=text12  align="left" bgcolor="#B7E6CC">Lotto Started:</td>
+              <td class=text12  align="left" bgcolor="#FFFFFF"><b>
+                <?=$from_time?>
+                </b></td>
+			  <td class=text12  align="left" bgcolor="#B7E6CC">Lotto Ended:</td>
+              <td class=text12  align="left" bgcolor="#FFFFFF"><b>
+                <?=$to_time?>
+                </b></td> 	
+            </tr>
+            <tr> 
+              <td class=text12  align="left" bgcolor="#B7E6CC">Month/Year:</td>
+              <td class=text12  align="left" bgcolor="#FFFFFF"><b>
+                <?=$month_year?>
+                </b></td>
+			  <td class=text12  align="left" bgcolor="#B7E6CC">Jackpot:</td>
+              <td class=text12  align="left" bgcolor="#FFFFFF"><b>
+                <?=$match[6]?>
+                </b></td>	
+            </tr>
+			<tr> 
+              <td class=text12  align="left" bgcolor="#B7E6CC">Vision Winning Amount:</td>
+              <td class=text12  align="left" bgcolor="#FFFFFF"><b>
+                <?=$vision_amount?>
+                </b></td>
+			  <td class=text12  align="left" bgcolor="#B7E6CC">Draw Date:</td>
+              <td class=text12  align="left" bgcolor="#FFFFFF"><b>
+                <?=$draw_date?>
+                </b></td>	
+            </tr>
+       </table><br />
+	   <TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="840px" border=0 bgcolor="#cccccc">
+    	<TBODY>	  
+		<TR> 
+        <TD colspan="3" align="left" bgcolor="#B7E6CC" class=text12><strong>Winning Prize Table</strong><br></TD>
+      </TR>
+      <tr> 
+        <TD class=text12  align="center" colspan="3" bgcolor="#FFFFFF">
+			<table width="75%" border="0" cellspacing="1" cellpadding="5" bgcolor="#cccccc">
+			   <tr>
+				<td align="center" bgcolor="#FFFFFF" class=text12><b>Match 0</b></td>
+				<td align="center" bgcolor="#FFFFFF" class=text12><b>Match 1</b></td>
+				<td align="center" bgcolor="#FFFFFF" class=text12><b>Match 2</b></td>
+				<td align="center" bgcolor="#FFFFFF" class=text12><b>Match 3</b></td>
+				<td align="center" bgcolor="#FFFFFF" class=text12><b>Match 4</b></td>
+				<td align="center" bgcolor="#FFFFFF" class=text12><b>Match 5</b></td>
+				<td align="center" bgcolor="#FFFFFF" class=text12><b>Match 6</b></td>
+			  </tr>
+			  <tr>
+				<td align="center" bgcolor="#FFFFFF" class=text12><?=$match[0]?></td>
+				<td align="center" bgcolor="#FFFFFF" class=text12><?=$match[1]?></td>
+				<td align="center" bgcolor="#FFFFFF" class=text12><?=$match[2]?></td>
+				<td align="center" bgcolor="#FFFFFF" class=text12><?=$match[3]?></td>
+				<td align="center" bgcolor="#FFFFFF" class=text12><?=$match[4]?></td>
+				<td bgcolor="#FFFFFF" align="center" class=text12><?=$match[5]?></td>
+				<td bgcolor="#FFFFFF" align="center" class=text12><?=$match[6]?></td>
+			  </tr>
+		  	</table>
+		</TD>
+      </TR>
+	  </table><br />
+	  <TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="840px" border=0 bgcolor="#cccccc">
+    	<TBODY>	  
+		<TR> 
+        <TD colspan="3" align="left" bgcolor="#B7E6CC" class=text12><strong>Claim 
+          Afro Winner</strong><br></TD>
+      </TR>
+      <tr> 
+        <TD class=text12  align="center" colspan="3" bgcolor="#FFFFFF">
+<table width="100%" border="0" cellspacing="1" cellpadding="5" bgcolor="#cccccc">
+  <tr>
+    <td align="left" colspan="11" bgcolor="#FFFFFF" class=text12>Draw Number</td>
+  </tr>	
+  <tr>
+  	<td align="center" bgcolor="#FFFFFF" class=text12>&nbsp;</td>
+    <td align="center" bgcolor="#FFFFFF" class=text12><?=substr($draw_number,0,2)?></td>
+    <td align="center" bgcolor="#FFFFFF" class=text12><?=substr($draw_number,3,2)?></td>
+    <td align="center" bgcolor="#FFFFFF" class=text12><?=substr($draw_number,6,2)?></td>
+    <td align="center" bgcolor="#FFFFFF" class=text12><?=substr($draw_number,9,2)?></td>
+    <td align="center" bgcolor="#FFFFFF" class=text12><?=substr($draw_number,12,2)?></td>
+    <td align="center" bgcolor="#FFFFFF" class=text12><?=substr($draw_number,15,2)?></td>
+    <td align="center" bgcolor="#FFFFFF" class=text12><?=substr($draw_number,18,2)?></td>	
+	<td align="center" bgcolor="#FFFFFF" class=text12>&nbsp;</td>
+	<td align="center" bgcolor="#FFFFFF" class=text12>&nbsp;</td>
+	<td align="center" bgcolor="#FFFFFF" class=text12>&nbsp;</td>
+  </tr>
+  <?php if($vision_amount && $vision_amount!="0.00") { ?>
+  	  <tr>
+		<td align="left" colspan="11" bgcolor="#FFFFFF" class=text12>Vision Number</td>
+	  </tr>	
+	  <tr>
+		<td align="center" bgcolor="#FFFFFF" class=text12>&nbsp;</td>
+		<td align="center" bgcolor="#FFFFFF" class=text12><?=substr($winner_vision_number,0,1)?></td>
+		<td align="center" bgcolor="#FFFFFF" class=text12><?=substr($winner_vision_number,2,1)?></td>
+		<td align="center" bgcolor="#FFFFFF" class=text12><?=substr($winner_vision_number,4,1)?></td>
+		<td align="center" bgcolor="#FFFFFF" class=text12><?=substr($winner_vision_number,6,1)?></td>
+		<td align="center" bgcolor="#FFFFFF" class=text12><?=substr($winner_vision_number,8,1)?></td>
+		<td align="center" bgcolor="#FFFFFF" class=text12><?=substr($winner_vision_number,10,1)?></td>
+		<td align="center" bgcolor="#FFFFFF" class=text12><?=substr($winner_vision_number,12,1)?></td>
+		<td align="center" bgcolor="#FFFFFF" class=text12>&nbsp;</td>
+		<td align="center" bgcolor="#FFFFFF" class=text12>&nbsp;</td>
+		<td align="center" bgcolor="#FFFFFF" class=text12>&nbsp;</td>
+	  </tr>
+  <?php } ?>
+  <tr>
+    <td align="center" colspan="11" bgcolor="#FFFFFF">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#B7E6CC" nowrap class=text12><b>Lotto Number</b></td>
+	<td align="center" bgcolor="#B7E6CC" nowrap class=text12><b>Match 1</b></td>
+    <td align="center" bgcolor="#B7E6CC" nowrap class=text12><b>Match 2</b></td>
+    <td align="center" bgcolor="#B7E6CC" nowrap class=text12><b>Match 3</b></td>
+    <td align="center" bgcolor="#B7E6CC" nowrap class=text12><b>Match 4</b></td>
+    <td align="center" bgcolor="#B7E6CC" nowrap class=text12><b>Match 5</b></td>
+    <td align="center" bgcolor="#B7E6CC" nowrap class=text12><b>Match 6</b></td>
+	<td align="center" bgcolor="#B7E6CC" nowrap class=text12><b>Match 7</b></td>
+	<td align="center" bgcolor="#B7E6CC" nowrap class=text12><b>Count</b></td>
+	<td align="center" bgcolor="#B7E6CC" nowrap class=text12><b>Winning</b></td>
+	<td align="center" bgcolor="#B7E6CC" nowrap class=text12><b>Total Match</b></td>
+  </tr>
+  <?php
+  $len=count($result);
+  $total_amt=0;
+  for($i=0;$i<$len;$i++) {
+  	$count=0
+  ?>
+  <tr>
+  	<td align="center" bgcolor="#FFFFFF" class=text12><?=substr($lotto_num[$i],0,2)."-".substr($lotto_num[$i],2,2)."-".substr($lotto_num[$i],4,2)."-".substr($lotto_num[$i],6,2)."-".substr($lotto_num[$i],8,2)."-".substr($lotto_num[$i],10,2)?></td>
+  	<?php
+		$len2=count($result[$i]);
+		$count=0;
+		for($j=0;$j<$len2;$j++) {
+			if($result[$i][$j]!="00") $count++;
+	?>
+    <td bgcolor="#FFFFFF" align="center" class=text12><?=$result[$i][$j]>0?"<font size='3' color='red'><b>".$result[$i][$j]."</b></font>":$result[$i][$j]?></td>
+	<?php 
+		}
+		$total_amt+=($count==3?$match[$count]:($match[$count]/$resultp[$count][0]));
+	?>
+	<td align="center" bgcolor="#FFFFFF" class=text12><?=$count?></td>
+	<td bgcolor="#FFFFFF" align="center" class=text12><?=$match[$count]>0?"<font size='3' color='green'><b>".($count==3?(number_format($match[$count],2)):number_format($match[$count]/$resultp[$count][0],2))."</b></font>":"0.00"?></td>
+	<td align="center" bgcolor="#FFFFFF" class=text12><?=$resultp[$count][0]?></td>
+  </tr>
+  <?php } 
+  if(count($visionwinner)>0) { 
+		$total_amt+=$visionwinneramount[0];
+  ?>
+  <tr>
+    <td align="center" bgcolor="#F4F1CC" nowrap class=text12 colspan="7"><b>Vision Winning Amount ( <?=$visionwinner[0]?> )</b></td>
+	<td align="center" bgcolor="#F4F1CC" nowrap class=text12 colspan="3"><b>NGN <?=$visionwinneramount[0]?></b>
+  </tr>
+  <?php } ?>
+  <tr>
+    <td align="center" bgcolor="#F4F1CC" nowrap class=text12 colspan="8"><b>Total Winning Amount</b></td>
+	<td align="center" bgcolor="#F4F1CC" nowrap class=text12 colspan="3"><b>NGN <?=number_format($total_amt,2)?></b>
+	<input type="hidden" name="total_amount" value="<?=number_format($total_amt,2)?>"></td>
+  </tr>
+</table>
+		</TD>
+      </TR>
+	  <?php if($total_amt>0) { ?>
+	  <TR> 
+        <TD bgcolor="#FFFFFF" colspan="3" height="40px" align="center">
+			<table width="430px" border="0" cellspacing="1" cellpadding="1" bgcolor="#EAEAEA">
+			  <tr>
+				<td width="90px" bgcolor="#FFFFFF" height="40px">Send Payment to</td>
+				<td width="140px" bgcolor="#FFFFFF"><select name="cmbSelect" id="cmbSelect" onClick="showDiv();">
+					<option value="">Select</option>
+					<option value="B" <?php echo $_POST['cmbSelect']=="B"?"selected":"";?>>Bank Account</option>
+					<option value="C" <?php echo $_POST['cmbSelect']=="C"?"selected":"";?>>Cheque Number</option>
+				</select></td>
+				<td bgcolor="#FFFFFF">
+				<div id="idAddress" style="display:<?php echo $_POST['cmbSelect']=="B"?"block":"none"; ?>"><?=$bankAddress?></div>
+				<div id="idCheque" style="display:<?php echo $_POST['cmbSelect']=="C"?"block":"none"; ?>"><INPUT type="text" name="txtCheque" id="txtCheque" value="<?=$_POST['txtCheque']?>"></div>
+				</td>
+			  </tr>
+			</table>
+          </TD>
+      </TR>
+	  <TR> 
+        <TD bgcolor="#FFFFFF" colspan="3" align="center">
+			<INPUT type="submit" class="sbutton" value="Claim This Winning" name="Input">			
+          </TD>
+      </TR>
+			<?php } else { ?>
+	  <TR> 
+        <TD bgcolor="#FFFFFF" colspan="3" align="center">
+			<h2 style="color:green;">No Winning Amount</h2>
+          </TD>
+      </TR>
+	  <?php  } } ?>
+    </TBODY>
+  </TABLE>  		   
+</form>
+<script type="text/javascript">
+	function showDiv(){
+		if(document.getElementById('cmbSelect').value=="C"){
+			document.getElementById('idAddress').style.display="none";
+			document.getElementById('idCheque').style.display="block";
+		}else{
+			document.getElementById('idAddress').style.display="block";
+			document.getElementById('idCheque').style.display="none";
+		}
+	}
+</script>

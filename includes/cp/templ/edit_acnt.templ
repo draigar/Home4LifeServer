@@ -1,0 +1,120 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+<script type="text/javascript" src="<?=$_DIR['site']['adminurl']?>javascripts/date-picker.js"></script>
+
+
+<br><TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="80%" border=0 bgcolor="#B7E6CC">
+  <form name="frmAddUser" action="<?=@$_SERVER["REQUEST_URI"]?>" method="post" >
+    <TBODY>	
+	 <TR>
+          
+        <TD colspan="2" align="left" bgcolor="#B7E6CC" class="text2"><strong>Edit 
+          User Details</strong><br></TD>
+        </TR>   	 
+	 <TR> 
+        <TD width="40%" bgcolor="#FFFFFF" class="text12">First Name: <font color="red">*</font></TD>
+        <TD width="60%" bgcolor="#FFFFFF"><input name="txtFirstName" size="25" class="textfield1" type="text" id="txtFirstName" value="<?php print getValue(@$_POST["txtFirstName"]); ?>" maxlength="30"></TD>
+      </TR>
+	   <TR> 
+        <TD bgcolor="#FFFFFF" class="text12">Last Name: <font color="red">*</font></TD>
+        <TD bgcolor="#FFFFFF"><input name="txtLastName" size="25" type="text" class="textfield1" id="txtLastName" value="<?php print getValue(@$_POST["txtLastName"]); ?>" maxlength="30"></TD>
+      </TR>
+	  <TR> 
+        <TD bgcolor="#FFFFFF" class="text12">Address : <font color="red">*</font></TD>
+        <TD bgcolor="#FFFFFF"><input name="txtaddr1" size="25" type="text" class="textfield1" id="txtaddr1" value="<?php print getValue(@$_POST["txtaddr1"]); ?>" maxlength="255"></TD>
+      </TR>
+	  <TR> 
+        <TD bgcolor="#FFFFFF" class="text12"></TD>
+        <TD bgcolor="#FFFFFF"><input name="txtaddr2" size="25" type="text" class="textfield1" id="txtaddr2" value="<?php print getValue(@$_POST["txtaddr2"]); ?>" maxlength="255"></TD>
+      </TR>
+	  
+	    <TR> 
+        <TD bgcolor="#FFFFFF" class="text12">City: <font color="red">*</font></TD>
+        <td bgcolor="#FFFFFF">
+			<input name="txtCity" size="25" type="text" class="textfield1" id="txtCity" value="<?php print getValue(@$_POST["txtCity"]); ?>" maxlength="50">
+		  </td>
+       </TR>
+		<TR> 
+        <TD bgcolor="#FFFFFF" class="text12">State: <font color="red">*</font></TD>
+        <td bgcolor="#FFFFFF">
+		<input name="txtState" size="25" type="text" class="textfield1" id="txtState" value="<?php print getValue(@$_POST["txtState"]); ?>" maxlength="50">		  </td>
+       </TR>	   
+	  <TR> 
+        <TD bgcolor="#FFFFFF" class="text12">Country:<font color="red">*</font> </TD>
+        <TD bgcolor="#FFFFFF"> <select name="cmbCountry" width="40%" >
+					<option value="">Select Country</option>
+					<?=$country;?>
+				</select>
+		</TD>
+       </TR>
+	   
+	    <TR> 
+        <TD bgcolor="#FFFFFF" class="text12">Zip Code: </TD>
+        <TD bgcolor="#FFFFFF"><input name="txtzipCode" size="25" type="text" class="textfield1" id="txtzipCode" value="<?php print getValue(@$_POST["txtzipCode"]); ?>" maxlength="25"></TD>
+      </TR>
+	   <TR> 
+        <TD bgcolor="#FFFFFF" class="text12">Phone: <font color="red">*</font></TD>
+        <TD bgcolor="#FFFFFF"><input name="txtPhone" size="25" type="text" class="textfield1" id="txtPhone" value="<?php print getValue(@$_POST["txtPhone"]); ?>" maxlength="25"></TD>
+      </TR>
+	  <TR> 
+        <TD bgcolor="#FFFFFF" class="text12">Mobile: <font color="red">*</font></TD>
+        <TD bgcolor="#FFFFFF"><input name="txtMobile" size="25" type="text" class="textfield1" id="txtMobile" value="<?php print getValue(@$_POST["txtMobile"]); ?>" maxlength="11"></TD>
+      </TR>
+	   <TR> 
+        <TD bgcolor="#FFFFFF" class="text12">email: <font color="red">*</font></TD>
+        <TD bgcolor="#FFFFFF"><input name="txtemail" size="25" type="text" class="textfield1" id="txtemail" value="<?php print getValue(@$_POST["txtemail"]); ?>" maxlength="150"></TD>
+      </TR>
+	   
+	  <tr>
+        <TD class="text2" colspan="2" align="left" bgcolor="#FFFFFF"><strong>Login Details</strong><br></TD>
+     
+	 </tr>
+	 
+	 <TR> 
+        <TD bgcolor="#FFFFFF" class="text12">User Name: </TD>
+        <TD bgcolor="#FFFFFF"><input name="txtUserName" size="25" type="text" class="textfield1" id="txtUserName" value="<?php print getValue(@$_POST["txtUserName"]); ?>" maxlength="10" readonly></TD>
+      </TR>
+	   <Tr>
+        <TD class="text2" colspan="2" align="left" bgcolor="#FFFFFF"><strong>Verification Details</strong><br></TD>
+	   </Tr>
+	 <TR> 
+        <TD bgcolor="#FFFFFF" class="text12">ID Type: <font color="red">*</font></TD>
+        <TD bgcolor="#FFFFFF"><input name="txtIDType" size="25" type="text" class="textfield1" id="txtIDType" value="<?php print getValue(@$_POST["txtIDType"]); ?>" maxlength="10" ></TD>
+      </TR>
+	 <TR> 
+        <TD bgcolor="#FFFFFF" class="text12">ID Number: <font color="red">*</font></TD>
+        <TD bgcolor="#FFFFFF"><input name="txtIDNumber" size="25" type="text" class="textfield1" id="txtIDNumber" value="<?php print getValue(@$_POST["txtIDNumber"]); ?>" maxlength="10" ></TD>
+      </TR>
+	 <TR> 
+        <TD bgcolor="#FFFFFF" class="text12">Issue Date: <font color="red">*</font></TD>
+        <TD bgcolor="#FFFFFF">
+			<input type="text" name="txtIssueDt" id="txtIssueDt" style="width:80px" class="textfield"  value="<?php print getValue(@$_POST["txtIssueDt"]);?>" /> 
+              <a href="javascript:show_calendar('frmAddUser.txtIssueDt');" onmouseover="window.status='Date Picker';return true;" onmouseout="window.status='';return true;" > 
+              <IMG id=dimg1 align=top border=0 src="<?=$_DIR['site']['adminurl']?>images/show-calendar.gif" style="POSITION: relative"></a>
+		</TD>
+      </TR>
+	 <TR> 
+        <TD bgcolor="#FFFFFF" class="text12">Expiry Date: <font color="red">*</font></TD>
+        <TD bgcolor="#FFFFFF">
+			  <input type="text" name="txtExpDate" id="txtExpDate" style="width:80px" class="textfield"  value="<?php print getValue(@$_POST["txtExpDate"]);?>" /> 
+              <a href="javascript:show_calendar('frmAddUser.txtExpDate');" onmouseover="window.status='Date Picker';return true;" onmouseout="window.status='';return true;" > 
+              <IMG id=dimg1 align=top border=0 src="<?=$_DIR['site']['adminurl']?>images/show-calendar.gif" style="POSITION: relative"></a>
+		</TD>
+      </TR>
+	 <TR> 
+        <TD bgcolor="#FFFFFF" class="text12">Select Action: <font color="red">*</font></TD>
+		 <TD bgcolor="#FFFFFF" class="text12" colspan="">
+			<select name="cmbStatus" width="40%">
+				<option value="">Select Status</option>
+				<?=$memstatus;?>
+			  </select></TD>
+		</TR>
+		  
+		  
+		  
+		  
+	  <TR>
+        <TD align="center" bgcolor="#F4F1CC" colspan="2"><INPUT type="submit" value="Submit" name="Input" class="sbutton">   <INPUT type="reset" value="Reset" name="Reset" class="sbutton"></TD>
+     </TR>	 
+	 </form>  
+  </TABLE>

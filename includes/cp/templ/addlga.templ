@@ -1,0 +1,32 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+<form name="frmlocation" action="<?php print $_SERVER["PHP_SELF"];?>" method="post" >
+  <TABLE align="left" class="t_content_bg" cellSpacing=1 cellPadding=5 width="600" border=0 bgcolor="#B7E6CC">
+    <TBODY>
+		<TR>
+			<TD class=text12 colspan="2" align="left" bgcolor="#B7E6CC"><strong>Adding New LGA 
+			Information</strong><br>
+			</TD>
+		</TR>  
+		<TR>
+			<TD bgcolor="#FFFFFF" class="text12" width="40%">Select the LGA's State: <font color="red">*</font></TD>
+			<TD bgcolor="#FFFFFF" class=t_content_cell2_bg>
+			<select name="cmbCurr">
+					<option value="">Select State</option>
+					<?=$currency?>
+				  </select>				
+			</TD>
+		</TR>
+		<?php  for($i=0;$i<5;$i++){ ?>
+		<TR> 
+			<TD bgcolor="#FFFFFF" class="text12" width="40%"> <?php if($i==0){ ?>Enter LGA Name: <font color="red">*</font><?php } ?></TD>
+			<TD bgcolor="#FFFFFF" class=t_content_cell2_bg><input name="txtName[]" type="text" id="txtName[]" class="textfield" value="<?=$_POST["txtName"][$i]?>" maxlength="50">				
+			</TD>
+		</TR>
+		<?php  } ?>
+		  <TR> 			   
+		   <TD bgcolor="#FFFFFF" colspan="2" align="center"><INPUT type="submit" class="sbutton" value="Submit" name="Input"> <INPUT type="reset" value="Reset" name="Reset" class="sbutton"></TD>
+		  </TR>
+	 </TBODY>
+		  </TABLE>  		   
+	 </form>  

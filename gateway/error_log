@@ -1,0 +1,19 @@
+[26-Mar-2010 04:24:08] PHP Parse error:  syntax error, unexpected T_IF in /home/visionlo/public_html/gateway/apiexc.php on line 184
+[26-Mar-2010 04:26:30] PHP Parse error:  syntax error, unexpected T_IF in /home/visionlo/public_html/gateway/apiexc.php on line 184
+[26-Mar-2010 04:27:04] PHP Parse error:  syntax error, unexpected T_IF in /home/visionlo/public_html/gateway/apiexc.php on line 184
+[26-Mar-2010 04:27:07] PHP Parse error:  syntax error, unexpected T_IF in /home/visionlo/public_html/gateway/apiexc.php on line 184
+[08-May-2010 10:53:35] PHP Parse error:  syntax error, unexpected $end in /home/visionlo/public_html/gateway/apiauth.php on line 58
+[08-May-2010 10:56:32] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /home/visionlo/public_html/gateway/apiauth.php on line 16
+[08-May-2010 11:09:15] PHP Fatal error:  Call to a member function RecordCount() on a non-object in /home/visionlo/public_html/gateway/apiauth.php on line 27
+[08-May-2010 13:52:29] PHP Fatal error:  Call to a member function RecordCount() on a non-object in /home/visionlo/public_html/gateway/apiauth.php on line 30
+[08-May-2010 13:52:32] PHP Fatal error:  Call to a member function RecordCount() on a non-object in /home/visionlo/public_html/gateway/apiauth.php on line 30
+[08-May-2010 13:53:04] PHP Fatal error:  Call to a member function RecordCount() on a non-object in /home/visionlo/public_html/gateway/apiauth.php on line 30
+[08-May-2010 13:54:33] PHP Fatal error:  Call to a member function RecordCount() on a non-object in /home/visionlo/public_html/gateway/apiauth.php on line 30
+[08-May-2010 13:54:33] PHP Fatal error:  Call to a member function RecordCount() on a non-object in /home/visionlo/public_html/gateway/apiauth.php on line 30
+[08-May-2010 13:54:48] PHP Fatal error:  Call to a member function RecordCount() on a non-object in /home/visionlo/public_html/gateway/apiauth.php on line 30
+[08-May-2010 13:55:02] PHP Fatal error:  Call to a member function RecordCount() on a non-object in /home/visionlo/public_html/gateway/apiauth.php on line 30
+[08-May-2010 13:55:22] PHP Fatal error:  Call to a member function RecordCount() on a non-object in /home/visionlo/public_html/gateway/apiauth.php on line 30
+[08-May-2010 13:55:50] PHP Fatal error:  Call to a member function RecordCount() on a non-object in /home/visionlo/public_html/gateway/apiauth.php on line 30
+[03-Jun-2010 09:22:49] PHP Fatal error:  Call to a member function MoveNext() on a non-object in /home/visionlo/public_html/gateway/apitikhist.php on line 22
+[18-Jan-2012 11:40:17] PHP Fatal error:  Call to a member function Execute() on a non-object in /home/visionlo/public_html/gateway/nairasql.php on line 100
+[18-Jan-2012 11:40:44] PHP Fatal error:  Call to a member function Execute() on a non-object in /home/visionlo/public_html/gateway/afrosql.php on line 273

@@ -1,0 +1,45 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+<?php if(!$_POST["cmbGateway"] == "") { ?>
+<TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="100%" border=0 id="IdReg">
+<tr valign="top"><td height="350"> 
+<TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="80%" border=0 bgcolor="#cccccc">
+  <form name="frmAddUser" action="<?=@$_SERVER["REQUEST_URI"]?>" method="post" enctype="multipart/form-data">
+    <TBODY>	
+	 <TR>
+          <TD class="text2" colspan="3" align="left" bgcolor="#FFFFFF"><strong>Clickatell SMS Setting</strong><br></TD>
+     </TR>
+	 <?php
+		 $i=1;
+		 $_sql="SELECT setting_id,gateway_id,param_code,param_desc,param_value
+			   FROM sms_setting WHERE gateway_id='".trim($_POST['cmbGateway'])."'";
+			$rs = $_CONN->Execute($_sql);
+			while(!$rs->EOF) {
+				$_POST["hidSite"][$i]				= $rs->fields["setting_id"];
+				$_POST['txtParamCode'][$i]     		= $rs->fields["param_code"];
+				$_POST['txtParmDesc'][$i]		  	= $rs->fields["param_desc"];
+				$_POST['txtParmValue'][$i]	   		= $rs->fields["param_value"]; 
+	 ?>
+	 <TR> 
+        <TD bgcolor="#FFFFFF" width="15%" align="center" class="text13"><?= getValue($_POST["txtParamCode"][$i]);?></TD>
+        <TD bgcolor="#FFFFFF" class="text13"><input type="text" name="txtParmDesc[]" class="textfield" id="txtParmDesc[]" value="<?=getValue($_POST["txtParmDesc"][$i]);?>" size="35"></TD>
+		<td bgcolor="#FFFFFF"><input type="text" name="txtParmValue[]" class="textfield" id="txtParmValue[]" value="<?=getValue($_POST["txtParmValue"][$i]);?>" size="35">
+			<input type="hidden" name="hidSite[]" value="<?=$_POST['hidSite'][$i]?>">
+		</td>
+      </TR>
+	  <?php 	$i++;
+	  			$rs->MoveNext();
+	  		} 
+			if($rs)
+				$rs->close();
+	  ?>
+	  <TR>
+        <TD align="center" bgcolor="#FFFFFF" colspan="3">
+		<INPUT type="submit" value="Update" name="Input" class="sbutton">
+		<INPUT type="reset" value="Reset" name="Reset" class="sbutton"></TD>
+     </TR>	 
+	 </form>  
+  </TABLE> 
+  </td></tr>
+</table>
+<?php } ?>

@@ -1,0 +1,4 @@
+[08-Mar-2010 02:48:49] PHP Fatal error:  Uncaught exception 'DOMPDF_Exception' with message 'Access to dompdf.php via non-cli SAPI has been deprecated due to security concerns.  Please use the dompdf class directly.' in /home/visionlo/public_html/secure_admin/cp/dompdf/dompdf.php:269
+Stack trace:
+#0 {main}
+  thrown in /home/visionlo/public_html/secure_admin/cp/dompdf/dompdf.php on line 269

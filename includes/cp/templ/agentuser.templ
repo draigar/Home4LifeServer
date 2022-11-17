@@ -1,0 +1,147 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+
+<table width="95%" border="0" class="t_content_bg" cellSpacing=0 cellPadding=0 align="center">
+	<form name="frmSearch" action="<?=$_SERVER['REQUEST_URI']?>" method="post">
+			<TR>
+			<td colspan="4" align="center" bgcolor="#FFFFFF">
+			<table border=0 class="t_content_bg" cellSpacing=1 cellPadding=1  bgcolor="#B7E6CC">
+          <tr> 
+            <td colspan="4" align="center" height="20px" bgcolor="#B7E6CC" class="text12"><b>To 
+              view all agents, please leave the field blank.</b></td>
+          </tr>
+          <tr align="center"> 
+            <TD class="text12" bgcolor="#FFFFFF" align="left">First Name:</TD>
+            <TD align="left" bgcolor="#FFFFFF" class="searchbox"><div align="left"> 
+                <input name="txtFirst" class="textfield" size="20" type="text" id="txtFirst" value="<?php print getValue(@$_POST["txtFirst"]); ?>">
+              </div></TD>
+            <TD class="text12" width="140" bgcolor="#FFFFFF" align="left">Last 
+              Name</TD>
+            <TD align="left" width="170" bgcolor="#FFFFFF" class="searchbox"> <div align="left"> 
+                <input name="txtLast" class="textfield" size="20" type="text" id="txtLast" value="<?php print getValue(@$_POST["txtLast"]); ?>">
+              </div></TD>
+          </TR>
+          <tr> 
+            <TD class="text12" width="140" bgcolor="#FFFFFF" align="left">Email 
+              Address </TD>
+            <TD align="center" bgcolor="#FFFFFF" width="170" class="searchbox"> <div align="left"> 
+                <input name="txtEmail" class="textfield" size="20" type="text" id="txtEmail" value="<?php print getValue(@$_POST["txtEmail"]); ?>">
+              </div></TD>
+            <TD class="text12" width="140" bgcolor="#FFFFFF" align="left">Business 
+              Name  </TD>
+            <TD align="center" bgcolor="#FFFFFF" width="170" class="searchbox"> <div align="left"> 
+                <input name="txtBName" class="textfield" size="20" type="text" id="txtBName" value="<?php print getValue(@$_POST["txtBName"]); ?>">
+              </div></TD>
+          </TR>
+          <tr> 
+            <TD class="text12" width="140" bgcolor="#FFFFFF" align="left">Status </TD>
+            <TD align="center" bgcolor="#FFFFFF" class="searchbox"> <div align="left"> 
+                <select name="cmbPosition">
+                  <option value="">Select Type</option>
+                  <option value="A" <?=$_POST["cmbPosition"]=="A"?"selected":""?>>Approved</option>
+                  <option value="S" <?=$_POST["cmbPosition"]=="S"?"selected":""?>>Suspend</option>
+                </select>
+              </div></TD>
+			 
+            <TD class="text12" width="140" bgcolor="#FFFFFF" align="left">Agent 
+              ID  </TD>
+            <TD align="center" bgcolor="#FFFFFF" width="170" class="searchbox"> <div align="left"> 
+                <input name="txtMerID" class="textfield" size="20" type="text" id="txtMerID" value="<?php print getValue(@$_POST["txtMerID"]); ?>">
+              </div></TD> 
+          </TR>
+		  <tr> 
+            <TD class="text12" width="140" bgcolor="#FFFFFF" align="left">Initial </TD>
+            <TD align="center" bgcolor="#FFFFFF" class="searchbox"> <div align="left"> 
+                <select name="cmbInitial">
+                  <option value="">Select Initial</option>
+                  <?php for($i=A;$i<Z;$i++){  ?>
+				  <option value="<?=$i?>" <?php echo $_POST['cmbInitial']==$i?"selected":""; ?>><?=$i?></option>
+                  <?php  } ?>
+				  <option value="Z">Z</option>
+                </select>
+              </div></TD>
+			 
+            <TD class="text12" width="140" colspan="2" bgcolor="#FFFFFF" align="center">   </TD>
+          </TR>
+          <tr> 
+            <TD colspan="4" align="center" bgcolor="#F4f1cc" class="text12"> <input type="submit" name="Submit1" value="Search Record" class="sbutton"></TD>
+          </TR>
+        </table>
+			</td>
+			</tr>
+			</form>			
+</table>
+
+<?php
+$extraParamInUrl = "num=".@$_POST["num"]."&nid=".@$_POST["nid"]."&id=".@$_POST["id"]."&txtMerID=".@$_POST["txtMerID"]."&txtFirst=".@$_POST["txtFirst"]."&txtLast=".@$_POST["txtLast"]."&txtEmail=".@$_POST["txtEmail"]."&txtBName=".@$_POST["txtBName"]."&cmbPosition=".@$_POST["cmbPosition"];
+//Define HEADER
+$_HEADER = "
+<TH class='t_header_cell_bg'>".getHead("agentuser","merchant_id","Agent ID",$extraParamInUrl)."</TH>
+<TH class='t_header_cell_bg' align='center'>".getHead("agentuser","fname","Contact Name",$extraParamInUrl)."</TH>
+<TH class='t_header_cell_bg' align='center'>".getHead("agentuser","business_name","Business Name",$extraParamInUrl)."</TH>
+<TH class='t_header_cell_bg' align='center'>".getHead("agentuser","email","Email ID",$extraParamInUrl)."</TH>
+<TH class='t_header_cell_bg'>".getHead("agentuser","merchant.status","Status",$extraParamInUrl)."</TH>
+<TH class='t_header_cell_bg'>".getHead("agentuser","acc_create_date","Account Date",$extraParamInUrl)."</TH>
+<TH class='t_header_cell_bg' colspan='3'>Action</TH>";
+
+if(count($pageAndData['results'])>0 && is_array($pageAndData['results']))
+	{
+?>
+    <br><br>
+<div style="overflow:auto;width:100%;padding-bottom:10px;position:relative;"> 
+  <TABLE width="95%" align="center" class=t_list_bg cellSpacing=1 cellPadding=2 bgcolor="#B7E6CC">
+    <?=$_HEADER?>
+    <?
+	foreach($pageAndData['results'] as $key => $val)
+		{
+			$rowbgcolor ="#FFFFFF";
+?>
+    <tr bgcolor="<?=@$rowbgcolor?>"> 
+      <td width="10%" align="center" class="text13"><a href="#" class="menu1" onclick="javascript:openUrl('<?=$val['user_id']?>');"> 
+        <?=@$val['user_id']?>
+        </a></td>
+      <td width="20%" class="text13" align="center"> 
+        <?=stripslashes(@$val['name'])?>
+      </td>
+      <td width="25%" class="text13" align="center"> 
+        <?=stripslashes(@$val['business_name'])?>
+      </td>
+      <td width="15%" class="text13" align="center"> 
+        <?=stripslashes(@$val['email'])?>
+      </td>
+      <td width="10%" class="text13" align="center"> 
+        <?php if($val['status']=='I'){ echo "Pending"; } elseif($val['status']=='A') { echo "Active"; } else { echo "Suspend"; } ?>
+      </td>
+      <td width="20%" class="text13" align="center"> 
+        <?=@$val['acc_create_date']?>
+      </td>
+      <?php if($val['status']=="S") { ?>
+      <td align="center"bgcolor="F4F1CC"><a  class="menu1" href="javascript:if(confirm('Are you sure you want to active this status ?')) { location.href='<?=$_DIR['site']['adminurl'].'agentuser.php?act'.$_DELIM.'app&mid'.$_DELIM.@$val['user_id']?>'; }">Active</a></td>
+      <?php } elseif($val['status']=="A"){ ?>
+      <td align="center"bgcolor="F4F1CC"><a  class="menu1" href="javascript:if(confirm('Are you sure you want to suspend this status ?')) { location.href='<?=$_DIR['site']['adminurl'].'agentuser.php?act'.$_DELIM.'susp&mid'.$_DELIM.@$val['user_id']?>'; }">Suspend</a></td>
+      <?php } elseif($val['status']=="S"){ ?>
+      <td align="center"bgcolor="F4F1CC"><a  class="menu1" href="javascript:if(confirm('Are you sure you want to active this status ?')) { location.href='<?=$_DIR['site']['adminurl'].'agentuser.php?act'.$_DELIM.'apppp&mid'.$_DELIM.@$val['user_id']?>'; }">Active</a></td>
+      <?php } ?>
+      <td width="5%" align="center"bgcolor="F4F1CC"><a href="<?=$_DIR['site']['adminurl']."editagentuser".$atend."mid".$_DELIM.@$val['user_id'].$baratend?>" class="menu1">Edit</a></td>
+      <td width="5%" align="center"bgcolor="F4F1CC"><a href="javascript:if(confirm('Are you sure you want to delete record ?')) { location.href='<?=$_DIR['site']['adminurl'].'agentuser'.$atend.'act'.$_DELIM.'del'.$baratend.'mid'.$_DELIM.@$val['user_id'].$baratend?>'; }" class="menu1">Cancel</a></td>
+    </tr>
+    <?
+			unset($rowbgcolor);
+			unset($firstletterofStat);
+		}
+?>
+  </table>
+</div>
+<?
+//Display Pagination here
+print @$pageAndData['paginationbuttonHTML2'];
+	}
+	else 
+		print "<br><DIV class=text2 align=center>Sorry system could not found any record(s) in database.</DIV><br><br>";
+?>	
+<script>
+function openUrl(uID){	
+	szUrl = "view_allmerch_detail.php?id="+uID;
+	window.open(szUrl,"_vOds","height=600, width=700, left=100, top=10, location=no,menubar=no,resizable=yes,scrollbars=yes,status=no");
+}
+</script>

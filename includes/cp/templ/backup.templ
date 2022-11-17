@@ -1,0 +1,18 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+<TABLE cellSpacing=1 cellPadding=2 width="95%" border="0" align="center">
+ <TR>
+    <TD class="t_content_cell2_bg" align="center" width="100%" height="120">
+
+<TABLE border="0" width="60%" height="70" class="t_content_bg" cellSpacing=1 cellPadding=5 align="center" bgcolor="#CCCCCC" align="center">
+  <form name="frmSearch" action="<?=@$_SERVER["REQUEST_URI"]?>" method="post" >
+	 <tr>
+	 	 <td colspan="3" align="center" bgcolor="#FFFFFF">
+		 <a href="<?=$_DIR['site']['adminurl']?>takebackup.php" class="menu1">Click here to take backup of complete <?=$_WEBSITENAME?> site database.</a></td>   
+	</tr>	 
+</form>
+</TABLE> 
+
+	</td>   
+	</tr>	 
+</TABLE>

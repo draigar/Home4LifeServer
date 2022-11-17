@@ -1,0 +1,66 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+<?php
+//Define HEADER
+$_HEADER = "<TH class='t_header_cell_bg'>".getHead("state","stateid","State ID")."</TH>
+
+<TH class='t_header_cell_bg'>".getHead("state","state_name","State Name")."</TH>
+<TH class='t_header_cell_bg'>".getHead("state","last_update","Last Updated Date")."</TH>
+<TH class='t_header_cell_bg'>".getHead("state","create_date","Created Date")."</TH>
+<TH class='t_header_cell_bg' colspan='2'>Action</TH>";
+
+if(count($_MSG)>1) { 
+?>
+<TABLE cellSpacing=1 cellPadding=2 width="100%" border=0>
+<TBODY>
+  <TR> 
+		<TD align="center" valign="top">
+		<FONT face="Verdana, Arial, Helvetica, sans-serif" size=1>
+		<?PHP	
+		foreach($_MSG as $value)
+		{
+			if(strlen(trim($value))>0)
+					print $value."<br>";
+		}
+	    ?></FONT><br></TD>
+	  </TR>
+	  
+</TBODY>
+<?
+} 
+?>
+
+<?
+	if(count($pageAndData['results'])>0 && is_array($pageAndData['results']))
+		{
+?>
+    <?php if (!empty($_SORTINGSTATUS)) {
+print "<strong>".$_SORTINGSTATUS."</strong>";
+?>
+<?php } ?>
+	<TABLE width="100%" align="center" class=t_list_bg cellSpacing=1 cellPadding=2 bgcolor="#B7E6CC"><?=$_HEADER?>
+<?
+	foreach($pageAndData['results'] as $key => $val)
+		{
+			$rowbgcolor = "FFFFFF";
+?> 
+			<tr bgcolor="<?=@$rowbgcolor?>"><td align="right" align="center"><?=@$val['stateid']?></td>
+		
+			<td class="text13" align="center"><?=@$val['state_name']?></td>
+			<td class="text13" align="center"><?=@$val['createdate']?></td>
+			<td class="text13" align="center"><?=@$val['lastupdate']?></td>
+			<td align="center"><a href="<?=$_DIR['site']['adminurl']."editstate.php?id".$_DELIM.@$val['stateid']?>" class="menu1">Edit</a></td>
+			<td align="center"><a href="javascript:if(confirm('Are you sure you want to delete record ?')) { location.href='<?=$_DIR['site']['adminurl']."state.php?act".$_DELIM."del&id".$_DELIM.@$val['stateid']?>'; }" class="menu1">Delete</a></td></tr>
+<?
+			unset($rowbgcolor);
+			unset($firstletterofStat);
+		}
+?>
+	</table>
+<?
+	//Display Pagination here
+	print @$pageAndData['paginationbuttonHTML2'];
+	}else{ 
+	  		print "<br><font color='red' size=3 ><strong>There are no state records in the database.</strong></font><br>";	
+	}
+?>

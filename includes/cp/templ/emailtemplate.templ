@@ -1,0 +1,119 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+<!-- TinyMCE -->
+<script type="text/javascript" src="<?=$_DIR['site']['adminurl']?>jscripts/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript" src="<?=$_DIR['site']['adminurl']?>jscripts/tiny_mce/plugins/tinybrowser/tb_tinymce.js.php"></script>
+<script type="text/javascript">
+	tinyMCE.init({
+		// General options
+		mode : "textareas",
+		theme : "advanced",
+		file_browser_callback: "tinybrowser",
+		plugins : "safari,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,file,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template",
+
+		// Theme options
+		theme_advanced_buttons1 : "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect",
+		theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
+		theme_advanced_buttons3 : "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen",
+		theme_advanced_buttons4 : "insertlayer,moveforward,movebackward,absolute,|,styleprops,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,pagebreak,file",
+		theme_advanced_toolbar_location : "top",
+		theme_advanced_toolbar_align : "left",
+		theme_advanced_statusbar_location : "bottom",
+		theme_advanced_resizing : true,
+
+		// Example content CSS (should be your site CSS)
+		content_css : "<?=$_DIR['site']['adminurl']?>css/content.css",
+		
+		setup : function(ed) {
+		  // Register example button
+		  ed.addButton('file', {
+				 title : 'File',
+				 image : '<?=$_DIR['site']['adminurl']?>jscripts/tiny_mce/plugins/file/img/insertfile.gif',
+				 onclick : function() {
+					ed.windowManager.open({
+						file : '<?=$_DIR['site']['adminurl']?>jscripts/tiny_mce/plugins/file/file.htm',
+						width : 480 + parseInt(ed.getLang('advimage.delta_width', 0)),
+						height : 385 + parseInt(ed.getLang('advimage.delta_height', 0)),
+						inline : 1
+					}, {
+						plugin_url : '<?=$_DIR['site']['adminurl']?>jscripts/tiny_mce/plugins/file/'
+					});					
+				 }
+		  });
+		 },
+
+		// Drop lists for link/image/media/template dialogs
+		template_external_list_url : "lists/template_list.js",
+		external_link_list_url : "lists/link_list.js",
+		external_image_list_url : "lists/image_list.js",
+		media_external_list_url : "lists/media_list.js",
+
+		// Replace values for the template plugin
+		template_replace_values : {
+			username : "Some User",
+			staffid : "991234"
+		}
+	});
+</script>
+<!-- /TinyMCE -->
+<TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="100%" border=0>
+	<tr>
+  		<td colspan="2" align="center"><?= $_MSG[7] ?></td>
+  	</tr>
+</table>
+
+<TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="95%" border=0 bgcolor="#999999">
+  <form name="frmPage" action="<?php print $_SERVER["REQUEST_URI"];?>" method="post" >
+    <TBODY>
+      <TR> 
+        <TD  bgcolor="FFFFFF" class="text12" width="30%">Email Template: <font color="red">*</font></TD>
+		<TD  bgcolor="FFFFFF" class="text12" width="80%">
+			<SELECT size=1 name="cmbPage" onchange="submit()">
+				<option value="">Select Template</option>
+				<?PHP print $page; ?>
+			</SELECT>
+		</TD>
+      </TR>
+	  <TR> 
+        <TD  bgcolor="FFFFFF" class="text12" width="30%">Subject: <font color="red">*</font></TD>
+		<TD  bgcolor="FFFFFF" class="text12" width="80%"><input name="txtSubject" size="38" class="textfield" type="text" id="txtSubject" value="<?php print getValue(@$_POST["txtSubject"]); ?>" maxlength="255">
+		</TD>
+      </TR>      
+	  <TR> 
+        <TD class="text3" bgcolor="#FFFFFF" colspan="2">Template Format: <font color="red">*</font></TD>
+      </TR>      
+	  <TR> 
+        <TD class=text3 colspan="2" bgcolor="#FFFFFF">
+		<textarea name="pageContent" id="pageContent"><?php print getValue(@$_POST["pageContent"]); ?></textarea>
+		</TD>
+      </TR> 
+	  <TR> 
+        <TD class="text3" bgcolor="#FFFFFF" colspan="2">Header Content: </TD>
+      </TR>
+	  <TR> 
+        <TD class=text3 colspan="2" bgcolor="#FFFFFF">
+		<textarea name="headerContent" id="headerContent"><?php print getValue(@$_POST["headerContent"]); ?></textarea>
+</TD>
+      </TR>  
+	  <TR> 
+        <TD class="text3" bgcolor="#FFFFFF" colspan="2">Footer Content: </TD>
+      </TR> 
+	  <TR> 
+        <TD class=text3 colspan="2" bgcolor="#FFFFFF">
+		<textarea name="footerContent" id="footerContent"><?php print getValue(@$_POST["footerContent"]); ?></textarea>
+</TD>
+      </TR> 
+	  <TR> 
+        <TD  bgcolor="FFFFFF" class="text12">Sent copy to admin: </TD>
+		<TD  bgcolor="FFFFFF" class="text12"><input type="checkbox" name="chkDisplay" class="textfield" value="Y" <?PHP print $_POST["chkDisplay"]=="Y" ? "checked" : ""; ?>>
+		</TD>
+      </TR>      
+  
+	  <TR>
+         <TD align="center" bgcolor="#FFFFFF" colspan="2">
+		 <INPUT type="submit" value="Save" name="Input" class="sbutton"> 
+		 <INPUT type="reset" value="Reset" name="Reset" class="sbutton"></TD>
+      </TR>
+	  </TBODY>
+	  </form>
+  </TABLE>

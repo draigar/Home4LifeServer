@@ -1,0 +1,22 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+<TABLE cellSpacing=1 cellPadding=2 width="95%" border="0" align="center">
+ <TR>
+    <TD class="t_content_cell2_bg" align="center" width="100%">
+<br />		  
+<TABLE border="0" width="60%" class="t_content_bg" cellSpacing=1 cellPadding=5 align="center" bgcolor="#CCCCCC" align="center">
+  <form name="frmSearch" action="<?=@$_SERVER["REQUEST_URI"]?>" method="post" enctype="multipart/form-data">
+	 <TR>
+          <TD class="text12" bgcolor="#FFFFFF">Select File <font color='red'>*</font></TD>
+		  <TD class="t_content_cell2_bg" bgcolor="#FFFFFF"><input type="file" name="backup_file" id="backup_file" value=""></TD>
+     </TR>
+	 <tr>
+	 	 <td colspan="2" align="center" bgcolor="#FFFFFF">
+		 <input type="submit" name="submit" value="Restore Database" class="sbutton"></td>   
+	</tr>	 
+</form>
+</TABLE> 
+
+	</td>   
+	</tr>	 
+</TABLE>

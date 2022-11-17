@@ -1,0 +1,20 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+<TABLE align="left" class="t_content_bg" cellSpacing=1 cellPadding=5 width="45%" border=0 bgcolor="#B7E6CC">
+<form name="frmCountry" action="<?=$_SERVER["REQUEST_URI"]?>" method="post">
+    <TBODY>
+<TR>
+       		
+        <TD class=text12 colspan="2" align="left" bgcolor="#B7E6CC"><strong>Edit State 
+          Information</strong><br></TD>
+       </TR> 
+      <TR> 
+        <TD class="text12" width="50%" bgcolor="#FFFFFF">State Name: <font color="red">*</font></TD>
+        <TD class=t_content_cell2_bg bgcolor="#FFFFFF"><input name="txtName" class="textfield" type="text" id="txtName" value="<?php print getValue($_POST["txtName"]); ?>" maxlength="50"></TD>
+      </TR> 
+      <TR>
+        <TD colspan="2" align="center" bgcolor="#F4f1cc"><INPUT type="submit" value="Update State" name="Input" class="sbutton"></TD>
+      </TR>
+	  </TBODY> </form> 
+  </TABLE>  
+  

@@ -1,0 +1,167 @@
+BODY
+
+{
+
+}
+
+.daybg
+
+{
+
+    BACKGROUND-COLOR: #006633
+
+}
+
+.tablebg
+
+{
+
+    BACKGROUND-COLOR: #e0e0e0
+
+}
+
+.datebg
+
+{
+
+    FONT-WEIGHT: bold;
+
+    FONT-SIZE: 11px;
+
+    TEXT-TRANSFORM: uppercase;
+
+    COLOR: #003366;
+
+    FONT-FAMILY: Verdana, Arial;
+
+    BACKGROUND-COLOR: #ffffff
+
+}
+
+.sun
+
+{
+
+    FONT-WEIGHT: bold;
+
+    FONT-SIZE: 11px;
+
+    TEXT-TRANSFORM: uppercase;
+
+    COLOR: #cc0000;
+
+    FONT-FAMILY: Verdana, Arial
+
+}
+
+TD
+
+{
+
+    FONT-WEIGHT: bold;
+
+    FONT-SIZE: 11px;
+
+    TEXT-TRANSFORM: uppercase;
+
+    COLOR: #8c8861;
+
+    FONT-FAMILY: Verdana, Arial
+
+}
+
+.days
+
+{
+
+    FONT-WEIGHT: bold;
+
+    FONT-SIZE: 12px;
+
+    TEXT-TRANSFORM: uppercase;
+
+    COLOR: #003366;
+
+    FONT-FAMILY: Verdana, Arial
+
+}
+
+.year
+
+{
+
+    FONT-WEIGHT: bold;
+
+    FONT-SIZE: 12px;
+
+    TEXT-TRANSFORM: uppercase;
+
+    COLOR: #003366;
+
+    FONT-FAMILY: Verdana, Arial
+
+}
+
+.2day
+
+{
+
+    FONT-WEIGHT: bold;
+
+    FONT-SIZE: 12px;
+
+    TEXT-TRANSFORM: uppercase;
+
+    COLOR: #8c8861;
+
+    FONT-FAMILY: Verdana, Arial
+
+}
+
+.topsep
+
+{
+
+    BACKGROUND-COLOR: #999999
+
+}
+
+.currentday
+
+{
+
+    FONT-WEIGHT: bold;
+
+    FONT-SIZE: 11px;
+
+    TEXT-TRANSFORM: uppercase;
+
+    COLOR: #003366;
+
+    FONT-FAMILY: Verdana, Arial
+
+}
+td {
+	font-size: 10px;
+	color: #000000;
+}
+.text2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #000000;
+}
+.text3 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #000000;
+}
+.text4 {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 15px;
+	font-weight: bold;
+	color: #000000;
+}
+
+

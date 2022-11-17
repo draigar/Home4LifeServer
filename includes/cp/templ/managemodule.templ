@@ -1,0 +1,148 @@
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>  
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<!-- TinyMCE -->
+<script type="text/javascript" src="jscripts/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript" src="jscripts/tiny_mce/plugins/tinybrowser/tb_tinymce.js.php"></script>
+<script type="text/javascript">
+	tinyMCE.init({
+		// General options
+		mode : "textareas",
+		theme : "advanced",
+		file_browser_callback: "tinybrowser",
+		plugins : "safari,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,file,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template",
+
+		// Theme options
+		theme_advanced_buttons1 : "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect",
+		theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
+		theme_advanced_buttons3 : "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen",
+		theme_advanced_buttons4 : "insertlayer,moveforward,movebackward,absolute,|,styleprops,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,pagebreak,file",
+		theme_advanced_toolbar_location : "top",
+		theme_advanced_toolbar_align : "left",
+		theme_advanced_statusbar_location : "bottom",
+		theme_advanced_resizing : true,
+
+		// Example content CSS (should be your site CSS)
+		content_css : "css/content.css",
+		
+		setup : function(ed) {
+		  // Register example button
+		  ed.addButton('file', {
+				 title : 'File',
+				 image : 'jscripts/tiny_mce/plugins/file/img/insertfile.gif',
+				 onclick : function() {
+					ed.windowManager.open({
+						file : 'jscripts/tiny_mce/plugins/file/file.htm',
+						width : 480 + parseInt(ed.getLang('advimage.delta_width', 0)),
+						height : 385 + parseInt(ed.getLang('advimage.delta_height', 0)),
+						inline : 1
+					}, {
+						plugin_url : 'jscripts/tiny_mce/plugins/file/'
+					});					
+				 }
+		  });
+		 },
+
+		// Drop lists for link/image/media/template dialogs
+		template_external_list_url : "lists/template_list.js",
+		external_link_list_url : "lists/link_list.js",
+		external_image_list_url : "lists/image_list.js",
+		media_external_list_url : "lists/media_list.js",
+
+		// Replace values for the template plugin
+		template_replace_values : {
+			username : "Some User",
+			staffid : "991234"
+		}
+	});
+</script>
+<!-- /TinyMCE -->
+<script language="javascript1.2">
+function check(obj) {
+  if(obj.selectedIndex!=1) document.frmPage.submit();
+  else document.getElementById('note').innerHTML="<i>Add New Module.</i>"; 
+}
+</script>
+<TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="70%" border=0 bgcolor="#999999">
+  <form name="frmPage" action="<?php print $_SERVER["REQUEST_URI"];?>" method="post" >
+    <TBODY>
+		<TR> 
+        <TD  bgcolor="FFFFFF" class="t_content_cell_bg" width="20%">Module Name:</td>
+			<td bgcolor="FFFFFF" width="80%"><strong>
+			<SELECT name="cmbaddpage" onchange="check(this)">
+				<option value="">Choose Module</option>
+				<option value="-1"<?php echo $_POST['cmbaddpage']==-1?"selected":""; ?>>New Module</option>
+				<?php   
+				$_sql="select module_id,name from module order by module_id";
+				$rs=$_CONN->Execute($_sql);
+			    while(!$rs->EOF) {
+					echo "<option value='".$rs->fields["module_id"]."' ".($_POST["cmbaddpage"]==$rs->fields["module_id"]?"selected":"").">".$rs->fields["module_id"]." - ".stripslashes($rs->fields["name"])."</option>";					
+					$rs->MoveNext();
+				}
+				if($rs)
+				  $rs->close();
+				  
+				?>
+			</SELECT>
+          </strong><span id="note" style="margin-left:10px;font-size:12px"><i>Choose 
+          Module To Edit.</i></span></TD>
+      </TR>	   
+      <TR> 
+        <TD  bgcolor="FFFFFF" class="t_content_cell_bg">Module Title: <font color="red">*</font> 
+        </td>
+		<td bgcolor="FFFFFF"><strong>
+		<input type="text" name="txtpage" value="<?php print getValue(@$_POST["txtpage"]); ?>" maxlength="60" size="83">
+		</strong></TD>
+      </TR>
+	  <TR> 
+        <TD bgcolor="FFFFFF" class="t_content_cell_bg" colspan="2">Module Content: 
+          <font color="red">*</font> </TD>
+      </TR>      
+	  <TR> 
+        <TD bgcolor="FFFFFF" class="t_content_cell_bg" colspan="2" align="center">
+		<textarea name="pageContent" id="pageContent" style="height:200px;"><?php print getValue(@$_POST["pageContent"]); ?></textarea>		
+	  </TD>
+      </TR>
+	  <TR> 
+        <TD  bgcolor="FFFFFF" class="t_content_cell_bg">Publish: </td>
+		<td bgcolor="FFFFFF">
+		<input type="radio" name="chkDispayIn" value="Y" <?php print $_POST['chkDispayIn']=="Y"? "checked" :""; ?>> Yes
+		<input type="radio" name="chkDispayIn" value="N" <?php print (!$_POST['chkDispayIn'] || $_POST['chkDispayIn']=="N")? "checked" :""; ?>> No
+		</TD>
+      </TR>
+	  <TR> 
+       		 <TD  bgcolor="FFFFFF" class="t_content_cell_bg" width="20%">Link To:</td>
+			<td bgcolor="FFFFFF" width="80%"><SELECT size=1 name="cmbaddpage1" id="cmbaddpage1">
+				<option value="">Select Page</option>
+			<?php
+				$_sql="select page_id,name from page where parent_id=0 ORDER BY page_id";
+				$rs=$_CONN->Execute($_sql);
+				while(!$rs->EOF) {
+					echo "<option value='".$rs->fields["page_id"]."' ".($_POST["cmbaddpage1"]==$rs->fields["page_id"]?"selected":"").">".($rs->fields["page_id"]==1?"Home":stripslashes($rs->fields["name"]))."</option>";
+					$_sql="select page_id,name from page where parent_id='".$rs->fields["page_id"]."'";
+					$rs1=$_CONN->Execute($_sql);
+					while(!$rs1->EOF) {
+						echo "<option value='".$rs1->fields["page_id"]."' ".($_POST["cmbaddpage1"]==$rs1->fields["page_id"]?"selected":"").">--".stripslashes($rs1->fields["name"])."</option>";
+						$_sql="select page_id,name from page where parent_id='".$rs1->fields["page_id"]."'";
+						$rs2=$_CONN->Execute($_sql);
+						while(!$rs2->EOF) {
+							echo "<option value='".$rs2->fields["page_id"]."' ".($_POST["cmbaddpage1"]==$rs2->fields["page_id"]?"selected":"").">----".stripslashes($rs2->fields["name"])."</option>";
+							$rs2->MoveNext();
+						}
+						if($rs2)
+						  $rs2->close();
+						$rs1->MoveNext();
+					}
+					if($rs1)
+					  $rs1->close();
+					$rs->MoveNext();
+				}
+				if($rs)
+				  $rs->close();
+				?></SELECT></TD>
+      </TR>	  
+	  <TR>
+	    <TD colspan="2" bgcolor="FFFFFF" align="center"><INPUT type="submit" value="Save Content" name="Input" class="sbutton"></TD>
+      </TR>     
+	  </TBODY>
+     </form>
+  </TABLE>

@@ -1,0 +1,108 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+ <link rel="stylesheet" href="<?=$_DIR['admininc']['css']?>main.css" type="text/css">
+<BR />
+  <TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="499" border=0 bgcolor="#B7E6CC">
+    <TBODY>
+      <TR> 
+        
+      <TD colspan="3" align="left" bgcolor="#B7E6CC" class=text12><strong> Customer 
+        Details </strong><br></TD>
+      </TR>
+      <?php
+	    if($_GET['atype']=="m"){
+			$sql="SELECT 
+				fname,lname,email as email_id,address1,address2,city as city_id,state as state_id,postcode as zipcode,
+				phone1 as phone,country.name				
+			FROM 
+				merchant
+			LEFT JOIN merchant_address ON merchant_address.user_id = merchant.user_id	
+			LEFT JOIN country ON country.country_id = merchant_address.country_id
+			WHERE  merchant.user_id=".$_GET['aid'];		
+		}else{
+			$sql="SELECT 
+				fname,lname,email_id,address1,address2,city_id,state_id,zipcode,phone,mobile,country.name				
+			FROM 
+				users
+			LEFT JOIN country ON country.country_id = users.country_id
+			WHERE  users.user_id=".$_GET['aid'];
+		}
+	  
+		$rs =$_CONN->Execute($sql);
+		if($rs && !$rs->EOF){
+				$fname			=$rs->fields['fname'];
+				$lname			=$rs->fields['lname'];
+				$email_id		=$rs->fields['email_id'];
+				$address1		=$rs->fields['address1'];
+				$address2		=$rs->fields['address2'];
+				$city_id		=$rs->fields['city_id'];				
+				$state_id		=$rs->fields['state_id'];					
+				$zipcode		=$rs->fields['zipcode'];	
+				$phone			=$rs->fields['phone'];				
+				$mobile			=$rs->fields['mobile'];					
+				$name			=$rs->fields['name'];	
+
+		}	
+		if($rs)		$rs->close();
+
+	   ?>
+      <TR> 
+        <TD  align="left" bgcolor="FFFFFF" class=text12 colspan="3"> <table border="0" width="100%" bgcolor="#cccccc" class="t_content_bg" cellSpacing=1 cellPadding=5>
+            <tr> 
+              <td class=text12 width="30%" align="left" bgcolor="FFFFFF">Full Name:</td>
+              <td class=text12  align="left" bgcolor="FFFFFF"><b> 
+                <?=$fname?> <?=$lname?>
+                </b></td>
+            </tr>
+            <tr> 
+              <td class=text12  align="left" bgcolor="FFFFFF">Email Id:</td>
+              <td class=text12  align="left" bgcolor="FFFFFF"><b> 
+                <?=$email_id?>
+                </b></td>
+            </tr>
+            <tr> 
+              <td class=text12  align="left" bgcolor="FFFFFF">Address:</td>
+              <td class=text12  align="left" bgcolor="FFFFFF"><b> 
+                <?=$address1?><BR><?=$address2?>
+                </b></td>
+            </tr>
+            <tr> 
+              <td class=text12  align="left" bgcolor="FFFFFF">City:</td>
+              <td class=text12  align="left" bgcolor="FFFFFF"><b> 
+               <?=$city_id?> 
+                </b></td>
+            </tr>
+            <tr> 
+              <td class=text12  align="left" bgcolor="FFFFFF">State:</td>
+              <td class=text12  align="left" bgcolor="FFFFFF"><b> 
+                 <?=$state_id?> 
+                </b></td>
+            </tr>
+            <tr> 
+              <td class=text12  align="left" bgcolor="FFFFFF">Country:</td>
+              <td class=text12  align="left" bgcolor="FFFFFF"><b> 
+                 <?=$name?> 
+                </b></td>
+            </tr>
+            <tr> 
+              <td class=text12  align="left" bgcolor="FFFFFF">ZipCode:</td>
+              <td class=text12  align="left" bgcolor="FFFFFF"><b> 
+                <?=$zipcode?>
+                </b></td>
+            </tr>
+			<tr> 
+              <td class=text12  align="left" bgcolor="FFFFFF">Contact No:</td>
+              <td class=text12  align="left" bgcolor="FFFFFF"><b> 
+                 <?=$phone?><BR><?=$mobile?>
+                </b></td>
+            </tr>
+          </table></TD>
+      </tr>
+     
+      <TR> 
+        <TD bgcolor="#f4f1cc" colspan="3" align="center"><INPUT type="submit" class="sbutton" value=" Close " onclick="window.close();" name="Input"> 
+        </TD>
+      </TR>
+    </TBODY>
+  </TABLE>  		   
+	

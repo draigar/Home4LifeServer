@@ -1,0 +1,74 @@
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+<TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="100%" border=0>
+	<tr>
+  		<td colspan="2" align="center"><?= $_MSG[5] ?></td>
+  	</tr>
+</table>
+<TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="100%" border=0>
+<tr valign="top"><td height="350"> 
+<TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="70%" border=0 bgcolor="#cccccc">
+  <form name="frmAddUser" action="<?=@$_SERVER["REQUEST_URI"]?>" method="post" enctype="multipart/form-data">
+    <TBODY>	
+	 <TR>
+          <TD class="text2" colspan="2" align="left" bgcolor="#FFFFFF"><strong>Banner Details</strong><br></TD>
+        </TR> 
+		<TR> 
+	    <TD bgcolor="#FFFFFF" class="text12">Banner Type: <font color="red">*</font></TD>
+        <TD  bgcolor="#FFFFFF">
+		 <select name="cmbPosition">
+			<option value="">Select Type</option>
+			<?=$cmbPosition?>
+		</select>
+		</TD>
+      </TR>  	 
+	 <TR> 
+        <TD width="40%" bgcolor="#FFFFFF" class="text12">Banner Name: <font color="red">*</font></TD>
+        <TD width="60%" bgcolor="#FFFFFF"><input name="txtName" size="25" type="text" id="txtName" value="<?php print getValue(@$_POST["txtName"]); ?>" maxlength="255"></TD>
+      </TR>
+	   <TR> 
+        <TD bgcolor="#FFFFFF" class="text12">Banner Url: <font color="red">*</font></TD>
+        <TD bgcolor="#FFFFFF"><input name="txtUrl" size="25" type="text" id="txtUrl" value="<?php print getValue(@$_POST["txtUrl"]); ?>" maxlength="255"></TD>
+      </TR>	
+	  <TR> 
+        <TD bgcolor="#FFFFFF" class="text12">Banner is Flash ?: </TD>
+        <TD bgcolor="#FFFFFF" class="text13"><input type="checkbox" name="chkDisplay" class="textfield" value="Y" <?PHP print $_POST["chkDisplay"]=="Y" ? "checked" : ""; ?>></TD>
+      </TR>	  
+	  <TR> 
+        <TD bgcolor="#FFFFFF" class="text12">Banner is Active ?: </TD>
+        <TD bgcolor="#FFFFFF" class="text13"><input type="radio" name="rd1" id="rd1" value="A" <?php print getValue(@$_POST['rd1']) !="I"?  "checked" : "";?>>Active
+				  <input type="radio" name="rd1" id="rd1" value="I" <?php print getValue(@$_POST['rd1']) =="I"? "checked" : "";?> >Inactive</TD>
+      </TR>
+	  
+	   <TR> 
+        <TD bgcolor="#FFFFFF" class="text12">Upload Banner:</TD>
+        <TD bgcolor="#FFFFFF"><input name="txtImage" type="file" id="txtImage" size="20" value="<?php print getValue(@$_POST["txtImage"]); ?>">
+	    <br> 
+		         <?php	if($_POST["chkDisplay"] !="Y") { ?>
+					  <img src="<?=$_DIR['site']['url']?>bottum_image/<?=$original?>" border="0" width="200">
+					  <?php }else{ ?>
+					  <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="https://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="400" height="85">
+						<param name="movie" value="<?=$_DIR['site']['url']?>bottum_image/<?=$original?>">
+						<param name="quality" value="high">
+						<embed src="<?=$_DIR['site']['url']?>bottum_image/<?=$original?>" quality="high" pluginspage="https://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="650" height="85"></embed> 
+					  </object>
+					 <?php } ?> 
+		</TD>
+      </TR>
+	  <TR> 
+        <TD width="26%" bgcolor="#FFFFFF" class="text12">Banner Target: </TD>
+        <TD width="74%" bgcolor="#FFFFFF">
+		<select name="cmbTarget" id="cmbTarget">
+		   <option>Select Target</option>
+		   <option value="S" <?=$_POST["cmbTarget"]=="S"?"selected":""?>>Self</option>
+		   <option value="N" <?=$_POST["cmbTarget"]=="N"?"selected":""?>>New</option>
+		   <option value="P" <?=$_POST["cmbTarget"]=="P"?"selected":""?>>Popup</option>
+		 </select>
+		</TD>
+      </TR> 
+	  <TR>
+        <TD align="center" bgcolor="#FFFFFF" colspan="2"> <INPUT type="submit" value="Submit" name="Input" class="sbutton"> <INPUT type="reset" value="Reset" name="Reset" class="sbutton"></TD>
+     </TR>	 
+	 </form>  
+  </TABLE>
+    </td></tr>
+</table>

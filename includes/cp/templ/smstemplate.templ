@@ -1,0 +1,51 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+<script language="javascript" type="text/javascript">
+function limitText(limitField, limitCount, limitNum) {
+	if (limitField.value.length > limitNum) {
+		limitField.value = limitField.value.substring(0, limitNum);
+	} else {
+		limitCount.value = limitNum - limitField.value.length;
+	}
+}
+</script>
+<TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="55%" border=0 bgcolor="#999999">
+  <form name="frmPage" action="<?php print $_SERVER["REQUEST_URI"];?>" method="post" >
+    <TBODY>
+      <TR> 
+        <TD class="text3" width="40%" bgcolor="#FFFFFF">SMS Template Name: <font color='red'>*</font></td>
+		<TD width="60%" bgcolor="#FFFFFF"><strong>
+			<SELECT size=1 name="cmbPage" onchange="submit()">
+				<option value="">Select SMS Template</option>
+				<?PHP print $page; ?>
+			</SELECT>
+		</strong></TD>
+      </TR>      
+	  <TR> 
+        <TD class="text3" bgcolor="#FFFFFF" colspan="2">SMS Template Content: <font color='red'>*</font> 
+        </TD>
+      </TR>      
+	  <TR> 
+        <TD class=t_content_cell2_bg colspan="2" bgcolor="#FFFFFF">
+		<textarea name="pageContent" id="pageContent" cols="45" rows="7" onKeyDown="limitText(this.form.pageContent,form.frmPage.countdown,160);" onKeyUp="limitText(this.form.pageContent,this.form.countdown,160);"><?php print getValue(@$_POST["pageContent"]);?></textarea>
+		<br />(Please enter only 160 character)<br /><?= $_MSG[2]?><font face="Arial" size="0.5"><strong><span class="text3">Note:</span></strong>
+		<?php 
+			if($_POST['cmbPage']==2 )
+			{
+			echo "##SECURITYCODE## will be replaced with original values.";
+			}
+			elseif($_POST['cmbPage']==1)
+			{
+             echo "##FIRSTNAME##, ##PLAYEDDATE## will be replaced with original values.";
+			}
+  
+		?>	   
+	   </font> 
+		</TD>
+      </TR>      
+	  <TR>
+         <TD align="center" bgcolor="#FFFFFF" colspan="2"><INPUT class="sbutton" type="submit" value="Save Template" name="Input"> <INPUT type="reset" value="Reset" name="Reset" class="sbutton"></TD>
+      </TR>
+	  </TBODY>
+	  </form>
+  </TABLE>

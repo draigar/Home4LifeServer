@@ -1,0 +1,404 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+<script type="text/javascript" src="<?=$_DIR["site"]["url"]?>js/ajax.js"></script>
+<script language="JavaScript1.2">
+ function showHidetext(val) { 
+	var elm = document.getElementById('idProf');
+	if(val==2) {
+		if(document.frmEvents.rd1[1].checked ==true){ 
+			elm.style.display='block';
+		}
+	}else if(val==1){	
+		if(document.frmEvents.rd1[1].checked ==false){ 
+			elm.style.display='none';
+		}
+	}	
+}
+showHidetext();
+</script>
+<style>.t_content_cell2_bg{font-size:13px;}</style>
+	  <form name="frmEvents" action="<?php print $_SERVER["REQUEST_URI"];?>" method="post" enctype="multipart/form-data">
+      <input type="hidden" value="1" name="state">		
+  <?php
+
+	function State($txtName,$txtLGA,$index){  
+	
+		global $database;
+	
+		$result = '<select id="'.$txtName.'" class="validate[\'required\'] combo4" style="width:160px" name="'.$txtName.'" onChange="showAAgentCity(document.getElementById(\''.$txtName.'\').options[document.getElementById(\''.$txtName.'\').selectedIndex].value,\''.($_POST[$txtName]?$_POST[$txtName]:0).'\',\''.$txtLGA.'\','.$index.')">';
+	
+		$sql="select state_id,state_name from state order by state_name";
+	
+		$rs  = mysql_query($sql);
+	
+		$result .= "<option value=''>Select State</option>";
+	
+		while($record=mysql_fetch_array($rs)) { 
+	
+			if ($_POST[$txtName] == $record['state_id'])
+	
+				$result .= "<option value='".$record['state_id']."' selected='selected'>" . $record['state_name'] . '</option>';
+	
+			else 
+	
+				$result .= "<option value='".$record['state_id']."'>" . $record['state_name'] . '</option>';	
+	
+		}
+	
+		$result .= '</select>';	
+	
+		return $result;
+	
+	}
+	
+	function Lga($txtName,$lga){ 
+	
+		global $database;
+	
+		$result  = '<select id="'.$lga.'" class="combo4" style="width:228px" name="'.$lga.'">';
+	
+		$result .= "<option value=''>Select your Local Goverment</option>";
+	
+		if(!empty($_POST[$txtName])) {
+	
+			$sql="select lga_id,lga_name FROM lga where state_id='".$_POST[$txtName]."' order by lga_name";
+	
+			$rs1  = mysql_query($sql);
+	
+			while ($record1=mysql_fetch_array($rs1)) {
+	
+			if ($_POST[$lga] == $record1['lga_id'])
+	
+				$result .= "<option value='".$record1['lga_id']."' selected='selected'>" . $record1['lga_name'] . '</option>';
+	
+			else 
+	
+				$result .= "<option value='".$record1['lga_id']."'>" . $record1['lga_name'] . '</option>';	
+	
+			}
+	
+		}
+	
+		$result .= '</select>';	
+	
+		return $result;
+	
+	}
+	
+	?>		  
+		  
+  <TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="98%" border=0 bgcolor="#cccccc">
+    <TBODY>
+      <TR> 
+        <TD colspan="2" bgcolor="#ffffff" class="text12"><strong>Personel Information:</strong></TD>
+        <TD colspan="2" bgcolor="#ffffff" class="text12" align="right"><strong>Agent 
+          ID: <font color="#000000"> 
+          <?=$user_id?>
+          </font></strong></TD>
+      </TR>
+      <TR> 
+        <TD bgcolor="#ffffff" class="text12" width="18%">Title:</TD>
+        <TD colspan="3" bgcolor="#ffffff" class="t_content_cell2_bg"> 
+          <?=$title?>
+        </TD>
+      </TR>
+      <TR> 
+        <TD bgcolor="#ffffff" class="text12" width="18%">First Name:</TD>
+        <TD width="35%" bgcolor="#ffffff" class=t_content_cell2_bg> 
+          <?=$fname?>
+        </TD>
+        <TD bgcolor="#ffffff" class="text12" width="20%">Middle Name:</TD>
+        <TD width="27%" bgcolor="#ffffff" class=t_content_cell2_bg> 
+          <?=$mname?>
+        </TD>
+      </TR>
+      <TR> 
+        <TD bgcolor="#ffffff" class="text12">Last Name:</TD>
+        <TD width="35%" bgcolor="#ffffff" class=t_content_cell2_bg> 
+          <?=$lname?>
+        </TD>
+        <TD bgcolor="#ffffff" class="text12" width="20%">Email Address:</TD>
+        <TD width="27%" bgcolor="#ffffff" class="t_content_cell2_bg"> 
+          <?=$email?>
+        </TD>
+      </TR>
+      <TR> 
+        <TD bgcolor="#ffffff" class="text12">Date of Birth:</TD>
+        <TD width="35%" bgcolor="#ffffff" class=t_content_cell2_bg> 
+          <?=$dateofbirth?>
+        </TD>
+        <TD bgcolor="#ffffff" class="text12" width="20%">Place of Birth:</TD>
+        <TD width="27%" bgcolor="#ffffff" class="t_content_cell2_bg"> 
+          <?=$birthplace?>
+        </TD>
+      </TR>
+      <TR> 
+        <TD bgcolor="#ffffff" class="text12" width="18%">SSN/Identity No:</TD>
+        <TD width="35%" bgcolor="#ffffff" class=t_content_cell2_bg> 
+          <?=$ssn?>
+        </TD>
+        <TD bgcolor="#ffffff" class="text12" width="20%">Type of ID:</TD>
+        <TD width="27%" bgcolor="#ffffff" class=t_content_cell2_bg> 
+          <?=$type_id?>
+        </TD>
+      </TR>
+      <TR> 
+        <TD bgcolor="#ffffff" class="text12" width="18%">Issued/Expiry Date:</TD>
+        <TD width="35%" bgcolor="#ffffff" class=t_content_cell2_bg> 
+          <?=$exp_date?>
+        </TD>
+        <TD bgcolor="#ffffff" class="text12" width="20%">Issue of Authority:</TD>
+        <TD width="27%" bgcolor="#ffffff" class=t_content_cell2_bg> 
+          <?=$authh_issue_by?>
+        </TD>
+      </TR>
+      <TR> 
+        <TD bgcolor="#ffffff" class="text12" width="18%">Country of Issue:</TD>
+        <TD width="35%" bgcolor="#ffffff" class=t_content_cell2_bg> 
+          <?=$issue_country?>
+        </TD>
+        <TD width="20%" bgcolor="#ffffff" class=t_content_cell2_bg>&nbsp;</TD>
+        <TD width="27%" bgcolor="#ffffff" class=t_content_cell2_bg>&nbsp;</TD>
+      </TR>
+      <tr> 
+        <td colspan="4" bgcolor="#FFFFFF">&nbsp;</td>
+      </tr>
+      <TR> 
+        <TD colspan="4" bgcolor="#ffffff" class="text12"><strong>Home Address:</strong></TD>
+      </TR>
+      <TR> 
+        <TD bgcolor="#ffffff" class="text12" width="18%">Address:</TD>
+        <TD width="35%" bgcolor="#ffffff" class=t_content_cell2_bg> 
+          <?=$haddress1?>
+        </TD>
+        <TD bgcolor="#ffffff" class="text12" width="20%">Address Line 2:</TD>
+        <TD width="27%" bgcolor="#ffffff" class=t_content_cell2_bg> 
+          <?=$haddress2?>
+        </TD>
+      </TR>
+      <TR> 
+        <TD bgcolor="#ffffff" class="text12">City:</TD>
+        <TD width="35%" bgcolor="#ffffff" class=t_content_cell2_bg> 
+          <?=$hcity?>
+        </TD>
+        <TD bgcolor="#ffffff" class="text12" width="20%">State:</TD>
+        <TD width="27%" bgcolor="#ffffff" class="t_content_cell2_bg"> 
+          <?=$hstate?>
+        </TD>
+      </TR>
+      <TR> 
+        <TD bgcolor="#ffffff" class="text12" width="20%">Country:</TD>
+        <TD colspan="3" bgcolor="#ffffff" class="t_content_cell2_bg"> 
+          <?=$hcountry?>
+        </TD>
+      </TR>
+      <TR> 
+        <TD bgcolor="#ffffff" class="text12" width="18%">Telephone No:</TD>
+        <TD width="35%" bgcolor="#ffffff" class=t_content_cell2_bg> 
+          <?=$hphone1?>
+        </TD>
+        <TD bgcolor="#ffffff" class="text12" width="20%">Mobile No:</TD>
+        <TD width="27%" bgcolor="#ffffff" class=t_content_cell2_bg> 
+          <?=$hphone2?>
+        </TD>
+      </TR>
+      <TR> 
+        <TD bgcolor="#ffffff" class="text12" width="18%">Local Government Area:</TD>
+        <TD width="35%" bgcolor="#ffffff" class=t_content_cell2_bg> 
+          <?=$hlga?>
+        </TD>
+        <TD bgcolor="#ffffff" class="text12" width="20%">&nbsp;</TD>
+        <TD width="27%" bgcolor="#ffffff" class=t_content_cell2_bg>&nbsp;</TD>
+      </TR>
+      <TR> 
+        <TD colspan="4" bgcolor="#ffffff" class="text12"><strong>Change Request 
+          Home Address:</strong></TD>
+      </TR>
+      <TR> 
+        <TD bgcolor="#ffffff" class="text12" width="18%">Address:<font color="red">*</font></TD>
+        <TD width="35%" bgcolor="#ffffff" class=t_content_cell2_bg><input name="txtHAddress" class="textfield" size="30" type="text" id="txtHAddress" value="<?php print getValue(@$_POST["txtHAddress"]); ?>" maxlength="255"></TD>
+        <TD bgcolor="#ffffff" class="text12" width="20%">Address Line 2:</TD>
+        <TD width="27%" bgcolor="#ffffff" class=t_content_cell2_bg><input name="txtHAddress1" class="textfield" size="30" type="text" id="txtHAddress1" value="<?php print getValue(@$_POST["txtHAddress1"]); ?>" maxlength="255"></TD>
+      </TR>
+      <TR> 
+        <TD bgcolor="#ffffff" class="text12">City:<font color="red">*</font></TD>
+        <TD width="35%" bgcolor="#ffffff" class=t_content_cell2_bg><input name="txtHCity" class="textfield" size="30" type="text" id="txtHCity" value="<?php print getValue(@$_POST["txtHCity"]); ?>" maxlength="100"></TD>
+        <TD bgcolor="#ffffff" class="text12">State:<font color="red">*</font></TD>
+        <TD bgcolor="#ffffff" class="t_content_cell2_bg"> 
+          <?php  echo State('txtHState','txtHLga',1);?>
+        </TD>
+      </TR>
+      <TR> 
+        <TD bgcolor="#ffffff" class="text12" width="20%">Mobile No:<font color="red">*</font></TD>
+        <TD colspan="3" bgcolor="#ffffff" class="t_content_cell2_bg"> <input name="txtHmob2" class="textfield" size="30" type="text" id="txtHmob2" value="<?php print getValue(@$_POST["txtHmob"]); ?>" maxlength="30"> 
+        </TD>
+      </TR>
+      <TR> 
+        <TD bgcolor="#ffffff" class="text12" width="18%">Telephone No:<font color="red">*</font></TD>
+        <TD width="35%" bgcolor="#ffffff" class=t_content_cell2_bg><input name="txtTelephone" class="textfield" size="30" type="text" id="txtTelephone" value="<?php print getValue(@$_POST["txtTelephone"]); ?>" maxlength="30"></TD>
+        <TD bgcolor="#ffffff" class="text12">Local Government Area:<font color="red">*</font></TD>
+        <TD bgcolor="#ffffff" class=t_content_cell2_bg id="txtCategory1"> <?php echo Lga('txtHState','txtHLga',1); ?> 
+          <br> </TD>
+      </TR>
+      <tr> 
+        <td colspan="4" bgcolor="#FFFFFF">&nbsp;</td>
+      </tr>
+      <TR> 
+        <TD colspan="4" bgcolor="#ffffff" class="text12"><strong>Business Information:</strong></TD>
+      </TR>
+      <TR> 
+        <TD bgcolor="#ffffff" class="text12" width="18%">Business Name:<font color="red">*</font></TD>
+        <TD width="35%" bgcolor="#ffffff" class=t_content_cell2_bg> 
+          <?=$business_name?>
+        </TD>
+        <TD bgcolor="#ffffff" class="text12" width="20%">Business Type:</TD>
+        <TD width="27%" bgcolor="#ffffff" class=t_content_cell2_bg> 
+          <?=$business_type1?>
+        </TD>
+      </TR>
+      <TR> 
+        <TD bgcolor="#ffffff" class="text12">&nbsp;</TD>
+        <TD width="35%" bgcolor="#ffffff" class=t_content_cell2_bg>&nbsp;</TD>
+        <TD bgcolor="#ffffff" class="text12" width="20%">Specify If Other:</TD>
+        <TD width="27%" bgcolor="#ffffff" class="t_content_cell2_bg"> 
+          <?=$other_business_type?>
+        </TD>
+      </TR>
+      <TR> 
+        <TD colspan="4" bgcolor="#ffffff" class="text12"><strong>Change Request 
+          Business Information:</strong></TD>
+      </TR>
+      <TR> 
+        <TD bgcolor="#ffffff" class="text12" width="18%">Business Type:<font color="red">*</font></TD>
+        <TD width="35%" bgcolor="#ffffff" class=t_content_cell2_bg><select name="cmbPosition">
+            <option value="">Select Type</option>
+            <?=$business_type?>
+          </select></TD>
+        <TD bgcolor="#ffffff" class="text12" width="20%">Specify If Other:</TD>
+        <TD width="27%" bgcolor="#ffffff" class=t_content_cell2_bg> <input name="txtBOther" class="textfield" size="30" type="text" id="txtBOther" value="<?php print getValue(@$_POST["txtBOther"]); ?>" maxlength="100"> 
+        </TD>
+      </TR>
+      <tr> 
+        <td colspan="4" bgcolor="#FFFFFF">&nbsp;</td>
+      </tr>
+      <TR> 
+        <TD colspan="4" bgcolor="#ffffff" class="text12"><strong>Business Address:</strong></TD>
+      </TR>
+      <TR> 
+        <TD bgcolor="#ffffff" class="text12" width="18%">Address:</TD>
+        <TD width="35%" bgcolor="#ffffff" class=t_content_cell2_bg> 
+          <?=$baddress1?>
+        </TD>
+        <TD bgcolor="#ffffff" class="text12" width="20%">Address Line 2:</TD>
+        <TD width="27%" bgcolor="#ffffff" class=t_content_cell2_bg> 
+          <?=$baddress2?>
+        </TD>
+      </TR>
+      <TR> 
+        <TD bgcolor="#ffffff" class="text12">City:</TD>
+        <TD width="35%" bgcolor="#ffffff" class=t_content_cell2_bg> 
+          <?=$bcity?>
+        </TD>
+        <TD bgcolor="#ffffff" class="text12">State:<font color="red">*</font></TD>
+        <TD bgcolor="#ffffff" class="t_content_cell2_bg"> 
+          <?=$bstate?>
+        </TD>
+      </TR>
+      <TR> 
+        <TD bgcolor="#ffffff" class="text12" width="20%">Country:</TD>
+        <TD colspan="3" bgcolor="#ffffff" class="t_content_cell2_bg"> 
+          <?=$bcountry?>
+        </TD>
+      </TR>
+      <TR> 
+        <TD bgcolor="#ffffff" class="text12" width="18%">Telephone No:</TD>
+        <TD width="35%" bgcolor="#ffffff" class=t_content_cell2_bg> 
+          <?=$bphone1?>
+        </TD>
+        <TD bgcolor="#ffffff" class="text12" width="20%">Fax No</TD>
+        <TD width="27%" bgcolor="#ffffff" class=t_content_cell2_bg> 
+          <?=$bfax?>
+        </TD>
+      </TR>
+      <TR> 
+        <TD bgcolor="#ffffff" class="text12" width="18%">Website:</TD>
+        <TD width="35%" bgcolor="#ffffff" class=t_content_cell2_bg> 
+          <?=$bwebsite?>
+        </TD>
+        <TD bgcolor="#ffffff" class="text12">Local Government Area:</TD>
+        <TD bgcolor="#ffffff" class=t_content_cell2_bg> 
+          <?=$blga?>
+        </TD>
+      </TR>
+      <TR> 
+        <TD colspan="4" bgcolor="#ffffff" class="text12"><strong>Change Request 
+          Business Address:</strong></TD>
+      </TR>
+      <TR> 
+        <TD bgcolor="#ffffff" class="text12" width="18%">Address:<font color="red">*</font></TD>
+        <TD width="35%" bgcolor="#ffffff" class=t_content_cell2_bg><input name="txtBAddress" class="textfield" size="30" type="text" id="txtBAddress" value="<?php print getValue(@$_POST["txtBAddress"]); ?>" maxlength="100"></TD>
+        <TD bgcolor="#ffffff" class="text12" width="20%">Address Line 2:</TD>
+        <TD width="27%" bgcolor="#ffffff" class=t_content_cell2_bg><input name="txtBAddress1" class="textfield" size="30" type="text" id="txtBAddress1" value="<?php print getValue(@$_POST["txtBAddress1"]); ?>" maxlength="100"></TD>
+      </TR>
+      <TR> 
+        <TD bgcolor="#ffffff" class="text12">City:<font color="red">*</font></TD>
+        <TD width="35%" bgcolor="#ffffff" class=t_content_cell2_bg><input name="txtBCity" class="textfield" size="30" type="text" id="txtBCity" value="<?php print getValue(@$_POST["txtBCity"]); ?>" maxlength="100"></TD>
+        <TD bgcolor="#ffffff" class="text12">State:</TD>
+        <TD bgcolor="#ffffff" class="t_content_cell2_bg"> 
+          <?php  echo State('txtBState','txtBLga',2);?>
+        </TD>
+      </TR>
+      <TR> 
+        <TD bgcolor="#ffffff" class="text12">Zip Code:<font color="red">*</font> 
+        </TD>
+        <TD width="35%" bgcolor="#ffffff" class=t_content_cell2_bg><input name="txtBZip" class="textfield" size="30" type="text" id="txtBZip" value="<?php print getValue(@$_POST["txtBZip"]); ?>" maxlength="20"></TD>
+        <TD bgcolor="#ffffff" class="text12">Website:</TD>
+        <TD bgcolor="#ffffff" class=t_content_cell2_bg><input name="txtBWeb" class="textfield" size="30" type="text" id="txtBWeb" value="<?php print getValue(@$_POST["txtBWeb"]); ?>" maxlength="100"></TD>
+      </TR>
+      <TR> 
+        <TD bgcolor="#ffffff" class="text12" width="18%">Telephone No:<font color="red">*</font></TD>
+        <TD width="35%" bgcolor="#ffffff" class=t_content_cell2_bg><input name="txtBTelephone" class="textfield" size="30" type="text" id="txtBTelephone" value="<?php print getValue(@$_POST["txtBTelephone"]); ?>" maxlength="30"></TD>
+        <TD bgcolor="#ffffff" class="text12" width="20%">Fax No:</TD>
+        <TD width="27%" bgcolor="#ffffff" class=t_content_cell2_bg><input name="txtBFax" class="textfield" size="30" type="text" id="txtBFax" value="<?php print getValue(@$_POST["txtBFax"]); ?>" maxlength="30"></TD>
+      </TR>
+	  <TR> 
+		  <TD bgcolor="#ffffff" class="text12" width="18%">Local 
+			Government Area:<font color="red">*</font></TD>
+		  <TD width="35%" bgcolor="#ffffff" class=t_content_cell2_bg id="txtCategory2"> 
+			<?php echo Lga('txtBState','txtBLga',2); ?> <br> 
+		  </TD>
+		  <TD bgcolor="#ffffff" class="text12" width="20%">&nbsp;</TD>
+		  <TD width="27%" bgcolor="#ffffff" class=t_content_cell2_bg>&nbsp;</TD>
+		</TR>
+      <tr> 
+        <td colspan="4" bgcolor="#FFFFFF">&nbsp;</td>
+      </tr>
+      <TR> 
+        <TD bgcolor="#FFFFFF" class="text12" colspan="4"><font color="green"><strong>APPROVE 
+          UPDATED REQUEST YES/NO:</strong> </font>
+		  <br><br>
+		  <table width="60%" border="0">
+ <TR> 
+        <TD colspan="4" bgcolor="#FFFFFF" class="text12">     <input type="radio" onclick="showHidetext(1);" name="rd1" id="rd1" class="textfield" value="A" <?php print getValue(@$_POST['rd1']) !="I"?  "checked" : "";?>>
+          Approve    </TD>
+      </TR>
+      <TR> 
+        <TD colspan="4" bgcolor="#FFFFFF" class="text12">    <input type="radio" onclick="showHidetext(2);" name="rd1" id="rd1" class="textfield" value="I" <?php print getValue(@$_POST['rd1']) =="I"? "checked" : "";?> >
+          Unapprove</TD>
+      </TR>
+      <TR id="idProf" style="display:none"> 
+        <TD  bgcolor="#FFFFFF" class="text12">Comment: </TD>
+        <TD  bgcolor="#FFFFFF" colspan="3"> <textarea name="txtDurationday" cols="40" rows="7"><?php print getValue(@$_POST["txtDurationday"]); ?></textarea></TD>
+      </TR>
+</table>
+</TD>
+      </TR>
+      <TR> 
+        <TD bgcolor="#ffffff" align="center" colspan="4"> <INPUT type="submit" class="sbutton" value="Submit" name="Input"> 
+               <INPUT type="reset" value="Reset" name="Reset" class="sbutton"></TD>
+      </TR>
+    </TBODY>
+  </TABLE>  
+  <input type="hidden" name="hidImage" value="<?=$_POST['hidImage']?>">			 
+	 </form> 
+	 

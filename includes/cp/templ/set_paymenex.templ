@@ -1,0 +1,46 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ');  ?>
+<form name="frmlocation" action="<?php print $_SERVER["PHP_SELF"];?>" method="post" >
+		  <TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="550" border=0 bgcolor="#cccccc">
+			<TBODY>
+				<TR>
+          			<TD class=text12 colspan="2" align="left" bgcolor="FFFFFF"><strong>Paymenex Settings</strong><br></TD>
+       		   </TR>  
+				<TR> 
+				<TD bgcolor="#FFFFFF" class="text12" width="26%">Paymenex ID: <font color="red">*</font></TD>
+				<TD width="74%" bgcolor="#FFFFFF" class=t_content_cell2_bg><input name="txtPaymenex1" type="text" id="txtPaymenex1" class="textfield" value="<?php print getValue(@$_POST["txtPaymenex1"]); ?>" maxlength="50">				
+				</TD></TR>
+				<TR> 
+				<TD bgcolor="#FFFFFF" class="text12" width="26%">Paymenex Key: <font color="red">*</font></TD>
+				<TD bgcolor="#FFFFFF" class=t_content_cell2_bg><input name="txtPaymenex2" type="text" id="txtPaymenex2" class="textfield" value="<?php print getValue(@$_POST["txtPaymenex2"]); ?>" maxlength="50">				
+				</TD>
+				</TR>
+				<TR> 
+				<TD bgcolor="#FFFFFF" class="text12" width="26%">Paymenex Url: <font color="red">*</font></TD>
+				<TD bgcolor="#FFFFFF" class=t_content_cell2_bg><input name="txtPaymenex3" type="text" id="txtPaymenex3" class="textfield" value="<?php print getValue(@$_POST["txtPaymenex3"]); ?>" size="50" maxlength="255">				
+				</TD>
+				</TR>
+				<TR> 
+				<TD bgcolor="#FFFFFF" class="text12" width="26%">Mode: <font color="red">*</font></TD>
+				<TD bgcolor="#FFFFFF" class=t_content_cell2_bg>
+				<input type="radio" name="txtPaymenex4" id="txtPaymenex4" class="textfield" value="L" <?php print getValue(@$_POST['txtPaymenex4']) !="T"?  "checked" : "";?>>Live
+				  <input type="radio" name="txtPaymenex4" id="txtPaymenex4" class="textfield" value="T" <?php print getValue(@$_POST['txtPaymenex4']) =="T"? "checked" : "";?> >Test				
+				</TD>
+				</TR>
+				<TR> 
+				<TD bgcolor="#FFFFFF" class="text12" width="26%">Action Code: <font color="red">*</font></TD>
+				<TD bgcolor="#FFFFFF" class=t_content_cell2_bg><input name="txtPaymenex5" type="text" id="txtPaymenex5" class="textfield" value="<?php print getValue(@$_POST["txtPaymenex5"]); ?>" maxlength="5">				
+				</TD>
+				</TR>
+				<TR> 
+				<TD bgcolor="#FFFFFF" class="text12" width="26%">Merchant ID: <font color="red">*</font></TD>
+				<TD bgcolor="#FFFFFF" class=t_content_cell2_bg><input name="txtPaymenex6" type="text" id="txtPaymenex6" class="textfield" value="<?php print getValue(@$_POST["txtPaymenex6"]); ?>" maxlength="15">				
+				</TD>
+				</TR>
+
+			    <TR> 			   
+			   <TD bgcolor="#FFFFFF" colspan="2" align="center"><INPUT type="submit" class="sbutton" value="Submit" name="Input"> <INPUT type="reset" value="Reset" name="Reset" class="sbutton"></TD>
+			  </TR>
+			 </TBODY>
+		  </TABLE>  		   
+	 </form>   

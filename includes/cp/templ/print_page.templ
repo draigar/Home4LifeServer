@@ -1,0 +1,21 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+<link rel="stylesheet" href="<?=$_DIR['admininc']['css']?>main.css" type="text/css">
+
+
+<html>
+<head>
+<title>Draw Report</title>
+</head>
+
+<body style="background:#FFFFFF;">
+	<div style="background:#FFFFFF;"> 
+		<script language="JavaScript1.2">
+			document.write(opener.frmParent.hidDisp.value);
+		</script>
+		</br>
+		<p align="center"><input type="submit" onClick="window.close();" value="Close Window" align="center"> </p>
+		
+  </div>
+</body>
+</html>

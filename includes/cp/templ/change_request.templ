@@ -1,0 +1,109 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+
+<table width="95%" border="0" class="t_content_bg" cellSpacing=0 cellPadding=0 align="center">
+	<form name="frmSearch" action="<?=$_SERVER['REQUEST_URI']?>" method="post">
+			<TR>
+			<td colspan="4" align="center" bgcolor="#FFFFFF">
+			<table border=0 class="t_content_bg" cellSpacing=1 cellPadding=1  bgcolor="#E4E4E4">
+          <tr> 
+            <td colspan="4" align="center" height="20px" bgcolor="#FFFFFF" class="text12">To 
+              view all merchants, please leave the field blank.</td>
+          </tr>
+          <tr align="center"> 
+            <TD class="text12" bgcolor="#FFFFFF" align="center">First Name:</TD>
+            <TD align="center" bgcolor="#FFFFFF"><div align="left"> 
+                <input name="txtFirst" class="textfield" size="30" type="text" id="txtFirst" value="<?php print getValue(@$_POST["txtFirst"]); ?>">
+              </div></TD>
+            <TD class="text12" width="140" bgcolor="#FFFFFF" align="center">Last 
+              Name</TD>
+            <TD align="center" width="170" bgcolor="#FFFFFF"> <div align="left"> 
+                <input name="txtLast" class="textfield" size="30" type="text" id="txtLast" value="<?php print getValue(@$_POST["txtLast"]); ?>">
+              </div></TD>
+          </TR>
+          <tr> 
+            <TD class="text12" width="140" bgcolor="#FFFFFF" align="center">Email 
+              Address </TD>
+            <TD align="center" bgcolor="#FFFFFF" width="170"> <div align="left"> 
+                <input name="txtEmail" class="textfield" size="30" type="text" id="txtEmail" value="<?php print getValue(@$_POST["txtEmail"]); ?>">
+              </div></TD>
+            <TD class="text12" width="140" bgcolor="#FFFFFF" align="center">Business 
+              Name  </TD>
+            <TD align="center" bgcolor="#FFFFFF" width="170"> <div align="left"> 
+                <input name="txtBName" class="textfield" size="30" type="text" id="txtBName" value="<?php print getValue(@$_POST["txtBName"]); ?>">
+              </div></TD>
+          </TR>
+          <tr> 
+            <TD class="text12" width="140" bgcolor="#FFFFFF" align="center">Merchant 
+              ID  </TD>
+            <TD align="center" bgcolor="#FFFFFF" width="170"> <div align="left"> 
+                <input name="txtMerID" class="textfield" size="30" type="text" id="txtMerID" value="<?php print getValue(@$_POST["txtMerID"]); ?>">
+              </div></TD>
+            <TD class="text12" width="140" bgcolor="#FFFFFF" align="center">&nbsp;</TD>
+            <TD align="center" bgcolor="#FFFFFF" width="170">&nbsp;</TD>
+          </TR>
+          <tr> 
+            <TD colspan="4" align="center" bgcolor="#FFFFFF" class="text12"> <input type="submit" name="Submit1" value="Search Record" class="sbutton"></TD>
+          </TR>
+        </table>
+			</td>
+			</tr>
+			</form>			
+</table>
+
+<?php
+$extraParamInUrl = "num=".@$_POST["num"]."&nid=".@$_POST["nid"]."&id=".@$_POST["id"]."&txtMerID=".@$_POST["txtMerID"]."&txtFirst=".@$_POST["txtFirst"]."&txtLast=".@$_POST["txtLast"]."&txtEmail=".@$_POST["txtEmail"]."&txtBName=".@$_POST["txtBName"];
+//Define HEADER
+$_HEADER = "
+<TH class='t_header_cell_bg'>".getHead("pend_view_merchant","request_id","Req. ID",$extraParamInUrl)."</TH>
+<TH class='t_header_cell_bg'>".getHead("pend_view_merchant","merchant_id","Agent ID",$extraParamInUrl)."</TH>
+<TH class='t_header_cell_bg' align='left'>".getHead("pend_view_merchant","fname","Name",$extraParamInUrl)."</TH>
+<TH class='t_header_cell_bg' align='left'>".getHead("pend_view_merchant","business_name","Business Name",$extraParamInUrl)."</TH>
+<TH class='t_header_cell_bg' align='left'>".getHead("pend_view_merchant","email","Email ID",$extraParamInUrl)."</TH>
+<TH class='t_header_cell_bg'>".getHead("pend_view_merchant","status","Status",$extraParamInUrl)."</TH>
+<TH class='t_header_cell_bg'>".getHead("pend_view_merchant","acc_create_date","Create Date",$extraParamInUrl)."</TH>
+<TH class='t_header_cell_bg' colspan='2'>Action</TH>";
+//Display Sorting Status In Text here
+if (!empty($_SORTINGSTATUS))
+	print "<font size='2'><strong>".$_SORTINGSTATUS."</strong></font>"; 
+if(count($pageAndData['results'])>0 && is_array($pageAndData['results']))
+	{
+?>
+    <br><br>
+	<TABLE width="98%" align="center" class=t_list_bg cellSpacing=1 cellPadding=2 bgcolor="#cccccc"><?=$_HEADER?>
+<?
+	foreach($pageAndData['results'] as $key => $val)
+		{
+			$rowbgcolor ="#FFFFFF";
+?> 
+			<tr bgcolor="<?=@$rowbgcolor?>">			
+			<td width="8%" align="right" class="text13"><?=@$val['request_id']?></td>
+			<td width="10%" align="right" class="text13"><a href="<?=$_DIR['site']['adminurl']."editagentuser".$atend."mid".$_DELIM.@$val['user_id'].$baratend?>" class="menu1"><?=@$val['user_id']?></a></td>
+			<td width="25%" class="text13"><?=stripslashes(@$val['name'])?></td>			
+			<td width="15%" class="text13" align="left"><?=stripslashes(@$val['business_name'])?></td>			
+            <td width="15%" class="text13" align="left"><?=stripslashes(@$val['email'])?></td>
+			<td width="10%" class="text13" align="center"><?php if($val['status']=='I'){ echo "Pending"; } elseif($val['status']=='A') { echo "Active"; } else { echo "Suspend"; } ?></td>
+			<td width="22%" class="text13" align="center"><?=@$val['acc_create_date']?></td>
+			<td width="5%" align="center"><a href="<?=$_DIR['site']['adminurl']."pend_edit_request".$atend."mid".$_DELIM.@$val['request_id'].$baratend?>" class="menu1">View</a></td>
+			<!-- <td width="5%" align="center"><a href="javascript:if(confirm('Are you sure you want to delete record ?')) { location.href='<?=$_DIR['site']['adminurl'].'pend_view_merchant'.$atend.'act'.$_DELIM.'del'.$baratend.'mid'.$_DELIM.@$val['request_id'].$baratend?>'; }" class="menu1">Delete</a></td> -->
+			</tr>
+			
+<?
+			unset($rowbgcolor);
+			unset($firstletterofStat);
+		}
+?>
+	</table>
+<?
+//Display Pagination here
+print @$pageAndData['paginationbuttonHTML2'];
+	}
+	else 
+		print "<br><DIV class=text2 align=center>Sorry system could not found any record(s) in database.</DIV><br><br>";
+?>	
+<script>
+function openUrl(uID){	
+	szUrl = "view_allmerch_detail.php?id="+uID;
+	window.open(szUrl,"_vOds","height=600, width=700, left=100, top=10, location=no,menubar=no,resizable=yes,scrollbars=yes,status=no");
+}
+</script>

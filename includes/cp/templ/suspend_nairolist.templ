@@ -1,0 +1,82 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+
+<?php
+$extraParamInUrl = "num".$_DELIM.@$_POST["num"].$baratend;
+
+//Define HEADER
+$_HEADER = "<TH nowrap class='t_header_cell_bg'>".getHead("suspend_nairolist","naira_id","SrNo",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("suspend_nairolist","nl_id","NL-ID",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("suspend_nairolist","fname","Month/Year",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("suspend_nairolist","lname","Start",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("suspend_nairolist","users.createdate","Ends",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("suspend_nairolist","total_amount","Jackpot",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("suspend_nairolist","status","Status",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("suspend_nairolist","login_info.lastlogin","Entries",$extraParamInUrl)."</TH>
+<!--TH nowrap class='t_header_cell_bg' colspan='2'>Action</TH-->";
+?><br />
+<?
+if(count($pageAndData['results'])>0 && is_array($pageAndData['results']))
+	{
+		
+?>
+	
+<div style="overflow:auto; width:800px; padding-bottom:10px; position:relative; "> 
+  <form name="frmTerminal" action="<?=$_SERVER['REQUEST_URI']?>" method="post">
+    <TABLE width="95%" class=t_list_bg cellSpacing=1 cellPadding=2 bgcolor="#cccccc" align="center">
+      <?=$_HEADER?>
+      <?php
+	foreach($pageAndData['results'] as $key => $val)
+		{
+			$month_year= explode(",",$val['month_year']);
+			$year =$month_year[1];
+			$month =$month_year[0];
+
+			$rowbgcolor ="#FFFFFF";
+?>
+      <tr bgcolor="<?=@$rowbgcolor?>"> 
+        <td nowrap align="center" class="text13"> 
+          <?=$val['naira_id']?>
+        </td>
+        <td nowrap class="text13"> 
+          <?=$val['nl_id']?>
+        </td>
+        <td nowrap class="text13"> 
+          <?=$val['value2']?>
+          / 
+          <?=$year?>
+        </td>
+        <td nowrap class="text13"> 
+          <?=$val['from_time']?>
+        </td>
+        <td nowrap align="left" class="text13"> 
+          <?=$val['to_time']?>
+        </td>
+        <td nowrap align="center" class="text13"> 
+          <?=$val['total_amount']?>
+          .00</td>
+        <td nowrap align="center" class="text13"> 
+          <?php 
+		  
+			//if($val['from_time'] < date("d / m / y - h:m") && date("d / m / y - h:m") < $val['to_time']) echo "yes"; else echo "no";		  
+			if($val['status']=="C"){ echo  "Closed"; }elseif($val['status']=="A"){ echo "Active"; }elseif($val['status']=="D") {  echo "Draw";  }else{  echo "Suspended";  }
+		  ?>
+        </td>
+        <td nowrap align="center" class="text13">??????</td>
+        <!--td nowrap align="center"><a href="<?=$_DIR['site']['adminurl']."suspend_nairo_detail".$atend."id".$_DELIM.@$val['naira_id'].$baratend?>" class="menu1">Suspend</a></td-->
+      </tr>
+      <?php  
+			unset($rowbgcolor);
+			unset($firstletterofStat);
+		}
+?>
+    </table>
+  </form>
+</div>
+<?
+//Display Pagination here
+print @$pageAndData['paginationbuttonHTML2'];
+	}
+	else 
+		print "<br><DIV class=text2 align=center>Sorry system could not found any records in database.<br>Please add new record.</DIV><br><br>";
+?>

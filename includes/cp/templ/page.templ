@@ -1,0 +1,57 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+ <TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="95%" border=0 bgcolor="#999999">
+  <form name="frmPage" action="<?php print $_SERVER["REQUEST_URI"];?>" method="post">
+    <TBODY>
+     <TR> 
+        <TD  bgcolor="FFFFFF" class="text12" width="30%">Select Front End Page: <font color="red">*</font></TD>
+		<TD  bgcolor="FFFFFF" width="80%">
+			<SELECT size=1 name="cmbPage" onchange="submit()">
+				<option value="">Select Page</option>
+				<?PHP print $page; ?>
+			</SELECT>
+		</TD>
+      </TR>
+	  <TR> 
+        <TD  bgcolor="FFFFFF" class="text12">Page Title: <font color="red">*</font></TD>
+		<TD  bgcolor="FFFFFF"><input name="txtPageTitle" size="38" class="textfield1" type="text" id="txtPageTitle" value="<?php print getValue(@$_POST["txtPageTitle"]); ?>" maxlength="25">
+		</TD>
+      </TR>
+	  <!--	  <TR> 
+        <TD  bgcolor="FFFFFF" class="text12">Short Description: </TD>
+		<TD  bgcolor="FFFFFF"><textarea name="txtShortDescription" class="textarea1" rows="6" cols="40"><?= getValue(@$_POST["txtShortDescription"]); ?></textarea>
+		</TD>
+      </TR>   -->    
+
+	  <TR> 
+        <TD bgcolor="FFFFFF" class="text12" colspan="2">Page Content: <font color="red">*</font></TD>
+      </TR>      
+	  <TR> 
+        <TD bgcolor="FFFFFF" class="t_content_cell_bg" align="left" colspan="2">
+		<textarea name="pageContent" id="pageContent"><?php print getValue(@$_POST["pageContent"]); ?></textarea>
+		</td>
+      </TR>
+  	  <TR> 
+        <TD  bgcolor="FFFFFF" class="text12">Meta Title:</TD>
+		<TD  bgcolor="FFFFFF"><input name="txtMetaTitle" size="45" class="textfield1" type="text" id="txtMetaTitle" value="<?php print getValue(@$_POST["txtMetaTitle"]); ?>" maxlength="25">
+		</TD>
+      </TR>
+	  <TR> 
+        <TD  bgcolor="FFFFFF" class="text12">Meta Keyword: </TD>
+		<TD  bgcolor="FFFFFF"><input name="txtMetaKey" size="45" class="textfield1" type="text" id="txtMetaKey" value="<?php print getValue(@$_POST["txtMetaKey"]); ?>" maxlength="25">
+		</TD>
+      </TR>
+	  <TR> 
+        <TD  bgcolor="FFFFFF" class="text12">Meta Description: </TD>
+		<TD  bgcolor="FFFFFF"><input name="txtMetaKeyDesc" size="45" class="textfield1" type="text" id="txtMetaKeyDesc" value="<?php print getValue(@$_POST["txtMetaKeyDesc"]); ?>" maxlength="25">
+		</TD>
+      </TR>
+	  <TR>
+	    <TD bgcolor="FFFFFF" align="center" colspan="2">
+		<INPUT type="submit" value="Save Content" name="Input" class="sbutton">
+		<INPUT type="reset" value="Reset" name="reset" class="sbutton">
+		</TD>
+      </TR>     
+	  </TBODY>
+     </form>
+  </TABLE>

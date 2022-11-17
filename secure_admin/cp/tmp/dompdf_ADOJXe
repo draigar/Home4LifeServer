@@ -1,0 +1,1080 @@
+<TABLE width="100%" class=t_list_bg cellspacing=1 cellpadding=6 bgcolor="#B7E6CC" align="left">
+      <TR><TH>Date/Time</TH><TH>Transaction ID</TH><TH>Decsciption</TH><TH>From</TH><TH>To</TH><TH>Credit</TH><TH>Debit</TH>
+                <TH>Approved By</TH></TR>      <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          09-Mar-2010 11:33        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          18945246        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          Bank Withdrawal                  </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    <font size="2"> 
+          Dev Bhoir <font size='1'>(Agent)</font>          </font> 
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    
+          Dev Bhoir <font size='1'>(Agent)</font>          
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          500.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          09-Mar-2010 10:49        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          99090145        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          Bank Withdrawal                  </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    <font size="2"> 
+          Dev Bhoir <font size='1'>(Agent)</font>          </font> 
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    
+          Dev Bhoir <font size='1'>(Agent)</font>          
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          100.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          27-Feb-2010 06:54        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          51616844        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          Deposit                  </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                   <font size="2"> 
+          Kingsley AGUORU <font size='1'>(Admin)</font>          </font>
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    
+          Dev Bhoir <font size='1'>(Agent)</font>          
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          1,257,685.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          25-Feb-2010 02:23        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          93342543        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          deposit                  </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                   <font size="2"> 
+          Kingsley AGUORU <font size='1'>(Admin)</font>          </font>
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    
+          Kingsley Aguoru <font size='1'>(Cust)</font>          
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          324,000.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          20-Feb-2010 06:13        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          74269842        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          Transfer Fund                  </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    
+          Vikram Bawne <font size='1'>(Cust)</font>          
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          2,110.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          20-Feb-2010 06:12        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          52630241        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          Transfer Fund                  </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    
+          Vikram Bawne <font size='1'>(Cust)</font>          
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          2,110.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          Kingsley AGUORU&nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          20-Feb-2010 06:02        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          62878440        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          Add Fund                  </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    <font size="2"> 
+          Add Fund          </font> 
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    
+          Kingsley Aguoru <font size='1'>(Cust)</font>          
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          2,707.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          Kingsley AGUORU&nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          20-Feb-2010 05:55        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          57190939        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          Transfer Fund                  </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                   <font size="2"> 
+          Vikram Bawne <font size='1'>(Cust)</font>          </font>
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    
+          Kingsley Aguoru <font size='1'>(Cust)</font>          
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          25.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          20-Feb-2010 05:55        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          71975438        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          Transfer Fund                  </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                   <font size="2"> 
+          Vikram Bawne <font size='1'>(Cust)</font>          </font>
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    
+          Kingsley Aguoru <font size='1'>(Cust)</font>          
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          25.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          Kingsley AGUORU&nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          20-Feb-2010 05:19        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          71440137        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          Transfer Fund                  </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                   <font size="2"> 
+          Vikram Bawne <font size='1'>(Cust)</font>          </font>
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    
+          Kingsley Aguoru <font size='1'>(Cust)</font>          
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          15.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          20-Feb-2010 05:13        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          78022136        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          Transfer Fund                  </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                   <font size="2"> 
+          Vikram Bawne <font size='1'>(Cust)</font>          </font>
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    
+          Kingsley Aguoru <font size='1'>(Cust)</font>          
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          15.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          20-Feb-2010 09:28        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          62299135        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          Add Fund                  </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    <font size="2"> 
+          Add Fund          </font> 
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    
+          Vikram Bawne <font size='1'>(Cust)</font>          
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          110.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          19-Feb-2010 03:00        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          79620834        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          AM          133572781584055        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    <font size="2"> 
+          Admin          </font> 
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    
+          Kingsley Aguoru <font size='1'>(Cust)</font>          
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          500.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          19-Feb-2010 03:00        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          13334433        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          AM          139777988572162        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    <font size="2"> 
+          Admin          </font> 
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    
+          Kingsley Aguoru <font size='1'>(Cust)</font>          
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          500.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          19-Feb-2010 04:26        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          24472132        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          Deposit                  </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                   <font size="2"> 
+          Kingsley AGUORU <font size='1'>(Admin)</font>          </font>
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    
+          Kingsley Aguoru <font size='1'>(Cust)</font>          
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          1,200,000.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          19-Feb-2010 04:18        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          31761729        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          AM          136802492760815        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    Admin 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          1,000.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          19-Feb-2010 03:59        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          0        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          NL                  </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    <font size="2"> 
+          Admin          </font> 
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    
+          Kingsley Aguoru <font size='1'>(Cust)</font>          
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          2,675.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          19-Feb-2010 03:43        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          26019326        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          NL          140740060020648        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    Admin 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          1,400.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          19-Feb-2010 03:43        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          95227425        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          NL          132643515520235        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    Admin 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          1,400.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          19-Feb-2010 03:43        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          65058224        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          NL          130020430953776        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    Admin 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          1,400.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          19-Feb-2010 03:43        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          19387923        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          NL          134740572683972        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    Admin 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          1,400.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          19-Feb-2010 03:43        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          42892322        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          NL          129742941996770        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    Admin 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          1,415.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          18-Feb-2010 07:36        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          34930021        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          AM          134382543627633        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    Admin 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          1,000.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          18-Feb-2010 07:33        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          98485420        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          NL          134281460836784        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    Admin 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          700.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          18-Feb-2010 07:33        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          34258419        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          NL          127422089129816        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    Admin 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          715.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          18-Feb-2010 07:32        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          58773818        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          AM          133572781584055        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    Admin 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          500.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          18-Feb-2010 07:32        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          64862717        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          AM          124757466299388        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    Admin 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          500.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          18-Feb-2010 07:30        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          49332716        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          AM          130543122038453        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    Admin 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          1,000.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          18-Feb-2010 07:29        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          26663315        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          AM          139777988572162        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    Admin 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          500.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          18-Feb-2010 07:29        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          97055514        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          AM          128010765896760        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    Admin 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          500.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          18-Feb-2010 06:15        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          90260813        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          NL          138486590628572        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    Admin 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          715.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          18-Feb-2010 06:14        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          78014410        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          Deposit                  </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                   <font size="2"> 
+          Kingsley AGUORU <font size='1'>(Admin)</font>          </font>
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    
+          Kingsley Aguoru <font size='1'>(Cust)</font>          
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          300,000.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          18-Feb-2010 03:09        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          1967659        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          Bank Withdrawal                  </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font> 
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    
+          Kingsley Aguoru <font size='1'>(Cust)</font>          
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          120.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          18-Feb-2010 03:04        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          4622697        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          charge                  </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                   <font size="2"> 
+          Kingsley AGUORU <font size='1'>(Admin)</font>          </font>
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    
+          Kingsley Aguoru <font size='1'>(Cust)</font>          
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          340.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          18-Feb-2010 02:56        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          9526355        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          Winning                  </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                   <font size="2"> 
+          Kingsley AGUORU <font size='1'>(Admin)</font>          </font>
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    
+          Kingsley Aguoru <font size='1'>(Cust)</font>          
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          610.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          18-Feb-2010 02:00        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          6729524        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          Bank Withdrawal                  </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    <font size="2"> 
+          Vikram Bawne <font size='1'>(Cust)</font>          </font> 
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    
+          Vikram Bawne <font size='1'>(Cust)</font>          
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          75.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          18-Feb-2010 01:57        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          6492923        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          NL          132324201566132        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                   <font size="2"> 
+          Vikram Bawne <font size='1'>(Cust)</font>          </font>
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    Admin 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          115.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          18-Feb-2010 01:56        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          8291472        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          Fees                  </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                   <font size="2"> 
+          Kingsley AGUORU <font size='1'>(Admin)</font>          </font>
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    
+          Vikram Bawne <font size='1'>(Cust)</font>          
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          45.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+            <tr> 
+         <td align="center" bgcolor="#FFFFFF"> 
+          18-Feb-2010 01:55        </td>
+         <td align="center" bgcolor="#FFFFFF"> 
+          8985231        </td>
+         <td align="left" bgcolor="#FFFFFF"> 
+          Bonus                  </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                   <font size="2"> 
+          Kingsley AGUORU <font size='1'>(Admin)</font>          </font>
+          &nbsp;
+        </td>
+        <td align="left" bgcolor="#FFFFFF"> 
+                    
+          Vikram Bawne <font size='1'>(Cust)</font>          
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          545.00&nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF"> 
+          &nbsp;
+        </td>
+        <td align="right" bgcolor="#FFFFFF">  
+          <font size="2"> 
+          &nbsp;
+          </font>  </td>
+      </tr>
+      	
+</table>

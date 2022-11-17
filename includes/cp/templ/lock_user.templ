@@ -1,0 +1,90 @@
+<strong>
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); 
+?>
+<br>
+</strong>
+<table align="center" class="t_content_bg" cellspacing=1 cellpadding=5 width="80%" border=0 bgcolor="#cccccc">
+  <form name="frmAddUser" action="<?=@$_SERVER["REQUEST_URI"]?>" method="post" >
+    <tbody>
+      <tr> 
+        <td colspan="2" align="left" bgcolor="#FFFFFF" class="text2"><strong>User 
+          Details<br>
+          </strong></td>
+      </tr>
+      <tr> 
+        <td width="27%" bgcolor="#FFFFFF" class="text12"><strong>First Name: </strong></td>
+        <td width="73%" bgcolor="#FFFFFF" class="text12"><strong>
+          <?=$fname?>
+          </strong></td>
+      </tr>
+      <tr> 
+        <td bgcolor="#FFFFFF" class="text12"><strong>Last Name: </strong></td>
+        <td bgcolor="#FFFFFF" class="text12"><strong>
+          <?=$lname?>
+          </strong></td>
+      </tr>
+      <tr> 
+        <td bgcolor="#FFFFFF" class="text12"><strong>Email Id: </strong></td>
+        <td bgcolor="#FFFFFF" class="text12"><strong>
+          <?=$email_id?>
+          </strong></td>
+      </tr>
+
+      <tr> 
+        <td bgcolor="#FFFFFF" class="text12"><strong>Address : </strong></td>
+        <td bgcolor="#FFFFFF" class="text12"><strong>
+          <?=$address1?><BR><?=$address2?></strong></td>
+      </tr>
+      
+      <tr> 
+        <td bgcolor="#FFFFFF" class="text12"><strong>City: </strong></td>
+        <td bgcolor="#FFFFFF" class="text12"> <strong>
+          <?=$city_id?>
+          </strong></td>
+      </tr>
+      <tr> 
+        <td bgcolor="#FFFFFF" class="text12"><strong>State:</strong></td>
+        <td bgcolor="#FFFFFF" class="text12"> <strong>
+          <?=$state_id?>
+          </strong></td>
+      </tr>      
+      <tr> 
+        <td bgcolor="#FFFFFF" class="text12"><strong>Zip Code: </strong></td>
+        <td bgcolor="#FFFFFF" class="text12"><strong>
+          <?=$zipcode?>
+          </strong></td>
+      </tr>
+	  <tr> 
+        <td bgcolor="#FFFFFF" class="text12"><strong>Status: </strong></td>
+        <td bgcolor="#FFFFFF" class="text12"><strong>
+          <?php  if($lock_user=="Y"){  echo "Lock"; }else{ echo "Unlock";  }  ?>
+          </strong>   
+		  <?php if($lock_user=="Y"){ ?>
+				Unlock <input type="checkbox" name="chkUnLock" id="chkUnLock" value="N" <?php echo $_POST['chkUnLock']=="N"?"checked":"";?>>				
+		  <?php }else{ ?>
+				Lock <input type="checkbox" name="chkLock" id="chkLock" value="Y" <?php echo $_POST['chkLock']=="Y"?"checked":"";?>>
+		  <?php } ?>
+
+		  </td>
+      </tr>
+	  
+	  <tr> 
+        <td bgcolor="#FFFFFF" class="text12"><strong>Comment: </strong></td>
+        <td bgcolor="#FFFFFF"><strong>
+          <textarea name="txtComment" id="txtComment" cols="40" rows="10"><?php print getValue(@$_POST["txtComment"]); ?></textarea> 
+          </strong></td>
+      </tr>
+    <td class="text2" colspan="2" align="left" bgcolor="#FFFFFF"><strong>Login 
+      Details<br>
+      </strong></td>
+   
+    
+    <tr> 
+      <td align="center" bgcolor="#FFFFFF" colspan="2"><strong>
+        <input type="submit" value="Update" name="Input" class="sbutton"> 
+		<input type="button" value="Cancel" name="Input" class="sbutton" onClick="javascript:history.back();">
+        </strong></td>
+    </tr>
+  </form>
+</table>

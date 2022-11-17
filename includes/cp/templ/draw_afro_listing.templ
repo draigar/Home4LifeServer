@@ -1,0 +1,105 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+
+<?php
+$extraParamInUrl = "num".$_DELIM.@$_POST["num"].$baratend;
+
+//Define HEADER
+$_HEADER = "<TH nowrap class='t_header_cell_bg'>".getHead("afro_listing","afro_id","SrNo",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("afro_listing","al_id","AL-ID",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("afro_listing","month_year","Month/Year",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("afro_listing","from_time","Start",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("afro_listing","to_time","Ends",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("afro_listing","match7","Jackpot",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("afro_listing","status","Status",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("afro_listing","entries","Entries",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>Total Winner</TH>
+<TH nowrap class='t_header_cell_bg'>Action</TH>";
+?><br />
+<?
+if(count($pageAndData['results'])>0 && is_array($pageAndData['results']))
+	{
+		
+?>
+	
+<div style="overflow:auto; width:800px; padding-bottom:10px; position:relative; "> 
+  <form name="frmTerminal" action="<?=$_SERVER['REQUEST_URI']?>" method="post">
+    <TABLE width="95%" class=t_list_bg cellSpacing=1 cellPadding=2 bgcolor="#cccccc" align="center">
+      <?=$_HEADER?>
+      <?php
+	foreach($pageAndData['results'] as $key => $val)
+		{
+			$month_year= explode(",",$val['month_year']);
+			$year =$month_year[1];
+			$month =$month_year[0];
+
+			$rowbgcolor ="#FFFFFF";
+?>
+      <tr bgcolor="<?=@$rowbgcolor?>"> 
+        <td nowrap align="center" class="text13"> 
+          <?=$val['afro_id']?>
+        </td>
+        <td nowrap class="text13" align="center"> 
+          <?=$val['al_id']?>
+        </td>
+        <td nowrap class="text13" align="center"> 
+          <?=$val['value2']?>
+          / 
+          <?=$year?>
+        </td>
+        <td nowrap class="text13" align="center"> 
+          <?=$val['from_time']?>
+        </td>
+        <td nowrap align="center" class="text13"> 
+          <?=$val['to_time']?>
+        </td>
+        <td nowrap align="right" class="text13" style="padding-right:5px;"> 
+          <?=$val['match7']?>
+        </td>
+        <td nowrap align="center" class="text13">Draw</td>
+        <td nowrap align="center" class="text13"> 
+          <?=$val['entries']?>
+        </td>
+        <td nowrap align="center" class="text13"> 
+          <?php
+		  	//Get Result
+			$result=array();
+			$result=get_all_winner("afro",$val['afro_id'],7);
+			$totalmatch=0;
+			for($i=7;$i>=3;$i--) {
+			 $totalmatch+=$result[$i][0];
+			}
+			if($totalmatch>0) {			
+		  ?>
+          <a href="<?=$_DIR["site"]["adminurl"]?>afro_result_detail<?=$atend."id".$_DELIM.$val['afro_id'].$baratend?>"><font size="3" color="green"><strong> 
+          <?=$totalmatch?><?=$result[8][0]>0?"<font size='1'> & ".$result[8][0]." Raffle Winner</font>":""?>
+          </strong></font></a> 
+          <?php } else { ?>
+          0 
+          <?php } ?>
+        </td>
+        <td nowrap align="center"> <a href="<?=$_DIR["site"]["adminurl"]?>draw_afro_detail<?=$atend."id".$_DELIM.$val['afro_id'].$baratend?>">View 
+          Result</a> </td>
+      </tr>
+      <?php  
+			unset($rowbgcolor);
+			unset($firstletterofStat);
+		}
+?>
+    </table>
+  </form>
+</div>
+<?
+//Display Pagination here
+print @$pageAndData['paginationbuttonHTML2'];
+	}
+	else 
+		print "<br><DIV class=text2 align=center>Sorry system could not found any records in database.<br>Please add new record.</DIV><br><br>";
+?>
+
+<script>
+function openUrl(userId){
+	szUrl = "<?=$_DIR["site"]["adminurl"]?>draw_afro_detail<?=$atend."id".$_DELIM?>"+userId+"<?=$baratend?>";
+	window.open(szUrl,"_vOds","height=700,width=930,left=30,top=30,location=no,menubar=no,resizable=yes,scrollbars=yes,status=no");
+}
+</script>

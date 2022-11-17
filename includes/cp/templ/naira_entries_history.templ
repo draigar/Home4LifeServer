@@ -1,0 +1,129 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+<script type="text/javascript" src="<?=$_DIR['site']['adminurl']?>javascripts/date-picker.js"></script>
+<table width="95%" border="0" class="t_content_bg" cellSpacing=0 cellPadding=0 align="center">
+	<form name="frmSearch" action="<?=$_SERVER['REQUEST_URI']?>" method="post">
+			<TR>
+
+<td colspan="4" align="center" bgcolor="#FFFFFF">
+			<table border=0 class="t_content_bg" cellSpacing=1 cellPadding=1  bgcolor="#B7E6CC">
+          <tr> 
+            <td colspan="4" align="center" height="20px" bgcolor="#B7E6CC" class="text12"><b>To 
+              view all entries, please leave the field blank</b>.</td>
+          </tr>
+          <tr align="center"> 
+            <TD class="text12" width="109" bgcolor="#FFFFFF" align="left">NL-ID</TD>
+            <TD align="left" class="searchbox" bgcolor="#FFFFFF"> 
+              <input type="text" name="txtAlid" id="txtAlid" class="textfield" value="<?=getValue($_POST['txtAlid'])?>" maxlength="13"> 
+            </TD>
+			<TD class="text12" width="77" bgcolor="#FFFFFF" align="left">Ticket 
+              No </TD>
+            <td width="213"  bgcolor="#FFFFFF" class="searchbox" align="left"> 
+              <input type="text" name="txtTicketNo" id="txtTicketNo" class="textfield" value="<?=getValue($_POST['txtTicketNo'])?>" maxlength="13"></td>
+
+          </tr>
+          <tr>  
+            <TD class="text12" width="109" bgcolor="#FFFFFF" align="left">From Date 
+            </TD>
+            <td width="201"   align="left" class="searchbox"  bgcolor="#FFFFFF"> 
+				<input type="text" name="txtFromDate" id="txtFromDate" class="textfield"  value="<?php print getValue(@$_POST["txtFromDate"]);?>" />
+				<a href="javascript:show_calendar('frmSearch.txtFromDate');" onmouseover="window.status='Date Picker';return true;" onmouseout="window.status='';return true;" >
+				<IMG id=dimg1 align=top border=0 src="<?=$_DIR['site']['adminurl']?>images/show-calendar.gif" style="POSITION: relative"></a>
+            </td>
+			 <TD class="text12" width="109" bgcolor="#FFFFFF" align="left">To Date 
+            <td width="201"   align="left" class="searchbox"  bgcolor="#FFFFFF"> 
+				<input type="text" name="txtToDate" id="txtToDate" class="textfield"  value="<?php print getValue(@$_POST["txtToDate"]);?>" />
+				<a href="javascript:show_calendar('frmSearch.txtToDate');" onmouseover="window.status='Date Picker';return true;" onmouseout="window.status='';return true;" >
+				<IMG id=dimg1 align=top border=0 src="<?=$_DIR['site']['adminurl']?>images/show-calendar.gif" style="POSITION: relative"></a>
+            </td>
+            
+          </TR>
+		  <tr>
+		  <TD class="text12" width="109" bgcolor="#FFFFFF" align="left">Method</TD>
+            <td width="201" bgcolor="#FFFFFF" class="searchbox" align="left" colspan="3"> 
+              <select name="cmbMethod" width="40%">
+                <option value="">Select Method</option>
+                <?=$method;?>
+              </select>
+            </td>
+		  </tr>
+          <tr> 
+            <TD class="text12" colspan="4" bgcolor="#F4f1cc" align="center"><input type="submit" name="Submit1" value="Search Record" class="sbutton"></TD>
+          </TR>
+        </table>
+			</td>
+			</tr>
+				</form>			
+</table><br />
+<?php
+$extraParamInUrl = "num".$_DELIM.@$_POST["num"].$baratend;
+
+//Define HEADER
+$_HEADER = "<TH nowrap class='t_header_cell_bg'>".getHead("naira_entries","nt_id","SrNo",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("naira_entries","nl_id","NL-ID",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("naira_entries","date_entered","Date/Time Entered",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("naira_entries","ticket_no","Ticket No",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("naira_entries","value","Method",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("naira_entries","entries","Entries",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("naira_entries","vision_numbers","Vision No",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg' colspan='2'>Action</TH>";
+?><br />
+<?
+if(count($pageAndData['results'])>0 && is_array($pageAndData['results']))
+	{
+		
+?>
+	
+<div style="overflow:auto; width:100%; padding-bottom:10px; position:relative; "> 
+  <form name="frmTerminal" action="<?=$_SERVER['REQUEST_URI']?>" method="post">
+    <TABLE width="95%" class=t_list_bg cellSpacing=1 cellPadding=2 bgcolor="#B7E6CC" align="center">
+      <?=$_HEADER?>
+      <?php
+	foreach($pageAndData['results'] as $key => $val)
+		{
+			$rowbgcolor ="#FFFFFF";
+	?>
+      <tr bgcolor="<?=@$rowbgcolor?>"> 
+        <td nowrap align="center" class="text13"> 
+          <?=$val['nt_id']?>
+        </td>
+        <td nowrap class="text13" align="center"> 
+          <?=$val['nl_id']?>
+        </td>
+        <td nowrap class="text13" align="center"> 
+          <?=$val['date_entered']?>
+        </td>
+        <td nowrap class="text13" align="center"> 
+          <?=$val['date_entered2']?>
+          - 
+          <?=$val['ticket_no']?>
+        </td>
+        <td nowrap align="center" class="text13"> 
+          <?php 
+		   	if($val['method_id']=='S'){ echo "SMS"; }elseif($val['method_id']=='T'){ echo "Terminal"; }else{ echo "Internet"; }
+		  ?>
+        </td>
+        <td nowrap align="center" class="text13"> 
+          <?=$val['entries']?>
+        </td>
+        <td nowrap align="center" class="text13"> 
+          <?=$val['vision_numbers']?"Yes":"No"?>
+        </td>
+        <td nowrap align="center" bgcolor="#F4F1CC"><a href="javascript:void(0)" onclick="window.open('<?=$_DIR['site']['adminurl']?>ticket-details<?=$atend?>ticket_no<?=$_DELIM.$val["ticket_no"].$baratend."frm".$_DELIM."naira"?>','td','top=80,left=80,width=400,height=600,scrollbars=yes')" class="menu1">View 
+          entry</a></td>
+      </tr>
+      <?php  
+			unset($rowbgcolor);
+			unset($firstletterofStat);
+		}
+?>
+    </table>
+  </form>
+</div>
+<?
+//Display Pagination here
+print @$pageAndData['paginationbuttonHTML2'];
+	}
+	else 
+		print "<br><DIV class=text2 align=center>Sorry system could not found any records in database.<br>Please add new record.</DIV><br><br>";
+?>

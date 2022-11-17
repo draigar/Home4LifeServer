@@ -1,0 +1,105 @@
+<br /><?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+<br>
+<style type="text/css">
+<!--
+.style1 {
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size:13px;
+}
+.style2 {
+	color: #00CC66;
+	font-weight: bold;
+	font-size:13px;
+}
+.text { font-size:13px; }
+-->
+</style>
+<form name="frmDetails" action="<?php print $_SERVER['REQUEST_URI']; ?>" method="post">
+<TABLE width="95%" class=t_list_bg cellSpacing=1 cellPadding=5 bgcolor="#cccccc" align="center">
+<?php
+//Define HEADER
+$_HEADER = "<tr><TH nowrap class='text13'>Draw No.</TH>
+<TH nowrap class='text13'>NL-ID</TH>
+<TH nowrap class='text13'>Month/Year</TH>
+<TH nowrap class='text13'>Started</TH>
+<TH nowrap class='text13'>Ended</TH></tr>";
+echo $_HEADER;
+?>
+<tr> 
+  <td nowrap align="center" class="text13" bgcolor="#FFFFFF"> 
+     <?=strlen($naira[7])<4?substr("0000",0,4-strlen($naira[7])).$naira[7]:$naira[7]?>
+  </td>
+  <td nowrap align="center" class="text13" bgcolor="#FFFFFF"><?=$naira[8]?></td>
+  <td nowrap align="center" class="text13" bgcolor="#FFFFFF"><?=$naira[3]?></td>
+  <td nowrap align="center" class="text13" bgcolor="#FFFFFF"><?=$naira[9]?></td>
+  <td nowrap align="center" class="text13" bgcolor="#FFFFFF"><?=$naira[0]?></td>
+</tr>
+</table><br />
+<br /><TABLE width="95%" class=t_list_bg cellSpacing=1 cellPadding=2 bgcolor="#cccccc" align="center">
+<tr> 
+  <th width="15px" class="t_header_cell_bg" valign="middle" class="text11"> </th>
+  <th width="75px" class="t_header_cell_bg" valign="middle" class="text11">Draw date</th>
+  <th width="60px" class="t_header_cell_bg" valign="middle" class="text11">SrNo</th>
+  <th width="65px" class="t_header_cell_bg" valign="middle" class="text11">Ticket Number</th>
+  <th width="86px" class="t_header_cell_bg" valign="middle" class="text11">Prize<br>Amount</th>
+  <th width="60px" class="t_header_cell_bg" valign="middle" class="text11">Prize<br>level</th>
+  <th width="100px" class="t_header_cell_bg" valign="middle" class="text11">Area bought</th>
+  <th width="110px" class="t_header_cell_bg" valign="middle" class="text11">Winning<br>numbers</th> 
+  <th width="110px" class="t_header_cell_bg" valign="middle" class="text11">Vision<br>Winning<br>numbers</th> 
+</tr>
+<?php
+$prizesum=array();
+$cnt=count($naira_id);
+for($i=0;$i<$cnt;$i++) { 
+	$matchp=0;
+	$len2=count($result[$i]);
+	for($j=0,$k=0;$j<$len2;$j++,$k+=2) {
+		if($result[$i][$j]) $matchp++;
+	}
+	$prizesum[$naira_id[$i]][$matchp]=!$prizesum[$naira_id[$i]][$matchp]?1:($prizesum[$naira_id[$i]][$matchp]+1);
+}
+if($cnt<=0) print "<tr><td height='30' bgcolor='#FFFFFF' colspan='7' valign='middle'><strong>No Matching Entry found.</strong></td></tr>";
+for($i=0;$i<$cnt;$i++) { 
+	$matchp=0;
+	$len2=count($result[$i]);
+	for($j=0,$k=0;$j<$len2;$j++,$k+=2) {
+		if($result[$i][$j]) $matchp++;
+	}
+?>
+<tr bgcolor="#FFFFFF"> 
+  <td height="35px" class="listing" align="center"><?=$i+1?></td>	
+  <td height="35px" class="listing" align="center"><?=$to_time[$i]?></td>
+  <td class="listing" align="center"><?=$ne_id[$i]?></td>
+  <td class="listing" align="center"><?=$ticket_no[$i]?></td>
+  <td class="listing" align="right" style="padding-right:5px;"><img src="<?=$_DIR["site"]["url"]?>images/naira.gif"> 
+   <?php 
+  	$totalamount=0;
+  	if($win_num[$i]) $totalamount=$matchp>3?($match[$i][$matchp]/$prizesum[$naira_id[$i]][$matchp]):$match[$i][$matchp]; 
+	if($visionwinner[$i]) $totalamount+=$visionwinneramount[$i];
+	echo number_format($totalamount,2); 
+  ?> 
+  </td>
+  <td class="listing" align="center">
+  	<?php 
+		if($win_num[$i]) echo $matchp==6?"Jackpot":"Matched".$matchp."<br>";
+		if($visionwinner[$i]) echo "Vision Number";
+	?>
+  </td>
+  <td class="listing" style="padding-left:5px;"><?php 
+	if($method_id[$i]=='S'){ echo "SMS"; }elseif($method_id[$i]=='T'){ echo "Terminal"; }else{ echo "Internet"; }
+  ?></td>
+  <td class="listing" align="center"><?=$win_num[$i]?></td>  
+  <td class="listing" align="center"><?=$visionwinner[$i]?></td>
+</tr>
+<?php } ?>
+</table><br>
+<table width="80%" border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="#00CC9A" bgcolor="#FFFFFF">
+  <tr>
+    <td bgcolor="#ffffff" height="50px" class="text" colspan="4">
+	<div align="center"><a href="javascript:history.back(0);"><font size="2">Back to Previous Page</font></a></div>
+	</td>
+  </tr>
+</table></form>
+<br /><br />

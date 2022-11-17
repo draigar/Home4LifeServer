@@ -1,0 +1,85 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+
+<TABLE width="100%" border="0" align="left" class=t_list_bg cellSpacing=1 cellPadding=2>
+<TR> 
+		<TD align="left" valign="top">
+<?php
+$extraParamInUrl = "num=".@$_POST["num"];
+
+//Define HEADER
+$_HEADER = "<TH class='t_header_cell_bg'>".getHead("country","countryid","Country ID",$extraParamInUrl)."</TH>
+<TH class='t_header_cell_bg'>".getHead("country","name","Country Name",$extraParamInUrl)."</TH>
+<TH class='t_header_cell_bg'>".getHead("country","curr_code","Currency",$extraParamInUrl)."</TH>
+<TH class='t_header_cell_bg'>".getHead("country","createdate","Created Date",$extraParamInUrl)."</TH>
+<TH class='t_header_cell_bg'>".getHead("country","lastupdate","Last Updated Date",$extraParamInUrl)."</TH>
+<TH class='t_header_cell_bg' colspan='2'>Action</TH>";
+
+if(count($_MSG)>1) { //Display messages
+?>
+<TABLE cellSpacing=1 cellPadding=2 width="100%" border=0 align="left">
+<TBODY>
+  <TR> 
+		<TD align="center" valign="top">
+		<FONT face="Verdana, Arial, Helvetica, sans-serif" size=1>
+		<?PHP	
+		foreach($_MSG as $value)
+		{
+			if(strlen(trim($value))>0)
+					print $value."<br>";
+		}
+	    ?></FONT><br></TD>
+	  </TR>
+</TBODY>
+</TABLE>
+<?
+} //if(count($_MSG)>1)	
+
+//Display Sorting Status In Text here
+
+	
+?>
+
+<? 
+if(count($pageAndData['results'])>0 && is_array($pageAndData['results']))
+	{
+	
+?>
+    <?php if (!empty($_SORTINGSTATUS)) {
+print "<strong>".$_SORTINGSTATUS."</strong>";
+?>
+<?php } ?>
+	<TABLE width="100%" align="center" class=t_list_bg cellSpacing=1 cellPadding=2 bgcolor="#cccccc">
+
+<?=$_HEADER?>
+<?
+	foreach($pageAndData['results'] as $key => $val)
+		{
+			$rowbgcolor = "#FFFFFF";
+?> 
+			<tr bgcolor="<?=@$rowbgcolor?>">
+			<td class="text13"><?=@$val['countryid']?></td>
+			<td class="text13"><?=@$val['name']?></td>
+			<td class="text13"><?=@$val['curr_code']?></td>
+			<td class="text13"><?=@$val['createdate']?></td>
+			<td class="text13"><?=@$val['lastupdate']?></td>
+			<td align="center"><a href="<?=$_DIR['site']['adminurl']."editcountry".$atend."id".$_DELIM.@$val['countryid'].$baratend?>" class="menu1">Edit</a></td>
+
+			<td align="center"><a href="javascript:if(confirm('Are you sure you want to delete record ?')) { location.href='<?=$_DIR['site']['adminurl']."country".$atend."act".$_DELIM."del".$baratend."id".$_DELIM.@$val['countryid'].$baratend?>'; }" class="menu1">Delete</a></td></tr>
+<?
+			unset($rowbgcolor);
+			unset($firstletterofStat);
+		}
+?>
+	</table>
+<?
+	//Display Pagination here
+	print @$pageAndData['paginationbuttonHTML2'];
+	}else	
+	{ 
+	  print "<br><DIV class=text2 align=center>Sorry system could not found any records in database.</DIV><br><br>";	
+	  }
+?>
+</TD>
+	  </TR>
+</TABLE>

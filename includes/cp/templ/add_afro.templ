@@ -1,0 +1,98 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+<script type="text/javascript" src="<?=$_DIR["site"]["url"]?>js/validation.js"></script>
+<script type="text/javascript" src="<?=$_DIR['site']['adminurl']?>javascripts/date-picker.js"></script>
+<script language="JavaScript1.2">
+	function showhide(){
+	if(document.getElementById("chkVision").checked== true){
+		document.getElementById("visionrow").style.display = 'block';
+	}else{
+		document.getElementById("visionrow").style.display = 'none';
+	}
+}
+</script>
+<form name="frmlocation" action="<?php print $_SERVER["REQUEST_URI"];?>" method="post" >
+  <TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="499" border=0 bgcolor="#cccccc">
+    <TBODY>
+      <TR> 
+        <TD colspan="3" align="left" bgcolor="#B9F1FF" class=text12><strong>Add 
+          Afro Millions Game</strong><br></TD>
+      </TR>
+      <tr>
+	  	<TD class=text12  align="left" bgcolor="#FFFFFF">Start Date:</TD>
+        <TD colspan="2" bgcolor="#FFFFFF" class=t_content_cell2_bg>
+			  <input type="text" name="txtFromDate" id="txtFromDate" style="width:80px" class="textfield"  value="<?php print getValue(@$_POST["txtFromDate"]);?>" /> 
+              <a href="javascript:show_calendar('frmlocation.txtFromDate');" onmouseover="window.status='Date Picker';return true;" onmouseout="window.status='';return true;" > 
+              <IMG id=dimg1 align=top border=0 height=21 src="<?=$_DIR['site']['adminurl']?>images/show-calendar.gif" style="POSITION: relative" width=16></a>
+			  <select name="cmbHourFrom">
+				<option value="">- Hour -</option>
+				<?php for($i=0;$i<24; $i++){ ?>
+				<option value="<?=($i<=9?"0":"").$i?>" <?php echo "'".$_POST['cmbHourFrom']."'"=="'".($i<=9?"0":"").$i."'"?"selected":""; ?>>
+				<?=$i<=9?"0".$i:$i?>
+				</option>
+				<?php } ?>
+			   </select>  
+			   <select name="cmbMinuteFrom">
+				<option value="">- Minutes -</option>
+				<?php for($i=0;$i<=59; $i++){ ?>
+				<option value="<?=($i<=9?"0":"").$i?>" <?php echo "'".$_POST['cmbMinuteFrom']."'"=="'".($i<=9?"0":"")."".$i."'"?"selected":""; ?>>
+				<?=$i<=9?"0".$i:$i?>
+				</option>
+				<?php } ?>
+			  </select>
+			 </TD>
+      </TR>
+      <tr>
+	  	<TD class=text12 align="left" bgcolor="#FFFFFF">End Date:</TD>
+        <TD colspan="2" bgcolor="#FFFFFF" class=t_content_cell2_bg>
+			  <input type="text" name="txtToDate" id="txtToDate" style="width:80px" class="textfield"  value="<?php print getValue(@$_POST["txtToDate"]);?>" /> 
+              <a href="javascript:show_calendar('frmlocation.txtToDate');" onmouseover="window.status='Date Picker';return true;" onmouseout="window.status='';return true;" > 
+              <IMG id=dimg1 align=top border=0 height=21 src="<?=$_DIR['site']['adminurl']?>images/show-calendar.gif" style="POSITION: relative" width=16></a>	
+			  <select name="cmbHourTo">
+				<option value="">- Hour -</option>
+				<?php for($i=0;$i<24; $i++){ ?>
+				<option value="<?=($i<=9?"0":"").$i?>" <?php echo "'".$_POST['cmbHourTo']."'"=="'".($i<=9?"0":"").$i."'"?"selected":""; ?>>
+				<?=$i<=9?"0".$i:$i?>
+				</option>
+				<?php } ?>
+			  </select>   <select name="cmbMinuteTo">
+				<option value="">- Minutes -</option>
+				<?php for($i=0;$i<=59; $i++){ ?>
+				<option value="<?=($i<=9?"0":"").$i?>" <?php echo "'".$_POST['cmbMinuteTo']."'"=="'".($i<=9?"0":"")."".$i."'"?"selected":""; ?>>
+				<?=$i<=9?"0".$i:$i?>
+				</option>
+				<?php } ?>
+			  </select>
+		  </TD>
+      </TR>
+      <TR> 
+        <TD class=text12  align="left" bgcolor="#FFFFFF">Match (7) Amount: (Jackpot)</TD>
+        <TD bgcolor="#FFFFFF" class="t_content_cell2_bg" colspan="2"> <input type="text" name="txtMatch7" onkeypress="checknumchar(this,event,11,2,'.');" onblur="makeDouble(this);" id="txtMatch7" value="<?=$_POST['txtMatch7']?>" maxlength="10" size="15"> </TD>
+      </TR>
+      <TR> 
+        <TD class=text12  align="left" bgcolor="#B9F1FF" colspan="3">
+		<input type="checkbox" name="chkVision" id="chkVision" onclick="javascript:showhide();" value="Y" <?php echo $_POST['chkVision']=="Y"?"checked":""; ?>> Tick to add Raffle Draw
+		 <TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="450" border=0 bgcolor="#cccccc" id="visionrow" style="margin-top:15px;display:<?php echo $_POST['chkVision']=="Y"?"block":"none"; ?>">
+		  <TR> 
+			<TD width="147"  align="left" bgcolor="#B9F1FF" class=text12>Raffle Winning Amount:</TD>
+			<TD width="329" colspan="2" bgcolor="#B9F1FF" class="t_content_cell2_bg"> 
+			<input type="text" name="txtVisionAmt" onkeypress="checknumchar(this,event,10,2,'.');" id="txtVisionAmt" onblur="makeDouble(this);" value="<?=$_POST['txtVisionAmt']?>" maxlength="10" size="15"></TD>
+		  </TR>
+		  <TR> 
+			<TD class=text12  align="left" bgcolor="#B9F1FF">Raffle Cost:</TD>
+			<TD bgcolor="#B9F1FF" class="t_content_cell2_bg" colspan="2"> 
+			<input type="text" name="txtVisionPrice" onkeypress="checknumchar(this,event,10,2,'.');" id="txtVisionPrice" value="<?=$_POST['txtVisionPrice']?>" onblur="makeDouble(this);" maxlength="10" size="15"></TD>
+		  </TR>
+	   </TABLE>
+		</TD>
+      </TR>
+      <TR> 
+        <TD bgcolor="#FFFFFF" colspan="3" align="center"><INPUT type="submit" class="sbutton" value="Save" name="Input"> 
+          <INPUT type="reset" value="Reset" name="Reset" class="sbutton"></TD>
+      </TR>
+    </TBODY>
+  </TABLE>  		   
+	 </form>  
+<script type="text/javascript">
+	showhide();
+</script>	 

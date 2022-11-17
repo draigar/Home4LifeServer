@@ -1,0 +1,31 @@
+.message {
+
+	BACKGROUND-IMAGE: url(/images/msg_info.png); BORDER-BOTTOM: #97bad3 2px solid; BORDER-LEFT: #97bad3 2px solid; PADDING-BOTTOM: 15px; BACKGROUND-COLOR: #edf5fa; PADDING-LEFT: 80px; PADDING-RIGHT: 24px; BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: 20px 50%; MARGIN-BOTTOM: 30px; COLOR: #3289c6; FONT-SIZE: 14px; BORDER-TOP: #97bad3 2px solid; FONT-WEIGHT: normal; BORDER-RIGHT: #97bad3 2px solid; PADDING-TOP: 15px; FONT-FAMILY: Arial, Helvetica, sans-serif; FONT-SIZE: 14px;
+
+}
+
+.message A {
+
+	TEXT-DECORATION: underline
+
+}
+
+.msgError {
+
+	BACKGROUND-IMAGE: url(/images/msg_error.png); BORDER-BOTTOM: #c51616 2px solid; BORDER-LEFT: #c51616 2px solid; BACKGROUND-COLOR: #ffe4e4; COLOR: #c51616; BORDER-TOP: #c51616 2px solid; BORDER-RIGHT: #c51616 2px solid
+
+}
+
+.msgWarning {
+
+	BACKGROUND-IMAGE: url(/images/msg_warning.png); BORDER-BOTTOM: #d6c565 2px solid; BORDER-LEFT: #d6c565 2px solid; BACKGROUND-COLOR: #fffce8; COLOR: #ad8d1f; BORDER-TOP: #d6c565 2px solid; BORDER-RIGHT: #d6c565 2px solid
+
+}
+
+.msgSuccess {
+
+	BACKGROUND-IMAGE: url(/images/msg_success.png); BORDER-BOTTOM: #529e29 2px solid; BORDER-LEFT: #529e29 2px solid; BACKGROUND-COLOR: #e1f9d4; COLOR: #529e29; BORDER-TOP: #529e29 2px solid; BORDER-RIGHT: #529e29 2px solid
+
+}
+
+.message li { list-style:none; }

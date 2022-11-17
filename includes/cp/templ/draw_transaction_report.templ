@@ -1,0 +1,179 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+<script type="text/javascript" src="<?=$_DIR['site']['adminurl']?>javascripts/date-picker.js"></script>
+<table width="95%" border="0" class="t_content_bg" cellSpacing=0 cellPadding=0 align="center">
+	<form name="frmSearch" action="<?=$_SERVER['REQUEST_URI']?>" method="post">
+	<input type="hidden" name="act" value="">
+			<TR>
+
+<td colspan="4" align="center" bgcolor="#FFFFFF">
+			<table border=0 class="t_content_bg" cellSpacing=1 cellPadding=1  bgcolor="#B7E6CC">
+          <tr> 
+            <td colspan="4" align="center" height="20px" bgcolor="#B7E6CC" class="text12">To 
+              view all transactions, please leave the field blank.</td>
+          </tr>
+          <tr> 
+            <TD class="text12" width="109" bgcolor="#FFFFFF" align="left">Lotto 
+              Type</TD>
+            <td width="201" bgcolor="#FFFFFF" class="searchbox" align="left"> 
+              <select name="cmbLotto" width="40%" >
+                <option value="">Select Type</option>
+                <option value="A" <?php echo $_POST['cmbLotto']=="A"?"selected":"";?>>Afro 
+                Lotto</option>
+                <option value="N" <?php echo $_POST['cmbLotto']=="L"?"selected":"";?>>Naira 
+                Lotto</option>
+              </select> </td>
+            <TD class="text12" width="109" bgcolor="#FFFFFF" align="left">Ticket 
+              No.</TD>
+            <TD align="left" class="searchbox" bgcolor="#FFFFFF"> <input type="text" name="txtTicketNo" id="txtTicketNo" class="textfield" value="<?=getValue($_POST['txtTicketNo'])?>" maxlength="30"> 
+            </TD>
+          </TR>
+          <tr> 
+            <TD class="text12" width="109" bgcolor="#FFFFFF" align="left">Start 
+              Date</TD>
+            <td width="201"   align="left" class="searchbox"  bgcolor="#FFFFFF" > 
+              <input type="text" name="txtFromDate" id="txtFromDate" class="textfield"  value="<?php print getValue(@$_POST["txtFromDate"]);?>" /> 
+              <a href="javascript:show_calendar('frmSearch.txtFromDate');" onmouseover="window.status='Date Picker';return true;" onmouseout="window.status='';return true;" > 
+              <IMG id=dimg1 align=top border=0 height=21 src="<?=$_DIR['site']['adminurl']?>images/show-calendar.gif" style="POSITION: relative" width=34></a> 
+            </td>
+            <TD class="text12" width="77" bgcolor="#FFFFFF" align="left">End Date 
+            </TD>
+            <td width="213" align="left" class="searchbox"  bgcolor="#FFFFFF" >	
+              <input type="text" name="txtToDate" id="txtToDate" class="textfield"  value="<?php print getValue(@$_POST["txtToDate"]);?>" /> 
+              <a href="javascript:show_calendar('frmSearch.txtToDate');" onmouseover="window.status='Date Picker';return true;" onmouseout="window.status='';return true;" > 
+              <IMG id=dimg1 align=top border=0 height=21 src="<?=$_DIR['site']['adminurl']?>images/show-calendar.gif" style="POSITION: relative" width=34></a> 
+            </td>
+          </TR>
+          <tr> 
+            <TD class="text12" colspan="4" bgcolor="#F4f1cc" align="center"><input type="submit" name="Submit1" value="Search Record" class="sbutton"></TD>
+          </TR>
+        </table>
+			</td>
+			</tr>
+				</form>			
+</table><br />
+<a href="javascript:document.frmSearch.act.value='pdf';document.frmSearch.submit();"><font size="2"><b>Download Report in PDF</b></font></a>
+<?php
+$extraParamInUrl = "num".$_DELIM.@$_POST["num"].$baratend;
+
+//Define HEADER
+//Define HEADER
+$_HEADER = "<TH nowrap class='t_header_cell_bg'>".getHead("creditdebit_list","n.trans_date","Date/Time",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("creditdebit_list","n.identifier","Transaction ID",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("creditdebit_list","description","Decsciption",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("creditdebit_list","u2.fname","From",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("creditdebit_list","u.fname","To",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("creditdebit_list","amount","Credit",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("creditdebit_list","amount","Debit",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("creditdebit_list","r.fname","Approved By",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg' colspan='2'>Action</TH>";
+?><br />
+<?
+if(count($pageAndData['results'])>0 && is_array($pageAndData['results']))
+	{
+?>
+	
+<div style="overflow:auto; width:98%; padding-bottom:10px; position:relative; "> 
+  <form name="frmTerminal" action="<?=$_SERVER['REQUEST_URI']?>" method="post">
+    <TABLE width="100%" class=t_list_bg cellSpacing=1 cellPadding=2 bgcolor="#B7E6CC" align="left">
+      <?=$_HEADER?>
+      <?php
+	foreach($pageAndData['results'] as $key => $val)
+		{
+			$rowbgcolor ="#FFFFFF";
+?>
+      <tr bgcolor="<?=@$rowbgcolor?>"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          <?=$val['trans_date']?>
+        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          <?=$val['identifier']?>
+        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          <?=stripslashes(@$val['description'])?>
+          <?php if($val['which']=="N"){ echo @$val['nticket']; }elseif($val['which']=="A"){ echo @$val['aticket'];} ?>
+        </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          <?php if($val['fromx']!="BW") { 
+			if(substr($val['fromx'],0,2)=="a_" || substr($val['fromx'],0,2)=="u_" || substr($val['fromx'],0,2)=="m_") {
+				$arr=array();
+				$arr=explode('_',$val['fromx']);
+				$tlen=count($arr);
+				$fromx="";
+				for($t=2;$t<$tlen;$t++) 
+					$fromx.=$arr[$t];			
+		?>
+          <a href="javascript:void(0)" onclick="javascript:openUrl2('<?=$arr[1]?>','<?=$arr[0]?>');"><font size="2"> 
+          <?=stripslashes($fromx)?>
+          </font></a> 
+          <?php } else { ?>
+          <font size="2"> 
+          <?=stripslashes($val['fromx'])?>
+          </font> 
+          <?php } } else { 
+			$arr=array();
+			$arr=explode('_',$val['tox']);
+			$tlen=count($arr);
+			$tox="";
+			for($t=2;$t<$tlen;$t++) 
+				$tox.=$arr[$t];
+		?>
+          <a href="javascript:void(0)" onclick="javascript:openUrl2('<?=$arr[1]?>','<?=$arr[0]?>');"> 
+          <font size="2"> 
+          <?=stripslashes($tox)?>
+          </font> </a> 
+          <?php } ?>
+        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          <?php if($val['tox']=="Admin") { ?>
+          Admin 
+          <?php } else { 
+				$arr=array();
+				$arr=explode('_',$val['tox']);
+				$tlen=count($arr);
+				$tox="";
+				for($t=2;$t<$tlen;$t++) 
+					$tox.=$arr[$t];
+			?>
+          <a href="javascript:void(0)" onclick="javascript:openUrl2('<?=$arr[1]?>','<?=$arr[0]?>');" class="menu1"> 
+          <?=stripslashes($tox)?>
+          </a> 
+          <?php } ?>
+        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          <?=@$val['action']=="C"?number_format($val['amount'],2):""?>
+        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          <?=@$val['action']=="D"?number_format($val['amount'],2):""?>
+        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> <a href="javascript:void(0)" onclick="javascript:openUrl2('<?=$val['approved_id']?>','a');"> 
+          <font size="2"> 
+          <?=stripslashes($val['adminuser'])?>
+          </font> </a> </td>
+        <td align="center" style="padding-left:4px;padding-right:4px;"><a href="javascript:void(0)" onclick="javascript:openUrl('<?=$val['trans_id']?>');" class="menu1">View</a></td>
+      </tr>
+      <?php  
+			unset($rowbgcolor);
+			unset($firstletterofStat);
+		}
+?>
+    </table>
+  </form>
+</div>
+<?
+//Display Pagination here
+print @$pageAndData['paginationbuttonHTML2'];
+	}
+	else 
+		print "<br><DIV class=text2 align=center>Sorry system could not found any records in database.<br>Please add new record.</DIV><br><br>";
+?>
+<script>
+function openUrl(userId){	
+	szUrl = "<?=$_DIR['site']['adminurl']?>transaction_detail<?=$atend?>?aid="+userId;
+	window.open(szUrl,"_vOds","height=550, width=700, left=100, top=70, location=no,menubar=no,resizable=yes,scrollbars=yes,status=no");
+}
+function openUrl2(userId,userType){	
+	szUrl = "<?=$_DIR['site']['adminurl']?>customer_detail<?=$atend?>?aid="+userId+"&atype="+userType;
+	window.open(szUrl,"_vOds","height=550, width=700, left=100, top=70, location=no,menubar=no,resizable=yes,scrollbars=yes,status=no");
+}
+</script>

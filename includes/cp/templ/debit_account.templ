@@ -1,0 +1,99 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+<form name="frmlocation" action="<?php print $_SERVER["REQUEST_URI"];?>" method="post" >
+  <TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="800px" border=0 bgcolor="#cccccc">
+    <TBODY>
+      <TR> 
+        <TD colspan="7" align="left" bgcolor="#B7E6CC" class=text12><strong> Debit 
+          Amount </strong><br></TD>
+      </TR>
+      <TR> 
+	  <TD align="center" colspan="3" bgcolor="#FFFFFF" class="t_content_cell2_bg"> 
+          <span class=text12>Select User / Agent:</span>    
+          <select name="cmbUserAgent" id="cmbUserAgent">
+			<option value="A" <?php echo $_POST['cmbUserAgent']=="A"?"selected":""; ?>>Agent</option>		  
+			<option value="U" <?php echo $_POST['cmbUserAgent']=="U"?"selected":""; ?>>User</option>		  						
+		  </select>
+            </TD>
+        <TD align="center" colspan="3" bgcolor="#FFFFFF" class="t_content_cell2_bg"> 
+          <span class=text12>Enter User Id:</span>    
+          <input type="text" name="txtUserId" value="<?=$_POST["txtUserId"]?>" style="font-weight:bold;color:green">
+               <INPUT type="submit" class="sbutton" value="Fetch" name="Input"> 
+            </TD>
+      </TR>
+	 </tbody>
+  </table> 
+<br />
+  <?php  if($showDetail) {  ?>
+          
+  <table border="0" width="800px" bgcolor="#cccccc" class="t_content_bg" cellSpacing=1 cellPadding=5 align="center">
+    <tr> 
+      <td class=text12 width="19%" align="left" bgcolor="#B7E6CC">User Id:</td>
+      <td class=text12  align="left" bgcolor="#B7E6CC" colspan="3"><b> 
+        <?=$user_id?>
+        </b></td>
+    </tr>
+    <tr> 
+      <td class=text12  align="left" bgcolor="#FFFFFF">First Name:</td>
+      <td width="28%"  align="left" bgcolor="#FFFFFF" class=text12><b> 
+        <?=$fname?>
+        </b></td>
+      <td width="20%"  align="left" bgcolor="#FFFFFF" class=text12>Last Name:</td>
+      <td width="33%"  align="left" bgcolor="#FFFFFF" class=text12><b> 
+        <?=$lname?>
+        </b></td>
+    </tr>
+    <tr> 
+      <td class=text12  align="left" bgcolor="#FFFFFF">Mail Id:</td>
+      <td class=text12  align="left" bgcolor="#FFFFFF"><b> 
+        <?=$email?>
+        </b></td>
+      <td class=text12  align="left" bgcolor="#FFFFFF">Contact No:</td>
+      <td class=text12  align="left" bgcolor="#FFFFFF"><b> 
+        <?php if($mobile) echo $mobile." / "; ?>
+        
+        <?=$phone?>
+        </b></td>
+    </tr>
+    <tr> 
+      <td class=text12  align="left" bgcolor="#FFFFFF">Address:</td>
+      <td class=text12  align="left" bgcolor="#FFFFFF" colspan="3"><b> 
+        <?=$address1?>
+           
+        <?=$address2?>
+        </b></td>
+    </tr>
+	<tr> 
+      <td class=text12  align="left" bgcolor="#FFFFFF">Current Balance:</td>
+      <td class=text12  align="left" bgcolor="#FFFFFF" colspan="3"><b> 
+        <?=$curent_bal?></b></td>
+    </tr>
+  </table>
+  <br />
+	   <table border="0" width="800px" bgcolor="#cccccc" class="t_content_bg" cellSpacing=1 cellPadding=5 align="center">
+            <tr> 
+              
+      <td  align="left" bgcolor="#B7E6CC" class=text12 colspan="2">Debit Amount</td>
+            </tr>
+			<tr> 
+              
+      <td width="26%"  align="left" bgcolor="#FFFFFF" class=text12>Amout To Debit:<font color="red">*</font></td>
+              <td width="74%"  align="left" bgcolor="#FFFFFF" class=text12>
+                <input type="text" name="txtAmount" value="<?=$_POST["txtAmount"]?>" size="15" maxlength="10">
+                </td>
+            </tr>
+            <tr> 
+              <td class=text12  align="left" bgcolor="#FFFFFF">Description:<font color="red">*</font></td>
+              <td class=text12  align="left" bgcolor="#FFFFFF">
+			  <input type="text" name="txtDescription" value="<?=$_POST["txtDescription"]?>" size="15" maxlength="10">
+              </td>
+            </tr>
+			<tr> 
+			  <td class=text12 align="left" bgcolor="#FFFFFF">&nbsp;</td>	
+              <td align="left" bgcolor="#FFFFFF" class=text12>
+			  <input type="submit" name="Input" value="Submit">
+			  </td>             
+            </tr>
+          </table><br />
+</form>
+<?php  }  ?>

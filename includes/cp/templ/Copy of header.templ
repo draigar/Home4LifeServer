@@ -1,0 +1,750 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td height="68" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td height="10" background="<?=$_DIR["admininc"]["images"]?>top_bg.gif" style="background-repeat:repeat-x"><img src="<?=$_DIR["admininc"]["images"]?>spacer.gif" /></td>
+	</tr>
+	<tr>
+		<td height="100" background="<?=$_DIR["admininc"]["images"]?>bg.gif" style="background-repeat:repeat-x" valign="top">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td height="65" align="left" valign="top">
+		<h2 style="margin-top:10px;margin-left:10px;float:left;">Vision Lottery Admin Control Panel</h2>
+		<!--<h3 style="margin-top:10px;margin-right:10px;float:right;color:green;"><?php echo date("d D M Y"); ?></h3><br>-->
+                
+                  <?php if($_SESSION['login']['userid']){ ?>
+                  <a href="change_pass.php" style="margin-top:10px;margin-right:10px;float:right;color:green;font-size:13px;font-weight:bold;">
+				  Change Password</a>
+                  <?php } ?>
+                </td>
+	</tr>
+	
+		<?php  if($_SESSION['login']['userid'] && $_SESSION['login']['usertype']=="ADMIN") { ?>
+	<tr>
+		<td height="35" valign="bottom"><table align="center" border="0" cellspacing="1" cellpadding="0">
+	<tr>
+		<td width="1px"><img src="<?=$_DIR["admininc"]["images"]?>spacer.gif" /></td>
+		<td width="88px" height="31" background="<?=$_DIR["admininc"]["images"]?>button.gif" style="background-repeat:no-repeat" align="center">
+<?php   if(IsPageAccessPermited($_SESSION['login']['permissions'],$_MENU_HOME)){  ?>
+		<table width="89%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="center"><a href="<?=$_DIR["site"]["adminurl"]?>index<?=$atend?>" class="menu">HOME</a></td>
+	</tr>
+	</table>
+	<?php } ?>
+	</td>
+	<td width="10px"><img src="<?=$_DIR["admininc"]["images"]?>spacer.gif" /></td>
+		<td width="88px" height="31" background="<?=$_DIR["admininc"]["images"]?>button.gif" style="background-repeat:no-repeat" align="center">
+		<?php   if(IsPageAccessPermited($_SESSION['login']['permissions'],$_MENU_CONFIG)){  ?>
+		<table width="89%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="center"><a href="<?=$_DIR["site"]["adminurl"]?>config<?=$atend?>" class="menu">CONFIG</a></td>
+	</tr>
+	</table>
+	<?php } ?>
+	</td>
+	    <td width="10px"><img src="<?=$_DIR["admininc"]["images"]?>spacer.gif" /></td>
+		<td width="88px" height="31" background="<?=$_DIR["admininc"]["images"]?>button.gif" style="background-repeat:no-repeat" align="center">
+		<?php   if(IsPageAccessPermited($_SESSION['login']['permissions'],$_MENU_CMS)){  ?>
+		<table width="89%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="center"><a href="<?=$_DIR["site"]["adminurl"]?>cms<?=$atend?>" class="menu">CMS</a></td>
+	</tr>
+	</table>
+	<?php } ?>
+	</td>
+	    <td width="10px"><img src="<?=$_DIR["admininc"]["images"]?>spacer.gif" /></td>
+		<td width="88px" height="31" background="<?=$_DIR["admininc"]["images"]?>button.gif" style="background-repeat:no-repeat" align="center">
+		
+		<?php   if(IsPageAccessPermited($_SESSION['login']['permissions'],$_MENU_MERCHANT)){  ?>
+		<table width="89%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="center">&nbsp;</td>
+	</tr>
+	</table>
+	<?php } ?>
+
+	</td>
+	
+	
+	<td width="10px"><img src="<?=$_DIR["admininc"]["images"]?>spacer.gif" /></td>
+		<td width="88px" height="31" background="<?=$_DIR["admininc"]["images"]?>button.gif" style="background-repeat:no-repeat" align="center">
+		<?php   if(IsPageAccessPermited($_SESSION['login']['permissions'],$_MENU_TRANS)){  ?>
+		<table width="89%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="center">&nbsp;</td>
+	</tr>
+	</table>
+	<?php } ?>
+	</td>
+	
+	<td width="10px"><img src="<?=$_DIR["admininc"]["images"]?>spacer.gif" /></td>
+		<td width="88px" height="31" background="<?=$_DIR["admininc"]["images"]?>button.gif" style="background-repeat:no-repeat" align="center">
+		<?php   if(IsPageAccessPermited($_SESSION['login']['permissions'],$_MENU_SETTLE)){  ?>
+		<table width="89%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="center">&nbsp;</td>
+	</tr>
+	</table>
+	<?php } ?>
+	</td>
+	
+	<td width="10px"><img src="<?=$_DIR["admininc"]["images"]?>spacer.gif" /></td>
+		<td width="88px" height="31" background="<?=$_DIR["admininc"]["images"]?>button.gif" style="background-repeat:no-repeat" align="center">
+		<?php   if(IsPageAccessPermited($_SESSION['login']['permissions'],$_MENU_STAT)){  ?>
+		<table width="89%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="center">&nbsp;</td>
+	</tr>
+	</table>
+	<?php } ?>
+	</td>
+	
+		
+		
+		<td width="10px"><img src="<?=$_DIR["admininc"]["images"]?>spacer.gif" /></td>
+		<td width="88px" height="31" background="<?=$_DIR["admininc"]["images"]?>button.gif" style="background-repeat:no-repeat" align="center"><table width="89%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="center"><a href="<?=$_DIR["site"]["adminurl"]?>logout<?=$atend?>" class="menu">LOGOUT</a></td>
+	</tr>
+
+	</table></td>
+	</tr>
+	</table></td>
+	</tr>
+		<?php  } ?>
+	</table></td>
+	</tr>
+	</table></td>
+	</tr>
+	<tr>
+		<td height="10"><img src="<?=$_DIR["admininc"]["images"]?>spacer.gif" /></td>
+	</tr>
+	<tr>
+		<td  valign="top"><table width="100%"  border="0" cellpadding="2" cellspacing="2">
+	<tr>
+		<?php if($_SESSION['login']['userid'] && $_MENUID==5) { ?>
+		<td width="20%" valign="top" align="left" height="384">
+		<table width="97%" border="0" cellpadding="1" cellspacing="1" bgcolor="#CCCCCC">
+	<tr>
+		<td width="185"  valign="top"  bgcolor="#FFFFFF">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>&nbsp;</td>
+	</tr>
+	</table>
+		</td>
+</tr>
+<tr>
+		<td width="185"  valign="top"  bgcolor="#FFFFFF">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>&nbsp;</td>
+	</tr>
+	</table>
+		</td>
+</tr>
+</table>
+<?php } else if($_SESSION['login']['userid'] && $_MENUID==2) { ?>
+		<td width="20%" valign="top" align="left" height="384">
+	<table width="97%" border="0" cellpadding="1" cellspacing="1" bgcolor="#CCCCCC">
+	<tr>
+		<td width="185"  valign="top"  bgcolor="#FFFFFF">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>&nbsp;</td>
+	</tr>
+	<?php   if(IsPageAccessPermited($_SESSION['login']['subpermissions'],$_SUBM_CMS_PCONTENT)){ ?>
+	<tr>
+		<td width="185" height="31" background="<?=$_DIR["admininc"]["images"]?>img1.gif" style="background-repeat:no-repeat"><table width="85%" border="0" cellspacing="2" cellpadding="0">
+	<tr>
+		<td align="left" class="text2">Page Content</td>
+	</tr>
+	</table></td>
+	</tr>	
+	<tr>
+		<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+		<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>addpage<?=$atend?>" class="leftmenu">Add Pages </a></td>
+		</tr>
+		<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>editpage<?=$atend?>" class="leftmenu">Edit Page</a></td>
+		</tr>
+		<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>managemodule<?=$atend?>" class="leftmenu">Manage Module</a></td>
+		</tr>
+		</table></td>
+	</tr>
+	<?php } ?>
+	<?php if(IsPageAccessPermited($_SESSION['login']['subpermissions'],$_SUBM_CMS_BANNER)){ ?>
+	<tr>
+		<td width="185" height="31" background="<?=$_DIR["admininc"]["images"]?>img1.gif" style="background-repeat:no-repeat"><table width="83%" border="0" cellspacing="2" cellpadding="0">
+	<tr>
+	<td align="left" class="text2">Banner</td>
+	</tr>
+	</table></td>
+	</tr>
+	<tr>
+	<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+	<tr>
+		<td background="#"><a href="<?=$_DIR["site"]["adminurl"]?>addbottumbanner<?=$atend?>" class="leftmenu">Add Banner</a></td>
+	</tr>
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>bottumbannerlist<?=$atend?>" class="leftmenu">View All Banner</a></td>
+	</tr>
+	</table></td>
+	</tr>
+	<?php } ?>
+	
+	
+	
+	<tr>
+		<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+	</table></td>
+	</tr>
+	<?php   if(IsPageAccessPermited($_SESSION['login']['subpermissions'],$_SUBM_CMS_NEWS)){ ?>
+	<tr>
+		<td width="185" height="31" background="<?=$_DIR["admininc"]["images"]?>img1.gif" style="background-repeat:no-repeat"><table width="83%" border="0" cellspacing="2" cellpadding="0">
+	<tr>
+		<td align="left" class="text2">News</td>
+	</tr>
+	</table></td>
+	</tr>
+	<tr>
+		<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>addnews<?=$atend?>" class="leftmenu">Add News</a></td>
+	</tr>
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>news<?=$atend?>" class="leftmenu">View All News</a></td>
+	</tr>
+	</table></td>
+	</tr>
+	<?php } ?>	
+	
+	<?php  
+	
+	 if(IsPageAccessPermited($_SESSION['login']['subpermissions'],$_SUBM_CMS_NEWSLETTER)) { ?>
+	<tr>
+		<td width="185" height="31" background="<?=$_DIR["admininc"]["images"]?>img1.gif" style="background-repeat:no-repeat"><table width="85%" border="0" cellspacing="2" cellpadding="0">
+	<tr>
+		<td align="left" class="text2">Newsletter /Subscriber</td>
+	</tr>
+	</table></td>
+	</tr>
+	<tr>
+		<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>sub_event<?=$atend?>" class="leftmenu">Subscriber List</a></td>
+	</tr>
+	<tr>
+		<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+		
+	</table>
+	</td></tr>
+	</table></td></tr>
+	<tr>
+		<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>addnewsletter<?=$atend?>" class="leftmenu">Newsletter</a></td>
+	</tr>
+	<tr>
+		<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+		
+	</table>
+	</td></tr>
+	</table></td></tr>
+	<?php } ?>
+	</table>
+		</td>
+</tr>
+</table>
+</td>
+
+<?php } else if($_SESSION['login']['userid'] && $_MENUID==3) {  ?>
+	<td width="20%" valign="top" align="left" height="384">
+	<table width="97%" border="0" cellpadding="1" cellspacing="1" bgcolor="#CCCCCC">
+	<tr>
+		<td width="185"  valign="top"  bgcolor="#FFFFFF">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>&nbsp;</td>
+	</tr>
+	<?php  
+	
+	 if(IsPageAccessPermited($_SESSION['login']['subpermissions'],$_SUBM_CONFIG)) { ?>
+	<tr>
+		<td width="185" height="31" background="<?=$_DIR["admininc"]["images"]?>img1.gif" style="background-repeat:no-repeat"><table width="85%" border="0" cellspacing="2" cellpadding="0">
+	<tr>
+		<td align="left" class="text2">Configuration</td>
+	</tr>
+	</table></td>
+	</tr>
+	<tr>
+		<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>configuration<?=$atend?>" class="leftmenu">System Email</a></td>
+	</tr>
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>pass_policy<?=$atend?>" class="leftmenu">Password Policy</a></td>
+	</tr>
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>system_maintenance<?=$atend?>" class="leftmenu">System Maintenance</a></td>
+	</tr>
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>backup<?=$atend?>" class="leftmenu">Backup</a></td>
+	</tr>
+	<tr>
+		<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+		
+	</table>
+	</td></tr>
+	</table></td></tr>
+	
+	<?php } ?>
+	
+	<?php //if(IsPageAccessPermited($_SESSION['login']['subpermissions'],$_SUBM_CMS_EMTEMPL)){ ?>
+	<tr>
+		<td width="185" height="31" background="<?=$_DIR["admininc"]["images"]?>img1.gif" style="background-repeat:no-repeat"><table width="83%" border="0" cellspacing="2" cellpadding="0">
+	<tr>
+	<td align="left" class="text2">Email Template</td>
+	</tr>
+	</table></td>
+	</tr>
+	<tr>
+	<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+	<tr>
+		<td background="#"><a href="<?=$_DIR["site"]["adminurl"]?>emailtemplate<?=$atend?>" class="leftmenu">Emailtemplate</a></td>
+	</tr>
+	</table></td>
+	</tr>
+	<?php //} ?>
+	
+	
+
+	<?php   if(IsPageAccessPermited($_SESSION['login']['subpermissions'],$_SUBM_CITY)){ ?>
+	<tr>
+		<td width="185" height="31" background="<?=$_DIR["admininc"]["images"]?>img1.gif" style="background-repeat:no-repeat"><table width="83%" border="0" cellspacing="2" cellpadding="0">
+	<tr>
+		<td align="left" class="text2">Country</td>
+	</tr>
+	</table></td>
+	</tr>
+	<tr>
+		<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>addcountry<?=$atend?>" class="leftmenu">Add Country</a></td>
+	</tr>
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>country<?=$atend?>" class="leftmenu">List Country</a></td>
+	</tr>
+	</table></td>
+	</tr>
+	<?php } ?>	
+
+	</table>
+		</td>
+</tr>
+</table>
+</td>
+
+
+<?php } else if($_SESSION['login']['userid'] && $_MENUID==9) {  ?>
+	<td width="20%" valign="top" align="left" height="384">
+	<table width="97%" border="0" cellpadding="1" cellspacing="1" bgcolor="#CCCCCC">
+	<tr>
+		<td width="185"  valign="top"  bgcolor="#FFFFFF">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>&nbsp;</td>
+	</tr>
+	<?php  
+	
+	 if(IsPageAccessPermited($_SESSION['login']['subpermissions'],$_SUBM_TRANS)) { ?>
+	<tr>
+		<td width="185" height="31" background="<?=$_DIR["admininc"]["images"]?>img1.gif" style="background-repeat:no-repeat"><table width="85%" border="0" cellspacing="2" cellpadding="0">
+	<tr>
+		<td align="left" class="text2">Transactions</td>
+	</tr>
+	</table></td>
+	</tr>
+	<tr>
+		<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>trans_list<?=$atend?>" class="leftmenu">Transactions</a></td>
+	</tr>
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>cancel_trans_list<?=$atend?>" class="leftmenu">Cancelled Transactions</a></td>
+	</tr>
+	<tr>
+		<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+		
+	</table>
+	</td></tr>
+	</table></td></tr>
+	
+	<?php } ?>
+	
+	
+	
+	
+	</table>
+		</td>
+</tr>
+</table>
+</td>
+
+
+<?php } else if($_SESSION['login']['userid'] && $_MENUID==10) {  ?>
+	<td width="20%" valign="top" align="left" height="384">
+	<table width="97%" border="0" cellpadding="1" cellspacing="1" bgcolor="#CCCCCC">
+	<tr>
+		<td width="185"  valign="top"  bgcolor="#FFFFFF">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>&nbsp;</td>
+	</tr>
+	<?php  
+	
+	 if(IsPageAccessPermited($_SESSION['login']['subpermissions'],$_MENU_SETTLE)) { ?>
+	<tr>
+		<td width="185" height="31" background="<?=$_DIR["admininc"]["images"]?>img1.gif" style="background-repeat:no-repeat"><table width="85%" border="0" cellspacing="2" cellpadding="0">
+	<tr>
+		<td align="left" class="text2">Settlement</td>
+	</tr>
+	</table></td>
+	</tr>
+	<tr>
+		<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>clearing_list<?=$atend?>" class="leftmenu">Clearing</a></td>
+	</tr>
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>settlement_list<?=$atend?>" class="leftmenu">Pending Settlement</a></td>
+	</tr>
+	<tr>
+		<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+		
+	</table>
+	</td></tr>
+	</table></td></tr>
+	
+	<?php } ?>
+	
+	
+	
+	
+	</table>
+		</td>
+</tr>
+</table>
+</td>
+
+
+<?php } else if($_SESSION['login']['userid'] && $_MENUID==11) {  ?>
+	<td width="20%" valign="top" align="left" height="384">
+	<table width="97%" border="0" cellpadding="1" cellspacing="1" bgcolor="#CCCCCC">
+	<tr>
+		<td width="185"  valign="top"  bgcolor="#FFFFFF">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>&nbsp;</td>
+	</tr>
+	<?php  
+	
+	 if(IsPageAccessPermited($_SESSION['login']['subpermissions'],$_MENU_STAT)) { ?>
+	<tr>
+		<td width="185" height="31" background="<?=$_DIR["admininc"]["images"]?>img1.gif" style="background-repeat:no-repeat"><table width="85%" border="0" cellspacing="2" cellpadding="0">
+	<tr>
+		<td align="left" class="text2">Subscription</td>
+	</tr>
+	</table></td>
+	</tr>
+	<tr>
+		<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>add_subscrip<?=$atend?>" class="leftmenu">Add Subscription</a></td>
+	</tr>
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>list_subscrip<?=$atend?>" class="leftmenu">List Subscription</a></td>
+	</tr>
+	<tr>
+		<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+		
+	</table>
+	</td></tr>
+	</table></td></tr>
+	
+	<?php } ?>
+	
+	<?php  
+	
+	 if(IsPageAccessPermited($_SESSION['login']['subpermissions'],$_SUBM_SUB_SETT)) { ?>
+	<tr>
+		<td width="185" height="31" background="<?=$_DIR["admininc"]["images"]?>img1.gif" style="background-repeat:no-repeat"><table width="85%" border="0" cellspacing="2" cellpadding="0">
+	<tr>
+		<td align="left" class="text2">Settlement</td>
+	</tr>
+	</table></td>
+	</tr>
+	<tr>
+		<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>settlement_succ<?=$atend?>" class="leftmenu">Settlement</a></td>
+	</tr>
+	<tr>
+		<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+		
+	</table>
+	</td></tr>
+	</table></td></tr>
+	
+	<?php } ?>
+	
+	
+	</table>
+		</td>
+</tr>
+</table>
+</td>
+
+
+
+<?php } else if($_SESSION['login']['userid'] && $_MENUID==4) {  ?>
+	<td width="20%" valign="top" align="left" height="384">
+	<table width="97%" border="0" cellpadding="1" cellspacing="1" bgcolor="#CCCCCC">
+	<tr>
+		<td width="185"  valign="top"  bgcolor="#FFFFFF">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>&nbsp;</td>
+	</tr>
+	
+	
+	<?php  
+	
+	 if(IsPageAccessPermited($_SESSION['login']['subpermissions'],$_SUBM_APPLIC)) { ?>
+	<tr>
+		<td width="185" height="31" background="<?=$_DIR["admininc"]["images"]?>img1.gif" style="background-repeat:no-repeat"><table width="85%" border="0" cellspacing="2" cellpadding="0">
+	<tr>
+		<td align="left" class="text2">Application</td>
+	</tr>
+	</table></td>
+	</tr>
+	<tr>
+		<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>pend_view_merchant<?=$atend?>" class="leftmenu">Pending Application</a></td>
+	</tr>
+	<tr>
+		<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+		
+	</table>
+	</td></tr>
+	</table></td></tr>
+	
+	<?php } ?>
+	
+	
+	<?php  
+	
+	 if(IsPageAccessPermited($_SESSION['login']['subpermissions'],$_SUBM_BANK)) { ?>
+	<tr>
+		<td width="185" height="31" background="<?=$_DIR["admininc"]["images"]?>img1.gif" style="background-repeat:no-repeat"><table width="85%" border="0" cellspacing="2" cellpadding="0">
+	<tr>
+		<td align="left" class="text2">Bank</td>
+	</tr>
+	</table></td>
+	</tr>
+	<tr>
+		<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>bank_list<?=$atend?>" class="leftmenu">Bank List</a></td>
+	</tr>
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>pend_bank_request<?=$atend?>" class="leftmenu">Pending New Bank Request</a></td>
+	</tr>
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>change_bank_request<?=$atend?>" class="leftmenu">Change Bank Request</a></td>
+	</tr>
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>cancel_bank_list<?=$atend?>" class="leftmenu">Cancelled Bank List</a></td>
+	</tr>
+	<tr>
+		<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+		
+	</table>
+	</td></tr>
+	</table></td></tr>
+	
+	<?php } ?>
+	
+	
+	
+	<?php  
+	
+	 if(IsPageAccessPermited($_SESSION['login']['subpermissions'],$_SUBM_EVENTS)) { ?>
+	<tr>
+		<td width="185" height="31" background="<?=$_DIR["admininc"]["images"]?>img1.gif" style="background-repeat:no-repeat"><table width="85%" border="0" cellspacing="2" cellpadding="0">
+	<tr>
+		<td align="left" class="text2">Merchant</td>
+	</tr>
+	</table></td>
+	</tr>
+	<tr>
+		<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>add_merchant<?=$atend?>" class="leftmenu">Add Merchant</a></td>
+	</tr>
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>view_merchant<?=$atend?>" class="leftmenu">View Merchant</a></td>
+	</tr>
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>cancell_merchant<?=$atend?>" class="leftmenu">Cancelled Merchant</a></td>
+	</tr>
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>pend_view_request<?=$atend?>" class="leftmenu">Change Request</a></td>
+	</tr>
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>pac_new_request<?=$atend?>" class="leftmenu">PAC New Request</a></td>
+	</tr>
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>pac_list<?=$atend?>" class="leftmenu">PAC List</a></td>
+	</tr>
+	<tr>
+		<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+		
+	</table>
+	</td></tr>
+	</table></td></tr>
+	
+	<?php } ?>
+	
+	
+	<?php  
+	
+	 if(IsPageAccessPermited($_SESSION['login']['subpermissions'],$_SUBM_SUPP_TIKT)) { ?>
+	<tr>
+		<td width="185" height="31" background="<?=$_DIR["admininc"]["images"]?>img1.gif" style="background-repeat:no-repeat"><table width="85%" border="0" cellspacing="2" cellpadding="0">
+	<tr>
+		<td align="left" class="text2">Support Ticket</td>
+	</tr>
+	</table></td>
+	</tr>
+	<tr>
+		<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>support_ticket<?=$atend?>" class="leftmenu">New Tickets</a></td>
+	</tr>
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>list_ticket<?=$atend?>" class="leftmenu">List Tickets</a></td>
+	</tr>
+	<tr>
+		<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+		
+	</table>
+	</td></tr>
+	</table></td></tr>
+	
+	<?php } ?>
+	
+	<?php  
+	
+	 if(IsPageAccessPermited($_SESSION['login']['subpermissions'],$_SUBM_MERCH_CURR)) { ?>
+	<tr>
+		<td width="185" height="31" background="<?=$_DIR["admininc"]["images"]?>img1.gif" style="background-repeat:no-repeat"><table width="85%" border="0" cellspacing="2" cellpadding="0">
+	<tr>
+		<td align="left" class="text2">Merchant Currency</td>
+	</tr>
+	</table></td>
+	</tr>
+	<tr>
+		<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>list_trans_curr<?=$atend?>" class="leftmenu">List Trans Currencies</a></td>
+	</tr>
+	<tr>
+		<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+		
+	</table>
+	</td></tr>
+	</table></td></tr>
+	
+	<?php } ?>
+	
+	<?php  
+	
+	 if(IsPageAccessPermited($_SESSION['login']['subpermissions'],$_SUBM_MERCH_PAC)) { ?>
+	<tr>
+		<td width="185" height="31" background="<?=$_DIR["admininc"]["images"]?>img1.gif" style="background-repeat:no-repeat"><table width="85%" border="0" cellspacing="2" cellpadding="0">
+	<tr>
+		<td align="left" class="text2">Link PAC Card</td>
+	</tr>
+	</table></td>
+	</tr>
+	<tr>
+		<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>link_pac_card<?=$atend?>" class="leftmenu">Link PAC Card</a></td>
+	</tr>
+	<tr>
+		<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+		
+	</table>
+	</td></tr>
+	</table></td></tr>
+	
+	<?php } ?>
+	
+	
+	
+	</table>
+		</td>
+</tr>
+</table>
+</td>
+<?php } else if($_SESSION['login']['userid'] && $_MENUID==10) {  ?>
+<td width="20%" valign="top" align="left" height="384">
+	<table width="97%" border="0" cellpadding="1" cellspacing="1" bgcolor="#CCCCCC">
+	<tr>
+		<td width="185"  valign="top"  bgcolor="#FFFFFF">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>&nbsp;</td>
+	</tr>
+	<?php   if(IsPageAccessPermited($_SESSION['login']['subpermissions'],$_SUBM_BACKUP)) { ?>
+	<tr>
+		<td width="185" height="31" background="<?=$_DIR["admininc"]["images"]?>img1.gif" style="background-repeat:no-repeat"><table width="85%" border="0" cellspacing="2" cellpadding="0">
+	<tr>
+		<td align="left" class="text2">Utility</td>
+	</tr>
+	</table></td>
+	</tr>
+	<tr>
+		<td valign="top"><table width="77%" border="0" cellspacing="1" cellpadding="1">
+	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>backup<?=$atend?>" class="leftmenu">Backup</a></td>
+	</tr>
+<!--	<tr>
+		<td><a href="<?=$_DIR["site"]["adminurl"]?>restore<?=$atend?>" class="leftmenu">Restore</a></td>
+	</tr>-->
+	</table></td>
+	</tr>
+	<?php } ?>
+		</table>
+		</td>
+</tr>
+</table>
+</td>
+<?php } ?>
+
+
+
+	
+
+<td width="80%" valign="top">
+	<table width="100%" border="0" bgcolor="#ffffff">
+	<tr> 
+		<td bgcolor="#ffffff" align="left" class="text2"><?=$_LANG["HEADER"]?></td>
+	</tr>
+	</table>	

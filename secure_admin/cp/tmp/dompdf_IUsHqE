@@ -1,0 +1,841 @@
+<TABLE width="100%" class=t_list_bg cellSpacing=1 cellPadding=2 bgcolor="#B7E6CC" align="left">
+      <TR><TH>Date/Time</TH><TH>Transaction ID</TH><TH>Decsciption</TH><TH>From</TH><TH>To</TH><TH>Credit</TH><TH>Debit</TH>
+                <TH>Approved By</TH></TR>      <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          27-Feb-2010 06:54        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          51616844        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          Deposit                  </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                   <font size="2"> 
+          Kingsley AGUORU <font size='1'>(Admin)</font>          </font>
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    
+          Dev Bhoir <font size='1'>(Agent)</font>          
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          1,257,685.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          25-Feb-2010 02:23        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          93342543        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          deposit                  </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                   <font size="2"> 
+          Kingsley AGUORU <font size='1'>(Admin)</font>          </font>
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    
+          Kingsley Aguoru <font size='1'>(Cust)</font>          
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          324,000.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          20-Feb-2010 06:13        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          74269842        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          Transfer Fund                  </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    
+          Vikram Bawne <font size='1'>(Cust)</font>          
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          2,110.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          20-Feb-2010 06:12        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          52630241        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          Transfer Fund                  </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    
+          Vikram Bawne <font size='1'>(Cust)</font>          
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          2,110.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+          Kingsley AGUORU          </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          20-Feb-2010 06:02        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          62878440        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          Add Fund                  </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                    <font size="2"> 
+          Add Fund          </font> 
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    
+          Kingsley Aguoru <font size='1'>(Cust)</font>          
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          2,707.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+          Kingsley AGUORU          </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          20-Feb-2010 05:55        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          57190939        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          Transfer Fund                  </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                   <font size="2"> 
+          Vikram Bawne <font size='1'>(Cust)</font>          </font>
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    
+          Kingsley Aguoru <font size='1'>(Cust)</font>          
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          25.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          20-Feb-2010 05:55        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          71975438        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          Transfer Fund                  </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                   <font size="2"> 
+          Vikram Bawne <font size='1'>(Cust)</font>          </font>
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    
+          Kingsley Aguoru <font size='1'>(Cust)</font>          
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          25.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+          Kingsley AGUORU          </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          20-Feb-2010 05:19        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          71440137        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          Transfer Fund                  </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                   <font size="2"> 
+          Vikram Bawne <font size='1'>(Cust)</font>          </font>
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    
+          Kingsley Aguoru <font size='1'>(Cust)</font>          
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          15.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          20-Feb-2010 05:13        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          78022136        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          Transfer Fund                  </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                   <font size="2"> 
+          Vikram Bawne <font size='1'>(Cust)</font>          </font>
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    
+          Kingsley Aguoru <font size='1'>(Cust)</font>          
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          15.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          20-Feb-2010 09:28        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          62299135        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          Add Fund                  </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                    <font size="2"> 
+          Add Fund          </font> 
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    
+          Vikram Bawne <font size='1'>(Cust)</font>          
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          110.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          19-Feb-2010 03:00        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          79620834        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          AM          133572781584055        </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                    <font size="2"> 
+          Admin          </font> 
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    
+          Kingsley Aguoru <font size='1'>(Cust)</font>          
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          500.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          19-Feb-2010 03:00        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          13334433        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          AM          139777988572162        </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                    <font size="2"> 
+          Admin          </font> 
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    
+          Kingsley Aguoru <font size='1'>(Cust)</font>          
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          500.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          19-Feb-2010 04:26        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          24472132        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          Deposit                  </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                   <font size="2"> 
+          Kingsley AGUORU <font size='1'>(Admin)</font>          </font>
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    
+          Kingsley Aguoru <font size='1'>(Cust)</font>          
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          1,200,000.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          19-Feb-2010 04:18        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          31761729        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          AM          136802492760815        </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    Admin 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          1,000.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          19-Feb-2010 03:59        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          0        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          NL                  </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                    <font size="2"> 
+          Admin          </font> 
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    
+          Kingsley Aguoru <font size='1'>(Cust)</font>          
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          2,675.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          19-Feb-2010 03:43        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          26019326        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          NL          140740060020648        </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    Admin 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          1,400.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          19-Feb-2010 03:43        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          95227425        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          NL          132643515520235        </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    Admin 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          1,400.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          19-Feb-2010 03:43        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          65058224        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          NL          130020430953776        </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    Admin 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          1,400.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          19-Feb-2010 03:43        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          19387923        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          NL          134740572683972        </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    Admin 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          1,400.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          19-Feb-2010 03:43        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          42892322        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          NL          129742941996770        </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    Admin 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          1,415.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          18-Feb-2010 07:36        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          34930021        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          AM          134382543627633        </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    Admin 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          1,000.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          18-Feb-2010 07:33        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          98485420        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          NL          134281460836784        </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    Admin 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          700.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          18-Feb-2010 07:33        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          34258419        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          NL          127422089129816        </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    Admin 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          715.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          18-Feb-2010 07:32        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          58773818        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          AM          133572781584055        </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    Admin 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          500.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          18-Feb-2010 07:32        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          64862717        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          AM          124757466299388        </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    Admin 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          500.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          18-Feb-2010 07:30        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          49332716        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          AM          130543122038453        </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    Admin 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          1,000.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          18-Feb-2010 07:29        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          26663315        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          AM          139777988572162        </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    Admin 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          500.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          18-Feb-2010 07:29        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          97055514        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          AM          128010765896760        </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    Admin 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          500.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          18-Feb-2010 06:15        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          90260813        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          NL          138486590628572        </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                   <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font>
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    Admin 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          715.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          18-Feb-2010 06:14        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          78014410        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          Deposit                  </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                   <font size="2"> 
+          Kingsley AGUORU <font size='1'>(Admin)</font>          </font>
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    
+          Kingsley Aguoru <font size='1'>(Cust)</font>          
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          300,000.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          18-Feb-2010 03:09        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          1967659        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          Bank Withdrawal                  </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                    
+          <font size="2"> 
+          Kingsley Aguoru <font size='1'>(Cust)</font>          </font> 
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    
+          Kingsley Aguoru <font size='1'>(Cust)</font>          
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          120.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          18-Feb-2010 03:04        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          4622697        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          charge                  </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                   <font size="2"> 
+          Kingsley AGUORU <font size='1'>(Admin)</font>          </font>
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    
+          Kingsley Aguoru <font size='1'>(Cust)</font>          
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          340.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          18-Feb-2010 02:56        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          9526355        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          Winning                  </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                   <font size="2"> 
+          Kingsley AGUORU <font size='1'>(Admin)</font>          </font>
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    
+          Kingsley Aguoru <font size='1'>(Cust)</font>          
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          610.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          18-Feb-2010 02:00        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          6729524        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          Bank Withdrawal                  </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                    
+          <font size="2"> 
+          Vikram Bawne <font size='1'>(Cust)</font>          </font> 
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    
+          Vikram Bawne <font size='1'>(Cust)</font>          
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          75.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          18-Feb-2010 01:57        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          6492923        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          NL          132324201566132        </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                   <font size="2"> 
+          Vikram Bawne <font size='1'>(Cust)</font>          </font>
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    Admin 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          115.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          18-Feb-2010 01:56        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          8291472        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          Fees                  </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                   <font size="2"> 
+          Kingsley AGUORU <font size='1'>(Admin)</font>          </font>
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    
+          Vikram Bawne <font size='1'>(Cust)</font>          
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          45.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+            <tr bgcolor="#FFFFFF"> 
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          18-Feb-2010 01:55        </td>
+        <td nowrap align="center" class="text13" style="padding-left:4px;padding-right:4px;"> 
+          8985231        </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+          Bonus                  </td>
+        <td nowrap align="left" class="text13" style="padding-left:4px;padding-right:4px;"> 
+                   <font size="2"> 
+          Kingsley AGUORU <font size='1'>(Admin)</font>          </font>
+                  </td>
+        <td nowrap class="text13" align="left" style="padding-left:4px;padding-right:4px;"> 
+                    
+          Vikram Bawne <font size='1'>(Cust)</font>          
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+          545.00        </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;"> 
+                  </td>
+        <td nowrap class="text13" align="right" style="padding-right:4px;">  
+          <font size="2"> 
+                    </font>  </td>
+      </tr>
+      	
+</table>

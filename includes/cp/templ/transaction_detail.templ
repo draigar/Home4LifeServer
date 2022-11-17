@@ -1,0 +1,101 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+ <link rel="stylesheet" href="<?=$_DIR['admininc']['css']?>main.css" type="text/css">
+<BR />
+  <TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="499" border=0 bgcolor="#B7E6CC">
+    <TBODY>
+      <TR> 
+        
+      <TD colspan="3" align="left" bgcolor="#B7E6CC" class=text12><strong> Transaction 
+        Details </strong><br></TD>
+      </TR>
+      <?php  
+	  		$sql="SELECT 
+				transaction.trans_id,amount,fname,lname,n.ticket_no as nticket,action,transaction.status,			
+				date_format(trans_date,'%d-%m-%Y') as trans_date,a.ticket_no as aticket,which				
+			FROM 
+				transaction
+			LEFT JOIN  users ON	users.user_id = transaction.user_id
+			LEFT JOIN  naira_entry_ticket ON naira_entry_ticket.nt_id = transaction.nt_id		
+			LEFT JOIN  naira_entry_ticket n ON (n.nt_id = transaction.nt_id AND transaction.which='N')
+			LEFT JOIN  afro_entry_ticket a ON (a.nt_id = transaction.nt_id AND transaction.which='A')		
+
+			WHERE  trans_id=".$_GET['aid'];
+		$rs =$_CONN->Execute($sql);
+		if($rs && !$rs->EOF){
+				$trans_id			=$rs->fields['trans_id'];
+				$amount			=$rs->fields['amount'];
+				$ticket_no		=$rs->fields['ticket_no'];
+				$action			=$rs->fields['action'];
+				$status			=$rs->fields['status'];
+				$trans_date		=$rs->fields['trans_date'];				
+				$description		=$rs->fields['description'];					
+				$added_by		=$rs->fields['added_by'];
+				$which		=$rs->fields['which'];
+				$nticket		=$rs->fields['nticket'];
+				$aticket		=$rs->fields['aticket'];	
+		}	
+		if($rs)		$rs->close();
+
+	   ?>
+      <TR> 
+        <TD  align="left" bgcolor="FFFFFF" class=text12 colspan="3"> <table border="0" width="100%" bgcolor="#cccccc" class="t_content_bg" cellSpacing=1 cellPadding=5>
+            <tr> 
+              <td class=text12 width="30%" align="left" bgcolor="FFFFFF">Transaction Id:</td>
+              <td class=text12  align="left" bgcolor="FFFFFF"><b> 
+                <?=$trans_id?>
+                </b></td>
+            </tr>
+            <tr> 
+              <td class=text12  align="left" bgcolor="FFFFFF">Transaction Date:</td>
+              <td class=text12  align="left" bgcolor="FFFFFF"><b> 
+                <?=$trans_date?>
+                </b></td>
+            </tr>
+            <tr> 
+              <td class=text12  align="left" bgcolor="FFFFFF">Lotto Type:</td>
+              <td class=text12  align="left" bgcolor="FFFFFF"><b> 
+                <?php if($which=="N"){  echo "Naira Lotto"; }elseif($which=="A"){ echo "Afro Lotto";  }?>
+                </b></td>
+            </tr>
+
+            <tr> 
+              <td class=text12  align="left" bgcolor="FFFFFF">Ticket No.:</td>
+              <td class=text12  align="left" bgcolor="FFFFFF"><b> 
+                <?php if($which=="N"){  echo $nticket; }elseif($which=="A"){ echo $aticket;  }?>
+                </b></td>
+            </tr>
+            <tr> 
+              <td class=text12  align="left" bgcolor="FFFFFF">Credit/Debit:</td>
+              <td class=text12  align="left" bgcolor="FFFFFF"><b> 
+                <?php if($action=="C"){ echo "Credit"; }else{ echo "Debit"; }?>
+                </b></td>
+            </tr>
+            <tr> 
+              <td class=text12  align="left" bgcolor="FFFFFF">Status:</td>
+              <td class=text12  align="left" bgcolor="FFFFFF"><b> 
+                <?php if($status=="P"){ echo "Pending"; }elseif($status=="L"){ echo "Cancelled"; }elseif($status=="S"){ echo "Suspended"; }elseif($status=="C"){ echo "Completed"; }?>
+                </b></td>
+            </tr>
+            <tr> 
+              <td class=text12  align="left" bgcolor="FFFFFF">description:</td>
+              <td class=text12  align="left" bgcolor="FFFFFF"><b> 
+                <?=$description?>
+                </b></td>
+            </tr>
+			<tr> 
+              <td class=text12  align="left" bgcolor="FFFFFF">Added By:</td>
+              <td class=text12  align="left" bgcolor="FFFFFF"><b> 
+                <?php if($added_by==0){ echo "Account"; }else{ echo "Admin"; }?>
+                </b></td>
+            </tr>
+          </table></TD>
+      </tr>
+     
+      <TR> 
+        <TD bgcolor="#F4F1CC" colspan="3" align="center"><INPUT type="submit" class="sbutton" value=" Close " onclick="window.close();" name="Input"> 
+        </TD>
+      </TR>
+    </TBODY>
+  </TABLE>  		   
+	

@@ -1,0 +1,19 @@
+.tl {position:absolute;background:url(../images/lefttop.gif) 0 0 no-repeat;left:0px;top:0px;width:7px;height:7px;z-index:10;}
+
+.t {position:absolute;background:url(../images/dot.gif) 0 0 repeat-x;left:7px;top:0px;width:678px;height:7px;z-index:10;}
+
+.tr {position:absolute;background:url(../images/righttop.gif) 100% 0 no-repeat;right:0px;top:0px;width:7px;height:7px;z-index:10;}
+
+.l {position:absolute;background:url(../images/dot.gif) 0 0 repeat-y;left:0px;top:7px;width:7px;height:294px;z-index:10;}
+
+.b {position:absolute;background:url(../images/dot.gif) 0 100% repeat-x;left:7px;bottom:0px;width:678px;height:7px;z-index:10;}
+
+.r {position:absolute;background:url(../images/dot.gif) right repeat-y;right:0px;top:7px;width:7px;height:294px;z-index:10;}
+
+.bl {position:absolute;background:url(../images/leftbottom.gif) 0 100% no-repeat;left:0px;bottom:0px;width:7px;height:7px;z-index:10;}
+
+.br {position:absolute;background:url(../images/rightbottom.gif) 100% 100% no-repeat;right:0px;bottom:0px;width:678px;height:7px;z-index:10;}
+
+.box {position:relative;left:0px;top:0px; width:692px;height:310px;z-index:1px;}
+
+.boximg {position:absolute;left:0px;top:0px;z-index:1px;}

@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="<?=$_DIR['admininc']['css']?>main.css" type="text/css">
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<form name="frmMemberRenewal" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+<table width="675" border="0" cellpadding="0" cellspacing="0" bgcolor="#F7F7F7" class="wel_table1">
+                        <tr>
+                          <td>
+<table width="675" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+	        <td height="32" bgcolor="#045C90" class="wel_head" style="padding-left:10px;" style="padding-top:10px;"><font color=#FFFFFF><h5>Subscribe 
+              Information</h5></font></td>
+  </tr>
+  <tr>
+	<td valign="top"><table width="655" border="0" align="center" cellpadding="0" cellspacing="0">
+		<tr>
+		  <td valign="top">&nbsp;</td>
+		</tr>
+		
+		<tr>
+		  <td>
+		 
+		  <table width="655" align="center" cellpadding="0" cellspacing="0">
+                      <tr> 
+                        <td width="174" height="25" class="body_txt">Name</td>
+                        <td width="28" height="25" class="form_txt" align="center">:</td>
+                        <td width="451" height="25" class="body_txt"> 
+                          <?=$name?>
+                        </td>
+                      </tr>                     
+                      <tr> 
+                        <td height="25" class="body_txt">Email</td>
+                        <td width="28" height="25" class="form_txt" align="center">:</td>
+                        <td height="25" class="body_txt"> 
+                          <?=$email?>
+                        </td>
+                      </tr>                     
+                      <tr> 
+                        <td>&nbsp;</td>
+                        <td width="28" align="center" class="form_txt">&nbsp;</td>
+                        <td>&nbsp;</td>
+                      </tr>
+                    </table>
+		
+		  </td>
+		</tr>
+		<tr>
+		  <td valign="top">&nbsp;</td>
+		</tr>
+		<tr>
+		  <td>&nbsp;</td>
+		</tr>
+		
+
+	</table></td>
+  </tr>
+</table>
+</td>
+  </tr>
+</table>
+</form>

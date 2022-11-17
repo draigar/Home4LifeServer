@@ -1,0 +1,70 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+<?php
+function State(){  
+	global $database;
+ 	$result = '<select id="cmbState" class="validate[\'required\'] combo4" style="width:160px" name="cmbState" onChange="showCity(document.getElementById(\'cmbState\').options[document.getElementById(\'cmbState\').selectedIndex].value,'.($_POST["cmbState"]?$_POST["cmbState"]:0).')">';
+	$sql="select state_id,state_name from state order by state_name";
+	$rs  = mysql_query($sql);
+	$result .= "<option value=''>Select State</option>";
+	while($record=mysql_fetch_array($rs)) { 
+		if ($_POST["cmbState"] == $record['state_id'])
+			$result .= "<option value='".$record['state_id']."' selected='selected'>" . $record['state_name'] . '</option>';
+		else 
+			$result .= "<option value='".$record['state_id']."'>" . $record['state_name'] . '</option>';	
+	}
+	$result .= '</select>';	
+	return $result;
+}
+function Lga(){ 
+ 	global $database;
+	$result  = '<select id="cmbLga" class="combo4" style="width:228px" name="cmbLga">';
+	$result .= "<option value=''>Select your Local Goverment</option>";
+	if(!empty($_POST['cmbState'])) {
+		$sql="select lga_id,lga_name FROM lga where state_id='".$_POST["cmbState"]."' order by lga_name";
+		$rs1  = mysql_query($sql);
+		while ($record1=mysql_fetch_array($rs1)) {
+		if ($_POST["cmbLga"] == $record1['lga_id'])
+			$result .= "<option value='".$record1['lga_id']."' selected='selected'>" . $record1['lga_name'] . '</option>';
+		else 
+			$result .= "<option value='".$record1['lga_id']."'>" . $record1['lga_name'] . '</option>';	
+		}
+	}
+	$result .= '</select>';	
+	return $result;
+}
+?>
+<script type="text/javascript" src="<?=$_DIR["site"]["url"]?>js/ajax.js"></script>
+<form name="frmlocation" action="<?php print $_SERVER["PHP_SELF"];?>" method="post" >
+  <TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="400" border=0 bgcolor="#cccccc">
+    <TBODY>
+		<TR> 
+			<TD bgcolor="#FFFFFF" class="text12" width="40%">Agent Name: <font color="red">*</font></TD>
+			<TD bgcolor="#FFFFFF" class=t_content_cell2_bg><input name="txtAgentName" type="text" id="txtAgentName" class="textfield" value="<?=$_POST["txtAgentName"]?>" maxlength="100">				
+			</TD>
+		</TR>
+		<TR> 
+			<TD bgcolor="#FFFFFF" class="text12" width="40%">Address: <font color="red">*</font></TD>
+			<TD bgcolor="#FFFFFF" class=t_content_cell2_bg><input name="txtAddress" type="text" id="txtAddress" class="textfield" value="<?=$_POST["txtAddress"]?>" maxlength="255">				
+			</TD>
+		</TR>
+		<TR> 
+			<TD bgcolor="#FFFFFF" class="text12" width="40%">City: <font color="red">*</font></TD>
+			<TD bgcolor="#FFFFFF" class=t_content_cell2_bg><input name="txtCity" type="text" id="txtCity" class="textfield" value="<?=$_POST["txtCity"]?>" maxlength="50">				
+			</TD>
+		</TR>
+		<TR> 
+			<TD bgcolor="#FFFFFF" class="text12" width="40%">State: <font color="red">*</font></TD>
+			<TD bgcolor="#FFFFFF" class=t_content_cell2_bg><?php  echo State();?></TD>
+		</TR>
+		<TR> 
+			<TD bgcolor="#FFFFFF" class="text12" width="40%">LGA: <font color="red">*</font></TD>
+			<TD bgcolor="#FFFFFF" class="t_content_cell2_bg" id="txtCategory"><?php echo Lga(); ?></TD>
+		</TR>
+		
+		<TR> 			   
+		 <TD bgcolor="#FFFFFF" colspan="2" align="center"><INPUT type="submit" class="sbutton" value="Submit" name="Input"> <INPUT type="reset" value="Reset" name="Reset" class="sbutton"></TD>
+		</TR>
+	 </TBODY>
+		  </TABLE>  		   
+	 </form>  

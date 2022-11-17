@@ -1,0 +1,27 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+<TABLE align="left" class="t_content_bg" cellSpacing=1 cellPadding=5 width="600px" border=0 bgcolor="#B7E6CC">
+<form name="frmState" action="<?php print $_SERVER["PHP_SELF"];?>" method="post" >
+    <TBODY>
+	  <TR>
+       		
+        <TD class=text12 colspan="2" align="left" bgcolor="#B7E6CC"><strong>Adding New State 
+          Information</strong><br></TD>
+       </TR> 
+		 
+      <TR> 
+        <TD class="text12" width="140" bgcolor="#FFFFFF">State: <font color="red">*</font></TD>
+        <TD class=t_content_cell2_bg bgcolor="#FFFFFF"><input name="txtName" class="textfield" type="text" id="txtName" value="<?php print getValue(@$_POST["txtName"]); ?>" maxlength="50"></TD>
+      </TR>
+	  
+	  
+     
+	   <TR>
+	    <TD bgcolor="#F4F1CC"  colspan="2" align="center"><INPUT type="submit" value="Add State" name="Input" class="sbutton"></TD>
+      </TR>
+	  </TBODY>
+	   </form> 
+  </TABLE>  
+  
+	
+  

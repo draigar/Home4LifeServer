@@ -1,0 +1,63 @@
+<html>
+<head>
+	<title>Drawn Afro Million Details</title>
+	<link rel="stylesheet" href="<?=$_DIR['site']['adminurl']?>css/main.css" type="text/css">
+</head>
+<body>
+<?php
+$extraParamInUrl = "num".$_DELIM.@$_POST["num"].$baratend;
+//Define HEADER
+$_HEADER = "<TH nowrap class='t_header_cell_bg'>".getHead("afro_entries","entry_id","First Name",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("afro_entries","al_id","Surname",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("afro_entries","date_entered","Entry Date",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("afro_entries","ticket_no","Ticket No",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("afro_entries","value","Amount Paid",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("afro_entries","entries","Winning Amount (if any)",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("afro_entries","vision_numbers","Claimed Date",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("afro_entries","vision_numbers","Method of Payout",$extraParamInUrl)."</TH>";
+?><br />
+    <TABLE width="95%" class=t_list_bg cellSpacing=1 cellPadding=2 bgcolor="#cccccc" align="center">
+      <?=$_HEADER?>
+      <?php
+	if ($rs && $rs->RecordCount()>0) {  
+	 while(!$rs->EOF)
+		{
+			$val=$rs->fields;
+			$rowbgcolor ="#FFFFFF";
+	?>
+      <tr bgcolor="<?=@$rowbgcolor?>"> 
+        <td nowrap align="center" class="text13"> 
+          <?=stripslashes($val["fname"])?>
+        </td>
+        <td nowrap class="text13" align="center"> 
+          <?=stripslashes($val["lname"])?>
+        </td>
+        <td nowrap class="text13" align="center"> 
+          <?=$val['date_entered']?>
+        </td>
+        <td nowrap class="text13" align="center"> 
+          <?=$val['date_entered2']?>
+          - 
+          <?=$val['ticket_no']?>
+        </td>
+        <td nowrap align="center" class="text13"> 
+          <?php 
+		   	if($val['method_id']=='S'){ echo "SMS"; }elseif($val['method_id']=='T'){ echo "Terminal"; }else{ echo "Internet"; }
+		  ?>
+        </td>
+        <td nowrap align="center" class="text13"> 
+          <?=$val['entries']?>
+        </td>
+        <td nowrap align="center" class="text13"> 
+          <?=$val['vision_numbers']?"Yes":"No"?>
+        </td>
+        <td nowrap align="center">&nbsp;</td>
+      </tr>
+      <?php  
+			$rs->MoveNext();
+		}
+	}
+?>
+</table>
+</body>
+</html>

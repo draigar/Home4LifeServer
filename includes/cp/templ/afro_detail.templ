@@ -1,0 +1,255 @@
+<br /><?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+<br>
+<style type="text/css">
+<!--
+.style1 {
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size:13px;
+}
+.style2 {
+	color: #00CC66;
+	font-weight: bold;
+	font-size:13px;
+}
+.text { font-size:13px; }
+-->
+</style>
+<script language="javascript1.2">
+function trim(str, chars) {
+    return ltrim(rtrim(str, chars), chars);
+}
+function ltrim(str, chars) {
+    chars = chars || "\\s";
+    return str.replace(new RegExp("^[" + chars + "]+", "g"), "");
+}
+function rtrim(str, chars) {
+    chars = chars || "\\s";
+    return str.replace(new RegExp("[" + chars + "]+$", "g"), "");
+}
+function calAmt() {
+  var cost="<?=($totalentries*$price)+($result[9][0]*$result[9][1])?>";
+  var amt="<?=($result[7][0]*$result[7][2])+$result[8][1]?>";
+  amt=Number(amt)+(Number(<?=$result[6][0]?>)*Number(trim(document.getElementById("txtMatch6").value,' ')));
+  amt=Number(amt)+(Number(<?=$result[5][0]?>)*Number(trim(document.getElementById("txtMatch5").value,' ')));
+  amt=Number(amt)+(Number(<?=$result[4][0]?>)*Number(trim(document.getElementById("txtMatch4").value,' ')));
+  amt=Number(amt)+(Number(<?=$result[3][0]?>)*Number(trim(document.getElementById("txtMatch3").value,' ')));
+  var amt=Number(amt)+Number(trim(document.getElementById("txtGoodCause").value,' '));
+  var balance=Number(cost)-Number(amt);  
+  
+  var match6=Number(<?=$result[6][0]?>)*Number(trim(document.getElementById("txtMatch6").value,' '));
+  match6 = match6.toLocaleString(); 
+  var arParts3 = String(match6).split('.');
+  var decPart3 = (arParts3.length > 1 ? arParts3[1] : ''); 
+  decPart3 = (decPart3 + '00').substr(0,2); 
+  document.getElementById("match6amt").innerHTML=arParts3[0]+'.'+decPart3;
+  
+  var match5=Number(<?=$result[5][0]?>)*Number(trim(document.getElementById("txtMatch5").value,' '));
+  match5 = match5.toLocaleString(); 
+  var arParts3 = String(match5).split('.');
+  var decPart3 = (arParts3.length > 1 ? arParts3[1] : ''); 
+  decPart3 = (decPart3 + '00').substr(0,2); 
+  document.getElementById("match5amt").innerHTML=arParts3[0]+'.'+decPart3;
+  
+  var match4=Number(<?=$result[4][0]?>)*Number(trim(document.getElementById("txtMatch4").value,' '));
+  match4 = match4.toLocaleString(); 
+  var arParts3 = String(match4).split('.');
+  var decPart3 = (arParts3.length > 1 ? arParts3[1] : ''); 
+  decPart3 = (decPart3 + '00').substr(0,2); 
+  document.getElementById("match4amt").innerHTML=arParts3[0]+'.'+decPart3;
+  
+  var match3=Number(<?=$result[3][0]?>)*Number(trim(document.getElementById("txtMatch3").value,' '));
+  match3 = match3.toLocaleString(); 
+  var arParts3 = String(match3).split('.');
+  var decPart3 = (arParts3.length > 1 ? arParts3[1] : ''); 
+  decPart3 = (decPart3 + '00').substr(0,2); 
+  document.getElementById("match3amt").innerHTML=arParts3[0]+'.'+decPart3;
+  
+  amt = amt.toLocaleString(); 
+  var arParts = String(amt).split('.');
+  var decPart = (arParts.length > 1 ? arParts[1] : ''); 
+  decPart = (decPart + '00').substr(0,2); 
+  document.getElementById("totamt").innerHTML=arParts[0]+'.'+decPart;
+  
+  balance1=balance;
+  balance = balance.toLocaleString(); 
+  var arParts1 = String(balance).split('.');
+  var decPart1 = (arParts1.length > 1 ? arParts1[1] : ''); 
+  decPart1 = (decPart1 + '00').substr(0,2);   
+  if(Number(balance1)<0) total_balance="<span style='color:red'>"+arParts1[0]+'.'+decPart1+"</span>";
+  else total_balance=arParts1[0]+'.'+decPart1; 
+  document.getElementById("balamt").innerHTML=total_balance;
+}
+</script>
+<form name="frmDetails" action="<?php print $_SERVER['REQUEST_URI']; ?>" method="post">
+<TABLE width="95%" class=t_list_bg cellSpacing=1 cellPadding=5 bgcolor="#cccccc" align="center">
+<?php
+//Define HEADER
+$_HEADER = "<tr><TH nowrap class='t_header_cell_bg'>Sr.No.</TH>
+<TH nowrap class='t_header_cell_bg'>NL-ID</TH>
+<TH nowrap class='t_header_cell_bg'>Month/Year</TH>
+<TH nowrap class='t_header_cell_bg'>Started</TH>
+<TH nowrap class='t_header_cell_bg'>Ended</TH></tr>";
+echo $_HEADER;
+?>
+<tr> 
+  <td nowrap align="center" class="text13" bgcolor="#FFFFFF"> 
+     <?=strlen($afro[7])<4?substr("0000",0,4-strlen($afro[7])).$afro[7]:$afro[7]?>
+  </td>
+  <td nowrap align="center" class="text13" bgcolor="#FFFFFF"><?=$afro[8]?></td>
+  <td nowrap align="center" class="text13" bgcolor="#FFFFFF"><?=$afro[3]?></td>
+  <td nowrap align="center" class="text13" bgcolor="#FFFFFF"><?=$afro[9]?></td>
+  <td nowrap align="center" class="text13" bgcolor="#FFFFFF"><?=$afro[0]?></td>
+</tr>
+</table><br />
+<table width="80%" border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="#00CC9A" bgcolor="#FFFFFF">
+  <tr>
+    <td bgcolor="#00CC99" class="style1">&nbsp;</td>
+    <td bgcolor="#00CC99" class="style1" align="center">Total Entries</td>
+    <td bgcolor="#00CC99"><div align="center" class="style1">Cost per entry </div></td>
+    <td bgcolor="#00CC99"><div align="center" class="style1">Total Entry cost </div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" class="text">Afro Millions</td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><?=$totalentries?></div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><strong><?=number_format($price,2)?></strong></div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><strong><?=number_format($totalentries*$price,2)?></strong></div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" class="text">Vision Raffle</td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><?=$result[9][0]?$result[9][0]:0?></div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><strong><?=number_format($result[9][1],2)?></strong></div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><strong><?=number_format($result[9][0]*$result[9][1],2)?></strong></div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" class="text">&nbsp;</td>
+    <td bgcolor="#ffffff" class="text">&nbsp;</td>
+    <td bgcolor="#ffffff" class="text"><div align="center"></div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#00CC99"><div align="center" class="style1">Matches</div></td>
+    <td bgcolor="#00CC99"><div align="center" class="style1">Entries</div></td>
+    <td bgcolor="#00CC99"><div align="center" class="style1">Afro per winners </div></td>
+    <td bgcolor="#00CC99"><div align="center" class="style1">Total Fund </div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" class="text">Match (<?=$i=7?>) Jackpot</td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><?=$result[$i][0]?></div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><?=number_format($result[$i][2],2)?></div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><?=number_format($result[$i][1],2)?></div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" class="text">Match (<?=--$i?>)</td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><?=$result[$i][0]?></div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center">
+	  <?php if($afro[10]=="R") { ?>	 	
+      <input name="txtMatch6" id="txtMatch6" type="text" value="<?=sprintf("%1.2f",$result[$i][2])?>" onblur="calAmt()" size="15" />
+	  <?php } else { ?>
+	  <?=number_format($result[$i][2],2)?>
+	  <?php } ?>
+    </div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center" id="match6amt"><?=number_format($result[$i][1],2)?></div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" class="text">Match (<?=--$i?>)</td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><?=$result[$i][0]?></div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center">
+	  <?php if($afro[10]=="R") { ?>	 	
+      <input name="txtMatch5" id="txtMatch5" type="text" value="<?=sprintf("%1.2f",$result[$i][2])?>" onblur="calAmt()" size="15" />
+	  <?php } else { ?>
+	  <?=number_format($result[$i][2],2)?>
+	  <?php } ?>
+    </div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center" id="match5amt"><?=number_format($result[$i][1],2)?></div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" class="text">Match (<?=--$i?>)</td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><?=$result[$i][0]?></div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center">
+	  <?php if($afro[10]=="R") { ?>	 
+      <input name="txtMatch4" id="txtMatch4" type="text" value="<?=sprintf("%1.2f",$result[$i][2])?>" onblur="calAmt()" size="15" />
+	  <?php } else { ?>
+	  <?=number_format($result[$i][2],2)?>
+	  <?php } ?>
+    </div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center" id="match4amt"><?=number_format($result[$i][1],2)?></div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" class="text">Match (<?=--$i?>)</td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><?=$result[$i][0]?></div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center">
+	  <?php if($afro[10]=="R") { ?>	 	
+      <input name="txtMatch3" id="txtMatch3" type="text" value="<?=sprintf("%1.2f",$result[$i][2])?>" onblur="calAmt()" size="15" />
+	  <?php } else { ?>
+	  <?=number_format($result[$i][2],2)?>
+	  <?php } ?>
+    </div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center" id="match3amt"><?=number_format($result[$i][1],2)?></div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" class="text">Total Matches</td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><?=$totalmatch?></div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center"></div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" class="text">Total Not Matched</td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><?=$totalentries-$totalmatch?></div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center"></div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" class="text">Vision Raffle Winner</td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><?=$result[8][0]?></div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center">
+	  <?=number_format($result[8][2],2)?>
+    </div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><?=number_format($result[8][1],2)?></div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" class="text">Good Cause Savings</td>
+    <td bgcolor="#ffffff" class="text">&nbsp;</td>
+    <td bgcolor="#ffffff" class="text">&nbsp;</td>
+    <td bgcolor="#ffffff" class="text"><div align="center">
+	<?php if($afro[10]=="R") { ?>
+      <input name="txtGoodCause" id="txtGoodCause" style="text-align:center;" type="text" value="" onblur="calAmt()" size="15" />
+	<?php } else { ?>
+	  <?=number_format($good_cause,2)?>
+	  <?php } ?>  
+    </div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff">&nbsp;</td>
+    <td bgcolor="#ffffff"><div align="center"> </div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center">TOTAL FUND PAID</div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><strong><span id="totamt"><?=number_format($totfundpz,2)?></span></strong></div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" class="text">&nbsp;</td>
+    <td bgcolor="#ffffff"><div align="center"> </div></td>
+    <td bgcolor="#ffffff"><div align="center"> </div></td>
+    <td bgcolor="#ffffff" class="text">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" class="text">&nbsp;</td>
+    <td bgcolor="#ffffff"><div align="center"> </div></td>
+    <td bgcolor="#ffffff" class="text"><div align="center"><strong>Total Balance</strong></div></td>
+    <td bgcolor="#ffffff" class="text" align="center"><span id="balamt" class="style2">
+	<?php 
+	$total_balance=(($totalentries*$price)+($result[9][0]*$result[9][1]))-$totfundpz;
+	echo "<span ".($total_balance<0?"style='color:red'":"").">".number_format($total_balance,2)."</span>";
+	?>
+	</span></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" height="50px" class="text" colspan="4"><div align="center">
+	  <?php if($afro[10]=="R") { ?>	
+	  <p><input type="checkbox" name="chkSMSNotify" value="Y" /> Notify Result By SMS</p>
+      <p><input type="submit" name="Submit" value="Notify Result" /></p>
+	  <?php } ?>
+    </div></td>
+  </tr>
+</table></form>
+<br /><br />

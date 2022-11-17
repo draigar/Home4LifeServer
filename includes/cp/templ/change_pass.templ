@@ -1,0 +1,37 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+<form name="frmChangePassword" action="<?php print $_SERVER["../../../../architecture/includes/cp/templ/PHP_SELF"];?>" method="post" >
+		  <TABLE align="center" class="t_content_bg" cellSpacing=1 cellPadding=5 width="55%" border=0 bgcolor="#cccccc">			
+			<TBODY>
+			<TR>
+            			
+        <TD class=text12 colspan="2" align="left" bgcolor="FFFFFF"><strong>Change 
+          your password here</strong><strong></strong><br></TD>
+       		   </TR> 
+			 
+						
+				<TR> 
+				<TD bgcolor="#FFFFFF" class="text12" width="40%">Old Password: <font color="red">*</font></TD>
+				<TD width="60%" bgcolor="#FFFFFF" class="t_content_cell2_bg">
+				<input name="txtOldPassword" class="textfield" type="password" id="txtOldPassword" value="<?php print getValue(@$_POST["txtOldPassword"]); ?>" maxlength="255">	
+				</TD>
+			  </TR>
+			  <TR> 
+				<TD bgcolor="#FFFFFF" class="text12" width="140">New Password: <font color="red">*</font></TD>
+				<TD bgcolor="#FFFFFF" class=t_content_cell2_bg>
+				<input name="txtNewPassword" class="textfield" type="password" id="txtNewPassword" value="<?php print getValue(@$_POST["txtNewPassword"]); ?>" maxlength="255">	
+				</TD>
+			  </TR>
+			  <TR> 
+				<TD bgcolor="#FFFFFF" class="text12">Confirm Password: <font color="red">*</font></TD>
+				<TD bgcolor="#FFFFFF" class=t_content_cell2_bg>
+				<input name="txtConfirmPassword" class="textfield" type="password" id="txtConfirmPassword" value="<?php print getValue(@$_POST["txtConfirmPassword"]); ?>" maxlength="255">
+				</TD>
+			  </TR>			  
+			  <TR>
+				<TD bgcolor="#FFFFFF" align="center" colspan="2"><INPUT type="submit" class="sbutton" value="Submit" name="Input"> <INPUT type="reset" value="Reset" name="Reset" class="sbutton"></TD>
+			  </TR>			  
+			 </TBODY>
+		  </TABLE>  			 
+	 </form>  
+	 <br><br><br><br><br><br><br><br>

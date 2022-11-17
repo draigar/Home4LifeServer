@@ -1,0 +1,72 @@
+<?php if($success) include_once($_DIR['admininc']['templ'].'success.templ'); ?>
+<?php if($error) include_once($_DIR['admininc']['templ'].'error.templ'); ?>
+
+<?php
+$extraParamInUrl = "num".$_DELIM.@$_POST["num"].$baratend;
+
+//Define HEADER
+$_HEADER = "<TH nowrap class='t_header_cell_bg'>".getHead("afro_claim_list","claimed_id","Claim Id",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("afro_claim_list","al_id","Afro Lotto No",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("afro_claim_list","ticket_no","Ticket No",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg'>".getHead("afro_claim_list","claim_date","Claim Date",$extraParamInUrl)."</TH>
+<TH nowrap class='t_header_cell_bg' colspan='3'>Action</TH>";
+?><br />
+<?
+if(count($pageAndData['results'])>0 && is_array($pageAndData['results']))
+	{
+		
+?>
+	
+<div style="overflow:auto; width:800px; padding-bottom:10px; position:relative; "> 
+  <form name="frmTerminal" action="<?=$_SERVER['REQUEST_URI']?>" method="post">
+    <TABLE width="95%" class=t_list_bg cellSpacing=1 cellPadding=2 bgcolor="#cccccc" align="center">
+      <?=$_HEADER?>
+      <?php
+			foreach($pageAndData['results'] as $key => $val)
+				{
+					$rowbgcolor ="#FFFFFF";
+		?>
+      <tr bgcolor="<?=@$rowbgcolor?>"> 
+        <td nowrap align="center" class="text13"> 
+          <?=$val['claimed_id']?>
+        </td>
+		 <td nowrap align="center" class="text13"> 
+          <?=$val['al_id']?>
+        </td>
+        <td nowrap align="center" class="text13"> 
+          <?=$val['ticket_no']?>
+        </td>
+        <td nowrap align="center" class="text13"> 
+          <?=$val['claim_date']?>
+        </td>
+       <td nowrap class="text13" align="center" width="5%"><input type="checkbox" name="chkAction[]" value="<?=@$val['claimed_id']?>" ></td>
+        <td nowrap align="center" width="15%">
+		<?php if($val['complete']=="N"){?>
+		<a href="<?=$_DIR['site']['adminurl']."naira_claim_list".$atend."act".$_DELIM."com".$baratend."id".$_DELIM.@$val['claimed_id'].$baratend?>" class="menu1">Mark Complete</a>
+		<?php  }else{  ?>
+			-
+		<?php  }  ?>
+		</td>
+        <td nowrap align="center" width="8%">
+		<a href="javascript:if(confirm('Are you sure you want to Delete this record ?')) { location.href='<?=$_DIR['site']['adminurl'].'naira_claim_list'.$atend.'act'.$_DELIM.'deact'.$baratend.'aid'.$_DELIM.@$val['claimed_id'].$baratend?>'; }" class="menu1">Delete</a>
+		</td>
+
+      </tr>
+      <?php  
+			unset($rowbgcolor);
+			unset($firstletterofStat);
+		}
+?>
+		<tr > 
+        <td colspan="9" align="right" bgcolor="#EAEAEA"><input type="submit" name="Input" value="Mark Complete"></td>
+      </tr>
+    </table>
+  </form>
+</div>
+<?
+//Display Pagination here
+print @$pageAndData['paginationbuttonHTML2'];
+	}
+	else 
+		print "<br><DIV class=text2 align=center>Sorry system could not found any records in database.<br>Please add new record.</DIV><br><br>";
+?>
