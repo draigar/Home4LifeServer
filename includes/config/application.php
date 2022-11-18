@@ -10,7 +10,7 @@ ini_set('error_reporting', E_ALL ^ E_WARNING ^ E_NOTICE ^ E_DEPRECATED);
 
 date_default_timezone_set("Africa/Lagos"); 
 
-$_SITE_ROOT_PATH       = "/var/www/vhosts/imostatelottery.com/httpdocs/demo/"; // root path
+$_SITE_ROOT_PATH       = "/var/www/homes4life/"; // root path
 
 $_SITE_ROOT_URL        = "http://www.imostatelottery.com/demo/"; // root url
 
@@ -50,9 +50,9 @@ $_APP_LIVE			   = "Y";
 
 //Database related information, we will be using ADOdb database abstraction layer.
 
-$_DB['USERNAME'] 	= 'imo_lottery';
+$_DB['USERNAME'] 	= 'debian-sys-maint';
 
-$_DB['PASSWORD'] 	= '2mwoQ6*7';
+$_DB['PASSWORD'] 	= 'VpDKvIOnDJB0uvIa';
 
 $_DB['DATABASENAME']= 'imolottery_lottery';
 
