@@ -1,5 +1,4 @@
 <?php
-
 include_once("includes/config/application.php");
 
 dbConnection('on'); //open database connection

@@ -10,9 +10,9 @@ ini_set('error_reporting', E_ALL ^ E_WARNING ^ E_NOTICE ^ E_DEPRECATED);
 
 date_default_timezone_set("Africa/Lagos"); 
 
-$_SITE_ROOT_PATH       = "/var/www/homes4life/"; // root path
+$_SITE_ROOT_PATH       = $_SERVER['DOCUMENT_ROOT'] . "/home4life/"; // root path
 
-$_SITE_ROOT_URL        = "http://www.imostatelottery.com/demo/"; // root url
+$_SITE_ROOT_URL        = "http://localhost/home4life/"; // root url
 
 $_ADMIN_FOLDER_NAME    = "cp"; // Site admin folder name
 
@@ -50,15 +50,15 @@ $_APP_LIVE			   = "Y";
 
 //Database related information, we will be using ADOdb database abstraction layer.
 
-$_DB['USERNAME'] 	= 'debian-sys-maint';
+$_DB['USERNAME'] 	= 'root';
 
-$_DB['PASSWORD'] 	= 'VpDKvIOnDJB0uvIa';
+$_DB['PASSWORD'] 	= '';
 
 $_DB['DATABASENAME']= 'imolottery_lottery';
 
 $_DB['HOST']		= 'localhost';
 
-$_DB['TYPE']		= 'mysql';
+$_DB['TYPE']		= 'mysqli';
 
 // set the main array containing all the path, where and which kind of files will be stored
 
@@ -137,5 +137,6 @@ include_once( $_DIR['inc']['system'] . 'functions.php');
 //include login security function file
 
 include_once($_DIR['inc']['system'] . 'login_security.php');
+
 
 ?>
